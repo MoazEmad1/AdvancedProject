@@ -1,3 +1,4 @@
+package Project;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -25,8 +26,7 @@ public class Database {
 	public Database() {
 		//empty constructor cause i need the methods to open a connection for a short while before closing it again
 		// so no need to intialize anything here
-		System.out.println("hello");
-		System.out.println("hello from moaz");
+		
 	}
 
 	public String checkdata(String user, String pass) { // checks if the log in data exist in the data base or not ,and is it for admin or student
@@ -462,8 +462,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		int points;
 		ResultSet rs = null;
 		boolean result = false;
-		System.out.println("hello from database");
-
+		
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -490,5 +489,34 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		
 	}
 	
+	public void attachCourseToStudent(String coursename,String id) {
+		int studentID = Integer.parseInt(id);
+		int courseID ;
+		ResultSet rs = null;
+		boolean result = false;
+		
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+
+			
+				Statement s = con.createStatement();
+				String sql = "SELECT * FROM course WHERE course_name = '" + coursename + "'";
+				rs = s.executeQuery(sql);
+				rs.next();
+				courseID=rs.getInt("id");
+				s.executeUpdate("INSERT INTO takes (student_id,course_id) VALUES ("+studentID+","+courseID+")");
+				con.close();
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 
 }

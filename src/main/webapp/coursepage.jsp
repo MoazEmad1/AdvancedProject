@@ -11,12 +11,12 @@
 <head> <title> <%=session.getAttribute("coursename") %>  </title></head>
 
     <body>
-    
+    	
         <form method="get" action="userpageservlet">
             <center>
                 <h1> <%=session.getAttribute("coursename") %> </h1><br>
             <%
-          		Connection con ;
+            	Connection con ;
         		ResultSet rs = null; //the object that hold the record,records data
         		String result = ""; // the indicator that will be returned to server to decide to what page the user will be forwarded to
         		String coursecode="";

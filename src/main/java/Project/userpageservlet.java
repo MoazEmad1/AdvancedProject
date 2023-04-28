@@ -1,3 +1,4 @@
+package Project;
 
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class userpageservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Database d=new Database();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		
@@ -37,6 +39,7 @@ public class userpageservlet extends HttpServlet {
 		}
 		else if(request.getParameter("chapterselected")!=null)
 		{
+			d.attachCourseToStudent(""+session.getAttribute("coursename"),""+session.getAttribute("studentID"));
 			String[] chapter =request.getParameterValues("chapterselected");
 			String[] chapterid =chapter[0].split(" ");
 			//System.out.println(chapterid[1]);
@@ -67,7 +70,7 @@ public class userpageservlet extends HttpServlet {
 			String q2[] =request.getParameterValues("1");
 			String q3[] =request.getParameterValues("2");
 			
-			Database d=new Database();
+			
 			
 			out.print("<html><body><form action='userpageservlet' method='get'>");
 			for (int i=0;i<3;i++) {
@@ -80,7 +83,7 @@ public class userpageservlet extends HttpServlet {
 				else if(rightAnswerDifficulty[i]==2) {
 					points[i]=30;
 				}
-				out.write(points[i]+"<br>");
+				
 			}
 			
 			if(q1[0].equals(rightanswers[0]))

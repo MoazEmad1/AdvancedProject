@@ -44,7 +44,7 @@
         					
         					%>
         					<input type="submit" name="selectcourse" value="<%=coursename%>"   >	
-        				
+        					
         					<%
         					
         					
