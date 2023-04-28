@@ -460,6 +460,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		int points;
 		ResultSet rs = null;
 		boolean result = false;
+		System.out.println("hello from database");
 
 		try {
 			

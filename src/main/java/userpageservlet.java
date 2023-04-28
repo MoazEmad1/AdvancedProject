@@ -119,7 +119,6 @@ public class userpageservlet extends HttpServlet {
 			
 		}
 		
-		
 	}
 
 	/**
