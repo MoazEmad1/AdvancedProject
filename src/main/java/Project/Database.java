@@ -230,6 +230,47 @@ public int getID(String username) { // checks if the log in data exist in the da
 
 	}
 
+public int getCourseID(String coursename) { // checks if the log in data exist in the data base or not ,and is it for admin or student
+	
+	ResultSet rs = null; //the object that hold the record,records data
+	int result = 0; // the indicator that will be returned to server to decide to what page the user will be forwarded to
+	
+	try {
+		
+		Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+		// keep in mind the 3306 can differ between us so check first in XAMPP	
+		
+		
+			Statement s = con.createStatement(); 
+			String sql = "SELECT * FROM course WHERE course_name = '"+coursename+"'"; // the mysql code needed for the operation
+			rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+
+			if (rs.next()) // check if there is a record stored in the object
+			{
+				result = rs.getInt("id"); // mark that this data is belonging to admin 
+			}
+			con.close(); // closes the connection to avoid unnessecary load on memory
+			
+	
+		 
+
+	}
+	catch (ClassNotFoundException e) {
+		System.out.println("class not found");
+	}
+	
+	catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println("al code atmn3");
+	}
+	
+	return result; // returns the state of the data back to server
+
+}
+
+
 public String getAdminUsername(int id) { // checks if the log in data exist in the data base or not ,and is it for admin or student
 	
 	ResultSet rs = null; //the object that hold the record,records data

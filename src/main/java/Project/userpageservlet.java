@@ -35,6 +35,7 @@ public class userpageservlet extends HttpServlet {
 		{
 			String[] name =request.getParameterValues("selectcourse");
 			session.setAttribute("coursename", name[0]);
+			session.setAttribute("courseID", d.getCourseID(""+session.getAttribute("coursename")));
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
 		}
 		else if(request.getParameter("chapterselected")!=null)

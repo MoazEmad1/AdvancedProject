@@ -23,7 +23,7 @@
 		}
 		count++;
 		i=0;
-		while(i<5||rs.next()){
+		while(i<5 && rs.next()){ //||rs.next()
 			String[] questionANDchoices = (rs.getString("question_text")).split("-");
 			rightanswer[i] = rs.getString("right_answer");
 			rightAnswerDifficulty[i]=rs.getInt("difficulty");
@@ -42,6 +42,7 @@
 			 choice='a';
 			 answerscounter=1 ;
 			 i++;
+			 
 		%>
 		<%
 		}

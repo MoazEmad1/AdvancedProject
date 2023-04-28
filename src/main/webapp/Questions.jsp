@@ -31,7 +31,9 @@
         				
         				Statement s = con.createStatement(); 
         				if(request.getParameter("easy")!=null){
+        					//System.out.println(session.getAttribute("courseID"));	
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '0' ORDER BY RAND()";
+        					//System.out.println("passed");
         				}else if(request.getParameter("medium")!=null){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND()";
         				}else if(request.getParameter("hard")!=null){
@@ -41,6 +43,8 @@
         				}
         				
         				rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+        				if(rs.next())
+        					System.out.println("passed");	
         				session.setAttribute("rs", rs);
         				int count=0;
         				session.setAttribute("count", count);
