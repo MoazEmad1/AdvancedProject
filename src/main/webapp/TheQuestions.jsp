@@ -42,14 +42,17 @@
 			 choice='a';
 			 answerscounter=1 ;
 			 i++;
-			
+		%>
+		<%
 		}
 		session.setAttribute("rightanswers", rightanswer);
 		session.setAttribute("rightAnswerDifficulty", rightAnswerDifficulty);
-		
-		
 		%>
-		<input type="submit" name="finish" value="Finish">
+		<%if(i==5){%>
+			<input type="submit" name="nextQuestions" value="Next">
+		<%}else{%>
+			<input type="submit" name="finish" value="Finish">
+		<%} %>
 	</form>
 </body>
 </html>

@@ -30,14 +30,14 @@
         			
         				
         				Statement s = con.createStatement(); 
-        				if(request.getAttribute("easy")!=null){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '0' ORDER BY RAND())";
-        				}else if(request.getAttribute("medium")!=null){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND())";
-        				}else if(request.getAttribute("hard")!=null){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2' ORDER BY RAND())";
-        				}else if(request.getAttribute("random")!=null){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND())";
+        				if(request.getParameter("easy")!=null){
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '0' ORDER BY RAND()";
+        				}else if(request.getParameter("medium")!=null){
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND()";
+        				}else if(request.getParameter("hard")!=null){
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2' ORDER BY RAND()";
+        				}else if(request.getParameter("random")!=null){
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND()";
         				}
         				
         				rs = s.executeQuery(sql); // stores records that follow the mysql code condition
