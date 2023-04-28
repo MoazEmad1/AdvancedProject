@@ -49,7 +49,7 @@ public class userpageservlet extends HttpServlet {
 		}
 		else if(request.getParameter("test")!=null)
 		{
-			// go to test page
+			request.getRequestDispatcher("Test.jsp").forward(request, response);
 		}
 		else if(request.getParameter("next")!=null)
 		{
@@ -85,40 +85,63 @@ public class userpageservlet extends HttpServlet {
 				}
 				
 			}
-			
-			if(q1[0].equals(rightanswers[0]))
-			{
-				out.write("question 1 is correct <br>");
-				d.addStudentPoints(username, points[0]);
-			}
-			else {
-				out.write("question 1 is In correct , the right answer is "+rightanswers[0]+"<br>");
-			}
-			
-			if(q2[0].equals(rightanswers[1]))
-			{
-				out.write("question 2 is correct<br>");
-				d.addStudentPoints(username, points[1]);
-
-			}
-			else {
-				System.out.println(q2[0]);
-				System.out.println(rightanswers[1]);
-				out.write("question 2 is In correct , the right answer is "+rightanswers[1]+"<br>");
-			}
-			
-			if(q3[0].equals(rightanswers[2]))
-			{
-				out.write("question 3 is correct<br>"+"<br>");
-				d.addStudentPoints(username, points[2]);
-			}
-			else {
-				out.write("question 3 is In correct , the right answer is "+rightanswers[2]+"<br>");
-
+			int i=0;
+			while (i < 3) {
+				if (q1[i].equals(rightanswers[i])) {
+					out.write("question "+i+" is correct <br>");
+					d.addStudentPoints(username, points[i]);
+				} else {
+					out.write("question "+i+" is Incorrect , the right answer is " + rightanswers[i] + "<br>");
+				}
+				i++;
 			}
 			
 			out.print("<input type='submit' name='next' value='Next'>");
 			out.print("</form></body></html>");
+			
+		}else if(request.getParameter("finish")!=null) {
+			String rightanswers[] = (String[])session.getAttribute("rightanswers");
+			int rightAnswerDifficulty[] = (int[])session.getAttribute("rightAnswerDifficulty");
+			String username=(String) session.getAttribute("name");
+			int points[]=new int[3];
+
+
+			String q1[] =request.getParameterValues("0");
+			String q2[] =request.getParameterValues("1");
+			String q3[] =request.getParameterValues("2");
+			String q4[] =request.getParameterValues("3");
+			String q5[] =request.getParameterValues("4");
+
+			
+			
+			
+			out.print("<html><body><form action='userpageservlet' method='get'>");
+			for (int i=0;i<5;i++) {
+				if(rightAnswerDifficulty[i]==0) {
+					points[i]=10;
+				}
+				else if(rightAnswerDifficulty[i]==1) {
+					points[i]=20;
+				}
+				else if(rightAnswerDifficulty[i]==2) {
+					points[i]=30;
+				}
+				
+			}
+			int i=0;
+			while (i < 5) {
+				if (q1[i].equals(rightanswers[i])) {
+					out.write("question "+i+" is correct <br>");
+					d.addStudentPoints(username, points[i]);
+				} else {
+					out.write("question "+i+" is Incorrect , the right answer is " + rightanswers[i] + "<br>");
+				}
+				i++;
+			}
+			
+			out.print("<input type='submit' name='next' value='Next'>");
+			out.print("</form></body></html>");
+			
 			
 		}
 		

@@ -111,8 +111,8 @@ try {
 		<%=questionANDchoices[answerscounter]%><br>
 
 		<% 
-			choice++;
-			answerscounter++;
+					choice++;
+					answerscounter++;
 				}
 				 choice='a';
 				 answerscounter=1 ;
