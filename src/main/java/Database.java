@@ -26,6 +26,7 @@ public class Database {
 		//empty constructor cause i need the methods to open a connection for a short while before closing it again
 		// so no need to intialize anything here
 		System.out.println("hello");
+		System.out.println("hello from moaz");
 	}
 
 	public String checkdata(String user, String pass) { // checks if the log in data exist in the data base or not ,and is it for admin or student
