@@ -114,7 +114,6 @@ public class userpageservlet extends HttpServlet {
 			
 		}else if(request.getParameter("nextQuestions")!=null) {
 			
-			request.setAttribute("count", request.getAttribute("count"));
 			
 			String rightanswers[] = (String[])session.getAttribute("rightanswers");
 			int rightAnswerDifficulty[] = (int[])session.getAttribute("rightAnswerDifficulty");

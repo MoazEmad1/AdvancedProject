@@ -11,23 +11,29 @@
 <body>
 	<form action="userpageservlet" method="get">
 		<%
-		int count = (int) request.getAttribute("count");
+		int count = (int) session.getAttribute("count");
 		ResultSet rs=(ResultSet)session.getAttribute("rs");
 		int answerscounter=1 ;
 		char choice='a';
 		String[] rightanswer = new String[5];
 		int[] rightAnswerDifficulty=new int[5];
 		int i = 0;
-		while (i < (count * 5)) {
-			rs.next();
-			i++;
-		}
+	//	while (i < (count * 5)) {
+	//		rs.next();
+	//		i++;
+	//	}
 		count++;
-		request.setAttribute("count", count);
+		session.setAttribute("count", count);
 		System.out.println("count = "+count);
 		
 		i=0;
-		while(i<5 && rs.next()){ //||rs.next()
+		int j =0;
+		int checker=0;
+		while(i<5 ){
+			checker++;
+			rs.next();
+			if(rs.isAfterLast()==false){
+			System.out.print(""+checker);
 			System.out.println("ok");
 			String[] questionANDchoices = (rs.getString("question_text")).split("-");
 			rightanswer[i] = rs.getString("right_answer");
@@ -46,15 +52,16 @@
 			}
 			 choice='a';
 			 answerscounter=1 ;
-			 i++;
-			 
+			 j++;
 		%>
 		<%
-		}
 		session.setAttribute("rightanswers", rightanswer);
 		session.setAttribute("rightAnswerDifficulty", rightAnswerDifficulty);
+		}
+			 i++;
+		}
 		%>
-		<%if(i==5){%>
+		<%if(j==5){%>
 			<input type="submit" name="nextQuestions" value="Next">
 		<%}else{%>
 			<input type="submit" name="finish" value="Finish">

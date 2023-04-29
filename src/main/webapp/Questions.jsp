@@ -23,8 +23,8 @@
             	Connection con=null ;
         		ResultSet rs = null; //the object that hold the record,records data
         		String sql=null;
-        		if(request.getAttribute("count")==null){
-      	  		try {
+        		System.out.print(session.getAttribute("count"));
+        			try {
         			
         			Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
         			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
@@ -32,28 +32,37 @@
         			
         				String difficulty = ""+session.getAttribute("difficulty");
         				Statement s = con.createStatement(); 
-        				if(request.getParameter("easy")!=null || difficulty.equals("easy")){
+        				if(request.getParameter("easy")!=null ){
         					System.out.println("brdo sah8al");
         					//System.out.println(session.getAttribute("courseID"));	
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '0' ORDER BY RAND(1234)";
         					session.setAttribute("difficulty", "easy");
+        					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+            				session.setAttribute("rs", rs);
         					//System.out.println("passed");
-        				}else if(request.getParameter("medium")!=null || difficulty.equals("medium")){
+        				}else if(request.getParameter("medium")!=null ){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND(1234)";
-        					session.setAttribute("difficulty", "medium");			
-        				}else if(request.getParameter("hard")!=null || difficulty.equals("hard")){
+        					session.setAttribute("difficulty", "medium");	
+        					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+            				session.setAttribute("rs", rs);
+        				}else if(request.getParameter("hard")!=null ){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2' ORDER BY RAND(1234)";
         					session.setAttribute("difficulty", "hard");
-        				}else if(request.getParameter("random")!=null || difficulty.equals("random")){
+        					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+            				session.setAttribute("rs", rs);
+        				}else if(request.getParameter("random")!=null ){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND(1234)";
         					session.setAttribute("difficulty", "random");
+        					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+            				session.setAttribute("rs", rs);
         				}
         				
-        				rs = s.executeQuery(sql); // stores records that follow the mysql code condition
-        				session.setAttribute("rs", rs);
+        				
         				
         				int count=0;
-        				request.setAttribute("count", count);
+        				session.setAttribute("count", count);
+        				
+        			
         				request.getRequestDispatcher("TheQuestions.jsp").forward(request, response);
         				
 
@@ -67,13 +76,12 @@
         			e.printStackTrace();
         			System.out.println("al code atmn3");
         		}
-        		con.close();
 //			}
 			//else{
 				//request.getRequestDispatcher("TheQuestions.jsp").forward(request, response);
 				
 		//	}
-		}
+		
         		%>
 </body>
 </html>
