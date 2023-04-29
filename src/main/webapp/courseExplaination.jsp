@@ -14,6 +14,7 @@
 </head>
 <body>
 
+
 	<form method="get" action="userpageservlet">
 		<h1>
 			<% System.out.println(session.getAttribute("coursename"));//error %>
