@@ -54,7 +54,7 @@
 		session.setAttribute("rightanswers", rightanswer);
 		session.setAttribute("rightAnswerDifficulty", rightAnswerDifficulty);
 		%>
-		<%if(i==5){%>
+		<%if(i==5){//WARNING we need to check if there's more questions%>
 			<input type="submit" name="nextQuestions" value="Next">
 		<%}else{%>
 			<input type="submit" name="finish" value="Finish">
