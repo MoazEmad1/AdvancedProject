@@ -79,7 +79,7 @@ try {
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 				// keep in mind the 3306 can differ between us so check first in XAMPP	
 			
-				   	 int questioncount=0;
+			int questioncount=0;
 			 int answerscounter=1 ;
 			 char choice='a';
 			 i=0;

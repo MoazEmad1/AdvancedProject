@@ -86,15 +86,27 @@ public class userpageservlet extends HttpServlet {
 				}
 				
 			}
-			int i=0;
-			while (i < 3) {
-				if (q1[i].equals(rightanswers[i])) {
-					out.write("question "+i+" is correct <br>");
-					d.addStudentPoints(username, points[i]);
-				} else {
-					out.write("question "+i+" is Incorrect , the right answer is " + rightanswers[i] + "<br>");
-				}
-				i++;
+			if(q1[0].equals(rightanswers[0]))
+			{
+				out.write("question 1 is correct <br>");
+				d.addStudentPoints(username, points[0]);
+			}
+			else {
+				out.write("question 1 is Incorrect , the right answer is "+rightanswers[0]+"<br>");
+			}if(q2[0].equals(rightanswers[1]))
+			{
+				out.write("question 2 is correct <br>");
+				d.addStudentPoints(username, points[1]);
+			}
+			else {
+				out.write("question 2 is Incorrect , the right answer is "+rightanswers[1]+"<br>");
+			}if(q3[0].equals(rightanswers[2]))
+			{
+				out.write("question 3 is correct <br>");
+				d.addStudentPoints(username, points[2]);
+			}
+			else {
+				out.write("question 3 is In correct , the right answer is "+rightanswers[2]+"<br>");
 			}
 			
 			out.print("<input type='submit' name='next' value='Next'>");
