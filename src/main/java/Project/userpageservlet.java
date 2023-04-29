@@ -172,6 +172,7 @@ public class userpageservlet extends HttpServlet {
 		else if(request.getParameter("finish")!=null)
 		{
 			
+			
 			Connection con = (Connection) session.getAttribute("con");
 			try {
 				con.close();
