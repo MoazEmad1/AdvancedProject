@@ -11,7 +11,7 @@
 <body>
 	<form action="userpageservlet" method="get">
 		<%
-		int count = (int) session.getAttribute("count");
+		int count = (int) request.getAttribute("count");
 		ResultSet rs=(ResultSet)session.getAttribute("rs");
 		int answerscounter=1 ;
 		char choice='a';
@@ -20,10 +20,15 @@
 		int i = 0;
 		while (i < (count * 5)) {
 			rs.next();
+			i++;
 		}
 		count++;
+		request.setAttribute("count", count);
+		System.out.println("count = "+count);
+		
 		i=0;
 		while(i<5 && rs.next()){ //||rs.next()
+			System.out.println("ok");
 			String[] questionANDchoices = (rs.getString("question_text")).split("-");
 			rightanswer[i] = rs.getString("right_answer");
 			rightAnswerDifficulty[i]=rs.getInt("difficulty");

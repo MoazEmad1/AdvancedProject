@@ -113,6 +113,9 @@ public class userpageservlet extends HttpServlet {
 			out.print("</form></body></html>");
 			
 		}else if(request.getParameter("nextQuestions")!=null) {
+			
+			request.setAttribute("count", request.getAttribute("count"));
+			
 			String rightanswers[] = (String[])session.getAttribute("rightanswers");
 			int rightAnswerDifficulty[] = (int[])session.getAttribute("rightAnswerDifficulty");
 			String username=(String) session.getAttribute("name");
@@ -162,7 +165,7 @@ public class userpageservlet extends HttpServlet {
 		else if(request.getParameter("continue")!=null)
 		{
 			System.out.println("sha8ala");
-			request.getRequestDispatcher("Questions.jsp").forward(request, response);
+			request.getRequestDispatcher("TheQuestions.jsp").forward(request, response);
 			
 		}
 		
