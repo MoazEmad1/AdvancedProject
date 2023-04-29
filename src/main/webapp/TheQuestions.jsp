@@ -61,11 +61,10 @@
 			 i++;
 		}
 		%>
-<<<<<<< HEAD
+
 		<%if(j==5){%>
 =======
-		<%if(i==5){//WARNING we need to check if there's more questions%>
->>>>>>> 918f880e04d27f409560f5764a5bfe2190430cdb
+
 			<input type="submit" name="nextQuestions" value="Next">
 		<%}else{%>
 			<input type="submit" name="finish" value="Finish">
