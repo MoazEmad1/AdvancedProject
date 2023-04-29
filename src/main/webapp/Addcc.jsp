@@ -12,11 +12,8 @@ CourseName <input type = "text" placeholder= "insert course name here"><br><br>
 CourseCode <input type = "text" placeholder= "insert course number here"><br><br>
 Add Description<br>
 <textarea name="desciption" rows="4" cols="50" placeholder = "insert desctiption here">
-
 </textarea><br>
-
 <input type = "submit" value= "Add Course">
 </form>
-
 </body>
 </html>

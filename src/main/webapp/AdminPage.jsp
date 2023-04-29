@@ -7,25 +7,14 @@
 
     <body>
     
-        <form method="get">
+        <form method="post" action ="AddCourseServlet">
             <center>
                 <h1>Courses Overflow</h1><br><br>
                 <h3>Welcome , <%=session.getAttribute("name") %> </h3> <br>
                 
             </center>
                  <input type="submit" name="Addcourses" value="Add Courses"><br><br>
-                
-                
-                
-        
-            
-            
         </form>
-    
-    
-    
-    
-    
     
     </body>
 
