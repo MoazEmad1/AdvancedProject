@@ -3,6 +3,8 @@ package Project;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Iterator;
 
 import javax.servlet.ServletException;
@@ -167,7 +169,19 @@ public class userpageservlet extends HttpServlet {
 			request.getRequestDispatcher("TheQuestions.jsp").forward(request, response);
 			
 		}
-		
+		else if(request.getParameter("finish")!=null)
+		{
+			
+			Connection con = (Connection) session.getAttribute("con");
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("bazet");
+			}
+			
+			
+		}
 		
 	}
 
