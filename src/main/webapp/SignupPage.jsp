@@ -21,30 +21,7 @@
                 
                 <input type="submit" name="signupcheck" value="Sign Up">
                 
-                
-            </center>
-        
-            
-            
+            </center>            
         </form>
-    
-    
-    
-    
-    
-    
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
