@@ -21,7 +21,7 @@
 			</h1><br/><br/><br/>
 			<input type="submit" name="easy" value="Easy questions">
 		<input type="submit" name="medium" value="Medium questions">
-		<input type="submit" name="hard" value="Hard questions"><br/>
+		<input type="submit" name="hard" value="Hard questions"><br/><br/>
 		<input type="submit" name="random" value="Random questions"><br/>
 		</center>
 	</form>
