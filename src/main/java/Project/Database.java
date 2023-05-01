@@ -559,5 +559,102 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		
 		
 	}
+	
+	public void Addcourse(String coursename , String coursecode, String coursedisc)
+	{
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+			Statement s = con.createStatement();
+			
+			String sql="INSERT INTO course (course_name,course_code,course_description) VALUES ('"+coursename +"' ,'"+coursecode+"' ,'"+coursedisc+"' )";
+			s.executeUpdate(sql);
+			
+			
+			con.close();
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void Addchapter(int courseid , String explanation)
+	{
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+			Statement s = con.createStatement();
+			
+			String sql="INSERT INTO chapter (course_id,chapter_explanation) VALUES ('"+courseid +"' ,'"+explanation+"'  )";
+			s.executeUpdate(sql);
+	
+			con.close();
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void Addquestion(int courseid ,String questiontext , String rightanswer,String difficulty)
+	{
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+			Statement s = con.createStatement();
+			ResultSet rs=null;
+			String sql="SELECT * FROM chapter WHERE course_id = '"+courseid +"'";
+			rs=s.executeQuery(sql);
+			rs.next();
+			String chapterid = rs.getString("id");
+			
+			sql="INSERT INTO question (course_id,chapter_id,question_text,right_answer,difficulty) VALUES ('"+courseid+"','"+chapterid+"','"+ questiontext+"','"+rightanswer+"','"+difficulty+"')";
+			s.executeUpdate(sql);
+			con.close();
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void singupadmin(String first_name, String username, String email, String password) {
+
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+
+			
+				Statement s = con.createStatement();
+				String sql = "INSERT INTO admin (first_name, username,email,password) VALUES ('" + first_name+ "', '" + username + "', '" + email + "', '" + password + "')";
+				s.executeUpdate(sql);
+				
+				//this long sql code is just to insert data into database (id is generated automatically)
+			
+
+			con.close();// close the connection
+
+		}
+		catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} 
+		
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+
 
 }
