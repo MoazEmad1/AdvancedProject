@@ -8,6 +8,7 @@
 </head>
 <body>
 <form  method="post" action ="AdminServlet">
+<input type="submit" name="back" value="Return To Main Page"><br><br>
 CourseName <input type = "text" name="coursename" placeholder= "insert course name here"><br><br>
 CourseCode <input type = "text" name="coursecode" placeholder= "insert course code here"><br><br>
 Add Description <input type="text" name="courseDisc" placeholder= "insert course Description here" ><br><br>

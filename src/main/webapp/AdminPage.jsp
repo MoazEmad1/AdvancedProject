@@ -10,7 +10,7 @@
         <form method="post" action ="AdminServlet">
             <center>
                 <h1>Courses Overflow</h1><br><br>
-                <h3>Welcome , <%=session.getAttribute("name") %> </h3> <br>
+                <h3>Welcome , <%=session.getAttribute("name") %> </h3>    <input type="submit" name="logout" value="Log Out"><br><br> <br>
                 
             </center>
                  <input type="submit" name="Addcourses" value="Add Courses"><br><br>

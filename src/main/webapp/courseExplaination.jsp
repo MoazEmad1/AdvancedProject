@@ -10,12 +10,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%="chapter "+request.getAttribute("chapterid") %></title>
+<title><%="chapter "+session.getAttribute("chapterid") %></title>
 </head>
 <body>
 
 
 	<form method="get" action="userpageservlet">
+	<input type="submit" name="back" value="Home"> <input type="submit" name="backtocoursepage" value="back to course page"> <br><br>
 		<h1>
 			<% System.out.println(session.getAttribute("coursename"));//error %>
 		</h1>

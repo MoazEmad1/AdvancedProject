@@ -16,7 +16,7 @@
 <body>
 
 <form action="AdminServlet" method="post">
-
+<input type="submit" name="back" value="Return To Main Page"><br><br>
 <%
 try {
 	//ArrayList <String> arrayList  = new ArrayList<String>() ;

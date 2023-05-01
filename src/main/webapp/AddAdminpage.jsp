@@ -9,7 +9,7 @@
 <body>
 
 <form  method="post" action ="AdminServlet">
-<h6>new admin</h6>
+<h1>new admin</h1> <input type="submit" name="back" value="Return To Main Page"><br><br>
 first name  <input type = "text" name="firstname" placeholder= "firstname"><br><br>
 username  <input type = "text" name="username" placeholder= "username"><br><br>
 email <input type = "text" name="Email" placeholder= "email"><br><br>

@@ -16,7 +16,7 @@
 <body>
 <form method="post" action ="AdminServlet">
 
-
+<input type="submit" name="back" value="Return To Main Page"><br><br>
 <%
 try {
 	Connection con=null;

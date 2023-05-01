@@ -16,7 +16,7 @@
         <form method="get" action="userpageservlet">
             <center>
                 <h1>Courses Overflow</h1><br><br>
-                <h3>Welcome , <%=session.getAttribute("name") %> </h3> <br>
+                <h3>Welcome , <%=session.getAttribute("name") %> </h3>    <input type="submit" name="logout" value="Log out"> <br>
                 
             </center>
                  <input type="submit" name="browsecourses" value="Browse Courses"><br><br>

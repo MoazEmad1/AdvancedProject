@@ -27,8 +27,21 @@ public class userpageservlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		
-		if(request.getParameter("browsecourses")!=null)
+		if(request.getParameter("logout")!=null)
+		{
+			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+			
+		}
+		else if(request.getParameter("back")!=null)
+		{
+			request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+			
+		}
+		else if(request.getParameter("backtocoursepage")!=null)
+		{
+			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
+		}
+		else if(request.getParameter("browsecourses")!=null)
 		{
 			request.getRequestDispatcher("BrowseCourses.jsp").forward(request, response);
 			

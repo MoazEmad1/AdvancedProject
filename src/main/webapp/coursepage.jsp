@@ -13,6 +13,7 @@
     <body>
     	
         <form method="get" action="userpageservlet">
+        <input type="submit" name="back" value="Home"><input type="submit" name="browsecourses" value="back"><br><br>
             <center>
                 <h1> <%=session.getAttribute("coursename") %> </h1><br>
             <%

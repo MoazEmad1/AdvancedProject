@@ -28,8 +28,15 @@ public class AdminServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		
-		if (request.getParameter("Addcourses") != null) {
+		if(request.getParameter("back")!=null)
+		{
+			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
+		}
+		else if(request.getParameter("logout")!=null)
+		{// lesa hyt3ml validation 3lashan y2fl al session wa ymn3 ay access 
+			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+		}
+		else if (request.getParameter("Addcourses") != null) {
 			request.getRequestDispatcher("AddCoursePage.jsp").forward(request, response);
 
 		}

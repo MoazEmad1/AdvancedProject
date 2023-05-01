@@ -12,7 +12,7 @@
 <title>Questions</title>
 </head>
 <body>
-	<form method="get" action="userpageservlet">
+	<form method="get" action="userpageservlet"> 
 		<center>
 			<h1>
 				<%=session.getAttribute("coursename") %>

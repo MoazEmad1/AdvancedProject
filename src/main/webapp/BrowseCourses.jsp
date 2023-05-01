@@ -17,8 +17,9 @@
         <form method="get" action="userpageservlet">
             <center>
                 <h1>Courses Overflow</h1><br><br>
-                <h3>Our Courses</h3> <br>
+                <h3>Our Courses</h3> <input type="submit" name="back" value="Return To Main Page"> <br><br><br>
                 
+                Our courses :
            
                 
                 
