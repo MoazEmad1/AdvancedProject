@@ -581,7 +581,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		}
 	}
 	
-	public void Addchapter(int courseid , String explanation)
+	public void Addchapter(int courseid ,String Chaptername, String explanation)
 	{
 		try {
 			
@@ -589,7 +589,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 			Statement s = con.createStatement();
 			
-			String sql="INSERT INTO chapter (course_id,chapter_explanation) VALUES ('"+courseid +"' ,'"+explanation+"'  )";
+			String sql="INSERT INTO chapter (course_id,chapter_explanation,chapter_name) VALUES ('"+courseid +"' ,'"+explanation+"','"+Chaptername+"'  )";
 			s.executeUpdate(sql);
 	
 			con.close();

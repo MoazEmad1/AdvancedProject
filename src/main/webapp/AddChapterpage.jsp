@@ -57,6 +57,9 @@ try {
 
 %>
 <br><br>
+
+Add Chapter Name <input type="text" name="ChapterName" >
+<br><br>
 Add Explanation <input type="text" name="ChapterEx" >
 <input type = "submit" name = "AddChaptersubmit" >
 

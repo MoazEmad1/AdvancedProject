@@ -35,7 +35,7 @@ public class AdminServlet extends HttpServlet {
 			Database d = new Database();
 			
 			d.Addcourse(request.getParameter("coursename"), request.getParameter("coursecode"), request.getParameter("courseDisc"));
-			d.Addchapter(d.getCourseID(request.getParameter("coursename")), request.getParameter("chapter1Ex"));
+			d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"), request.getParameter("chapter1Ex"));
 			
 			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("q1"),request.getParameter("right1"),""+0);
 			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("q2"),request.getParameter("right2"),""+0);
@@ -46,7 +46,7 @@ public class AdminServlet extends HttpServlet {
 		
 		if(request.getParameter("AddChaptersubmit")!=null) {
 		Database d = new Database();
-		d.Addchapter(d.getCourseID(request.getParameter("coursename")), request.getParameter("ChapterEx"));
+		d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"), request.getParameter("ChapterEx"));
 		
 		request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 
