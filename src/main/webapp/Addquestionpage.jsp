@@ -39,17 +39,9 @@ try {
 	%>
 	<option><%= rs.getString("chapter_name")+" / "+rs1.getString("course_name") %> </option> 
 	<% 
-	
-	
-	
 		
 	}
-	
-	
-	
-	
-				
-	
+
 	
 	%>
 	</select>

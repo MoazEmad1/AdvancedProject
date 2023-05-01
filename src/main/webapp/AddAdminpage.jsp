@@ -14,6 +14,7 @@ first name  <input type = "text" name="firstname" placeholder= "firstname"><br><
 username  <input type = "text" name="username" placeholder= "username"><br><br>
 email <input type = "text" name="Email" placeholder= "email"><br><br>
 password <input type = "password" name="password" ><br><br>
+confirm password <input type = "password" name="confirmpassword" ><br><br>
 activate admin: <input type="submit" name="newadmin" value="new Admin">
 </form>
 </body>
