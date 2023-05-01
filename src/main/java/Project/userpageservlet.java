@@ -193,7 +193,7 @@ public class userpageservlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				System.out.println("bazet");
 			}
-			
+			request.getRequestDispatcher("UserPage.jsp").forward(request, response);
 			
 		}
 		
