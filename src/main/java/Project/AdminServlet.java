@@ -89,9 +89,9 @@ public class AdminServlet extends HttpServlet {
 			d.Addcourse(request.getParameter("coursename"), request.getParameter("coursecode"), request.getParameter("courseDisc"));
 			d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"), request.getParameter("chapter1Ex"));
 			
-			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("q1"),request.getParameter("right1"),""+0);
-			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("q2"),request.getParameter("right2"),""+0);
-			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("q3"),request.getParameter("right3"),""+0);
+			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"),request.getParameter("q1"),request.getParameter("right1"),""+0);
+			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"),request.getParameter("q2"),request.getParameter("right2"),""+0);
+			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"),request.getParameter("q3"),request.getParameter("right3"),""+0);
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
 		}
@@ -208,7 +208,7 @@ public class AdminServlet extends HttpServlet {
 			String[] separator = (request.getParameter("chaptername")).split(" / ");
 			
 			
-			d.Addquestion(d.getCourseID(separator[1]),request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
+			d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
 			request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
 			}
 		}
@@ -224,7 +224,7 @@ public class AdminServlet extends HttpServlet {
 			String[] separator = (request.getParameter("chaptername")).split(" / ");
 			
 			
-			d.Addquestion(d.getCourseID(separator[1]),request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
+			d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
 		}

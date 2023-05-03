@@ -601,7 +601,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		}
 	}
 	
-	public void Addquestion(int courseid ,String questiontext , String rightanswer,String difficulty)
+	public void Addquestion(int courseid ,String chaptername,String questiontext , String rightanswer,String difficulty)
 	{
 		try {
 			
@@ -609,7 +609,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 			Statement s = con.createStatement();
 			ResultSet rs=null;
-			String sql="SELECT * FROM chapter WHERE course_id = '"+courseid +"'";
+			String sql="SELECT * FROM chapter WHERE chapter_name = '"+chaptername +"'";
 			rs=s.executeQuery(sql);
 			rs.next();
 			String chapterid = rs.getString("id");
