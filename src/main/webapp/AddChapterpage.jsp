@@ -60,9 +60,34 @@ try {
 
 Add Chapter Name <input type="text" name="ChapterName" >
 <br><br>
-Add Explanation <input type="text" name="ChapterEx" >
-<input type = "submit" name = "AddChaptersubmit" >
+Add Explanation <input type="text" name="ChapterEx" ><br>
+<input type="text" name="q1" placeholder="enter question">
+right answer : <select name="r1">
+<option>a</option>
+<option>b</option>
+<option>c</option>
 
+</select>	
+	
+<br>
+<input type="text" name="q2" placeholder="enter question">
+right answer : <select name="r2">
+<option>a</option>
+<option>b</option>
+<option>c</option>
+
+</select>	
+	
+<br>
+<input type="text" name="q3" placeholder="enter question">
+right answer : <select name="r3">
+<option>a</option>
+<option>b</option>
+<option>c</option>
+</select>
+
+<br>
+<input type = "submit" name = "AddChaptersubmit" >
 </form>
 </body>
 </html>
