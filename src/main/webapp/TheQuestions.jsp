@@ -60,15 +60,9 @@
 		}
 			 i++;
 		}
+		session.setAttribute("qcount", j);
 		%>
-
-		<%if(j==5){%>
-
-
-			<input type="submit" name="nextQuestions" value="Next">
-		<%}else{%>
-			<input type="submit" name="finish" value="Finish">
-		<%} %>
+		<input type="submit" name="nextQuestions" value="Next">
 	</form>
 </body>
 </html>

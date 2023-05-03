@@ -127,15 +127,12 @@ public class userpageservlet extends HttpServlet {
 			String username=(String) session.getAttribute("name");
 			int points[]=new int[5];
 
-
 //			String q1[] =request.getParameterValues("0");
 //			String q2[] =request.getParameterValues("1");
 //			String q3[] =request.getParameterValues("2");
 //			String q4[] =request.getParameterValues("3");
 //			String q5[] =request.getParameterValues("4");
 //removed because it is hard to check every variable index 0 by a while loop
-			
-			
 			
 			out.print("<html><body><form action='userpageservlet' method='get'>");
 			for (int i=0;i<5;i++) {
@@ -150,8 +147,9 @@ public class userpageservlet extends HttpServlet {
 				}
 				
 			}
+			int qcount=(int) session.getAttribute("qcount");
 			int i=0;
-			while (i < 5) {
+			while (i < qcount) {
 				String q1[] =request.getParameterValues(""+i);
 				if (q1[0].equals(rightanswers[i])) {
 					out.write("question "+i+" is correct <br>");
@@ -161,8 +159,12 @@ public class userpageservlet extends HttpServlet {
 				}
 				i++;
 			}
-			
-			out.print("<input type='submit' name='continue' value='Next'>");
+			if(qcount<5) {
+				out.print("<input type='submit' name='finish' value='Finish'>");
+			}
+			else {
+				out.print("<input type='submit' name='continue' value='Next'>");
+			}
 			out.print("</form></body></html>");
 			
 			
