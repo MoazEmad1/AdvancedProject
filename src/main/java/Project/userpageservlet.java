@@ -90,16 +90,8 @@ public class userpageservlet extends HttpServlet {
 			
 			out.print("<html><body><form action='userpageservlet' method='get'>");
 			for (int i=0;i<3;i++) {
-				if(rightAnswerDifficulty[i]==0) {
-					points[i]=10;
-				}
-				else if(rightAnswerDifficulty[i]==1) {
-					points[i]=20;
-				}
-				else if(rightAnswerDifficulty[i]==2) {
-					points[i]=30;
-				}
-				
+				points[i]=10;
+						
 			}
 			if(q1[0].equals(rightanswers[0]))
 			{
@@ -147,14 +139,14 @@ public class userpageservlet extends HttpServlet {
 			
 			out.print("<html><body><form action='userpageservlet' method='get'>");
 			for (int i=0;i<5;i++) {
-				if(rightAnswerDifficulty[i]==0) {
-					points[i]=10;
-				}
-				else if(rightAnswerDifficulty[i]==1) {
+				if(rightAnswerDifficulty[i]==1) {
 					points[i]=20;
 				}
 				else if(rightAnswerDifficulty[i]==2) {
 					points[i]=30;
+				}
+				else if(rightAnswerDifficulty[i]==3) {
+					points[i]=40;
 				}
 				
 			}
