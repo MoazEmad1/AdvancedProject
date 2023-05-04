@@ -108,9 +108,27 @@ public class AdminServlet extends HttpServlet {
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
 				out.write("Please fill all data");
 			}
+			else if(request.getParameter("q1")=="" ||request.getParameter("q1")==null )
+			{
+				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
+				out.write("Please fill all data");
+			}
+			else if(request.getParameter("q2")=="" ||request.getParameter("q2")==null )
+			{
+				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
+				out.write("Please fill all data");
+			}
+			else if(request.getParameter("q3")=="" ||request.getParameter("q3")==null )
+			{
+				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
+				out.write("Please fill all data");
+			}
 			else {
 			Database d = new Database();
 		d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"), request.getParameter("ChapterEx"));
+		d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"),request.getParameter("q1"),request.getParameter("r1"),""+0);
+		d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"),request.getParameter("q2"),request.getParameter("r2"),""+0);
+		d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"),request.getParameter("q3"),request.getParameter("r3"),""+0);
 		
 		request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 
