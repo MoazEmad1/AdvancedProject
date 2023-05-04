@@ -56,16 +56,8 @@
         					<input type="submit" name="selectcourse" value="<%=coursename%>"   >	
         					
         					<%
-        					
-        					
         				}
         					con.close(); // closes the connection to avoid unnessecary load on memory
-        				
-        				
-        					
-        				
-        			 
-
         		}
         		catch (ClassNotFoundException e) {
         			System.out.println("class not found");
@@ -76,37 +68,8 @@
         			e.printStackTrace();
         			System.out.println("al code atmn3");
         		}
-        		
-        		
-        	
-
-            
-            
-            
-            
-            %>    
-        
-            
-            
+  
+            %>              
         </form>
-    
-    
-    
-    
-    
-    
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
