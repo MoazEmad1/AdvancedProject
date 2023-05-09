@@ -12,10 +12,7 @@
 <title>Questions</title>
 </head>
 <body>
-<<<<<<< HEAD
 	<form method="get" action="userpageservlet"> //form is not closed
-=======
-	<form method="get" action="userpageservlet"> 
 	
 		<%
 		//response.setHeader("Cache-Control", "no-cache, no-store");

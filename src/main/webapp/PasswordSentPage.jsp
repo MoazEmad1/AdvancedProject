@@ -14,31 +14,6 @@
                 <input type="submit" value="HomePage">
                 
             </center>
-                
-                
-                
-        
-            
-            
         </form>
-    
-    
-    
-    
-    
-    
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>

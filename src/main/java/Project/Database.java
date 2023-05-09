@@ -39,10 +39,18 @@ public class Database {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 			// keep in mind the 3306 can differ between us so check first in XAMPP	
-			
-			
+			user.toLowerCase();
+			String userUpdated="";
+			for (int i = 0; i < user.length(); i++) {
+				// comparing alphabets with their ASCII value
+				if ((user.charAt(i) >= 97 && user.charAt(i) <= 122) || (user.charAt(i) >= 48 && user.charAt(i) <= 57))
+				{
+					userUpdated = userUpdated + user.charAt(i);
+				}
+			}
+			System.out.println(userUpdated);
 				Statement s = con.createStatement(); 
-				String sql = "SELECT * FROM admin WHERE username = '" + user + "' AND password = '" + pass + "'"; // the mysql code needed for the operation
+				String sql = "SELECT * FROM admin WHERE username = '" + userUpdated + "' AND password = '" + pass + "'"; // the mysql code needed for the operation
 				rs = s.executeQuery(sql); // stores records that follow the mysql code condition
 
 				if (rs.next()) // check if there is a record stored in the object
@@ -55,7 +63,7 @@ public class Database {
 				{
 					
 					s = con.createStatement();
-					sql = "SELECT * FROM student WHERE username = '" + user + "' AND password = '" + pass + "'";
+					sql = "SELECT * FROM student WHERE username = '" + userUpdated + "' AND password = '" + pass + "'";
 					rs = s.executeQuery(sql);
 
 					if (rs.next()) 
@@ -90,13 +98,21 @@ public class Database {
 
 	}
 
-	public void signupuser(String fname, String lname, String email, String username, String pass) {
+	public int signupuser(String fname, String lname, String email, String username, String pass) {
 
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
-
+			username.toLowerCase();
+			for (int i = 0; i < username.length(); i++) {
+				// comparing alphabets with their ASCII value
+				if ((username.charAt(i) >= 97 && username.charAt(i) <= 122) || (username.charAt(i) >= 48 && username.charAt(i) <= 9))
+				{
+					continue;
+				}
+				return 0;
+			}
 			
 				Statement s = con.createStatement();
 				String sql = "INSERT INTO student (first_name, last_name, username,email,password) VALUES ('" + fname+ "', '" + lname + "', '" + username + "', '" + email + "','" + pass + "')";
@@ -104,8 +120,9 @@ public class Database {
 				
 				//this long sql code is just to insert data into database (id is generated automatically)
 			
-
 			con.close();// close the connection
+			return 1;
+
 
 		}
 		catch (ClassNotFoundException e) {
@@ -116,6 +133,7 @@ public class Database {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return 1;
 		
 		
 	}

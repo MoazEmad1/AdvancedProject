@@ -178,9 +178,14 @@ public class homepageservlet extends HttpServlet {
 				String email = request.getParameter("email");
 				String username = request.getParameter("username");
 				String pass = request.getParameter("password");
-
-				d.signupuser(fname, lname, email, username, pass);
-				request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				
+				int x=d.signupuser(fname, lname, email, username, pass);
+				if(x==1) {
+					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				}
+				
+				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
+				out.write("Username is not valid");
 			}
 
 		}
