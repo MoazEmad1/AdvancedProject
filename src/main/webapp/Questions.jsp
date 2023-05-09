@@ -12,7 +12,24 @@
 <title>Questions</title>
 </head>
 <body>
+<<<<<<< HEAD
+	<form method="get" action="userpageservlet"> //form is not closed
+=======
 	<form method="get" action="userpageservlet"> 
+	
+		<%
+		//response.setHeader("Cache-Control", "no-cache, no-store");
+        //response.setHeader("Pragma", "no-cache");
+        //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+	
+>>>>>>> ba6f5c16b97c210dec0d293bbcd153a5a391ed21
 		<center>
 			<h1>
 				<%=session.getAttribute("coursename") %>

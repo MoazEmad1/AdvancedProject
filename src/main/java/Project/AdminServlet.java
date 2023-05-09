@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
@@ -26,14 +27,27 @@ public class AdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+//		response.setHeader("Cache-Control", "no-cache, no-store");
+//        response.setHeader("Pragma", "no-cache");
+//        response.setHeader("Expires", "0");
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 		
-		if(request.getParameter("back")!=null)
+		
+		if(session.getAttribute("adminID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+		
+		else if(request.getParameter("back")!=null)
 		{
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 		}
 		else if(request.getParameter("logout")!=null)
 		{// lesa hyt3ml validation 3lashan y2fl al session wa ymn3 ay access 
+			
+			session.removeAttribute("adminID");
+			
 			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 		}
 		else if (request.getParameter("Addcourses") != null) {

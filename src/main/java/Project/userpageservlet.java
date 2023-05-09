@@ -25,10 +25,19 @@ public class userpageservlet extends HttpServlet {
 		Database d=new Database();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
+//		response.setHeader("Cache-Control", "no-cache, no-store");
+//        response.setHeader("Pragma", "no-cache");
+//        response.setHeader("Expires", "0");
 		HttpSession session = request.getSession();
-		if(request.getParameter("logout")!=null)
+		
+		if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+		
+		else if(request.getParameter("logout")!=null)
 		{
+			session.removeAttribute("studentID");
 			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 			
 		}
@@ -93,6 +102,7 @@ public class userpageservlet extends HttpServlet {
 				points[i]=10;
 						
 			}
+			
 			if(q1[0].equals(rightanswers[0]))
 			{
 				out.write("question 1 is correct <br>");

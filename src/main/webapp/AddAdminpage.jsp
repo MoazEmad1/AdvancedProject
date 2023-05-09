@@ -9,6 +9,22 @@
 <body>
 
 <form  method="post" action ="AdminServlet">
+
+ <%
+ 	//response.setHeader("Cache-Control", "no-cache, no-store");
+     //response.setHeader("Pragma", "no-cache");
+     //response.setHeader("Expires", "0");
+        
+                
+        if(session.getAttribute("adminID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+    
+
 <h1>new admin</h1> <input type="submit" name="back" value="Return To Main Page"><br><br>
 first name  <input type = "text" name="firstname" placeholder= "firstname"><br><br>
 username  <input type = "text" name="username" placeholder= "username"><br><br>

@@ -8,6 +8,22 @@
 </head>
 <body>
 <form  method="post" action ="AdminServlet">
+
+ <%
+ //	response.setHeader("Cache-Control", "no-cache, no-store");
+   //  response.setHeader("Pragma", "no-cache");
+    // response.setHeader("Expires", "0");
+        
+                
+        if(session.getAttribute("adminID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+    
+
 <input type="submit" name="back" value="Return To Main Page"><br><br>
 CourseName <input type = "text" name="coursename" placeholder= "insert course name here"><br><br>
 CourseCode <input type = "text" name="coursecode" placeholder= "insert course code here"><br><br>

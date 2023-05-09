@@ -6,7 +6,7 @@
 <head> <title>Courses Overflow</title></head>
 
     <body>
-    
+    	<% session.invalidate(); %>
         <form method="post" action="homepageservlet">
             <center>
                 <h1>Courses Overflow</h1><br><br>
