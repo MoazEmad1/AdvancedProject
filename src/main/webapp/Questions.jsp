@@ -28,8 +28,6 @@
         
         
         %>
-	
->>>>>>> ba6f5c16b97c210dec0d293bbcd153a5a391ed21
 		<center>
 			<h1>
 				<%=session.getAttribute("coursename") %>
