@@ -10,6 +10,19 @@
 </head>
 <body>
 	<form action="userpageservlet" method="get">
+	
+	<%
+//	response.setHeader("Cache-Control", "no-cache, no-store");
+  //  response.setHeader("Pragma", "no-cache");
+    //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+	
 		<%
 		int count = (int) session.getAttribute("count");
 		ResultSet rs=(ResultSet)session.getAttribute("rs");

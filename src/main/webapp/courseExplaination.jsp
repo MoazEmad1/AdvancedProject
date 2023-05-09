@@ -16,6 +16,19 @@
 
 
 	<form method="get" action="userpageservlet">
+	
+	<%
+//	response.setHeader("Cache-Control", "no-cache, no-store");
+  //  response.setHeader("Pragma", "no-cache");
+    //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+	
 	<input type="submit" name="back" value="Home"> <input type="submit" name="backtocoursepage" value="back to course page"> <br><br>
 		<h1>
 			<% System.out.println(session.getAttribute("coursename"));//error %>
@@ -97,6 +110,7 @@ try {
 					continue;
 
 				}
+				
 				if (questioncount > 2)
 					break;
 
@@ -109,8 +123,7 @@ try {
 				while (answerscounter < 4) {
 		%>
 
-		<input type="radio" name=<%=questioncount %> value=<%=choice%>>
-		<%=questionANDchoices[answerscounter]%><br>
+		<input type="radio" name=<%=questioncount %> value=<%=choice%>> <%=questionANDchoices[answerscounter]%><br>
 
 		<% 
 					choice++;
@@ -121,6 +134,9 @@ try {
 				 questioncount++;
 				
 			}
+			
+			
+			
 			session.setAttribute("rightanswers", rightanswer);
 			session.setAttribute("rightAnswerDifficulty", rightAnswerDifficulty);
 			

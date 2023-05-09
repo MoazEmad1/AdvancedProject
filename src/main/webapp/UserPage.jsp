@@ -14,6 +14,19 @@
     <body>
     
         <form method="get" action="userpageservlet">
+        
+        <%
+       // response.setHeader("Cache-Control", "no-cache, no-store");
+       // response.setHeader("Pragma", "no-cache");
+        //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+        
             <center>
                 <h1>Courses Overflow</h1><br><br>
                 <h3>Welcome , <%=session.getAttribute("name") %> </h3>    <input type="submit" name="logout" value="Log out"> <br>

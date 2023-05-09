@@ -33,9 +33,12 @@ public class homepageservlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
-		/* this if condition triggers if the log in button that exist in the first homepage has been clicked */	
-		
+//		response.setHeader("Cache-Control", "no-cache, no-store");
+//        response.setHeader("Pragma", "no-cache");
+//        response.setHeader("Expires", "0");
+//		/* this if condition triggers if the log in button that exist in the first homepage has been clicked */	
+		session.removeAttribute("adminID");
+		session.removeAttribute("studentID");
 		
 		if (request.getParameter("login") != null) {
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
@@ -73,6 +76,7 @@ public class homepageservlet extends HttpServlet {
 					// this is a temporary code for saving the username for displaying in adminpage
 					session.setAttribute("adminID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getAdminUsername(Integer.parseInt(""+session.getAttribute("adminID"))));
+					session.setMaxInactiveInterval(1800);
 					request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 				} 
 				else if (result.equals("student"))
@@ -81,6 +85,7 @@ public class homepageservlet extends HttpServlet {
 					// this is a temporary code for saving the username for displaying in userpage
 					session.setAttribute("studentID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getStudentUsername(Integer.parseInt(""+session.getAttribute("studentID"))));
+					session.setMaxInactiveInterval(1800);
 					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
 				}
 

@@ -13,6 +13,19 @@
     <body>
     	
         <form method="get" action="userpageservlet">
+        
+        <%
+      //  response.setHeader("Cache-Control", "no-cache, no-store");
+       // response.setHeader("Pragma", "no-cache");
+       // response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+        
         <input type="submit" name="back" value="Home"><input type="submit" name="browsecourses" value="back"><br><br>
             <center>
                 <h1> <%=session.getAttribute("coursename") %> </h1><br>
