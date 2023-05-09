@@ -260,9 +260,5 @@ public class AdminServlet extends HttpServlet {
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
 		}
-		
-
 	}
-
-
 }

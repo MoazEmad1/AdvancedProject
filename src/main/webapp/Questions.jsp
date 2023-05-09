@@ -73,16 +73,9 @@
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         				}
-        				
-        				
-        				
         				int count=0;
         				session.setAttribute("count", count);
-        				
-        			
         				request.getRequestDispatcher("TheQuestions.jsp").forward(request, response);
-        				
-
         		}
         		catch (ClassNotFoundException e) {
         			System.out.println("class not found");
@@ -98,7 +91,6 @@
 				//request.getRequestDispatcher("TheQuestions.jsp").forward(request, response);
 				
 		//	}
-		
         		%>
 </body>
 </html>

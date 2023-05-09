@@ -56,9 +56,7 @@
 			while (answerscounter < 4) {
 	%>
 
-		<input type="radio" name=<%=i%> value=<%=choice%>>
-		<%=questionANDchoices[answerscounter]%><br>
-
+		<input type="radio" name=<%=i%> value=<%=choice%>> <%=questionANDchoices[answerscounter]%><br>
 		<% 
 				choice++;
 				answerscounter++;
