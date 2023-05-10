@@ -39,11 +39,11 @@ public class Database {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 			// keep in mind the 3306 can differ between us so check first in XAMPP	
-			user.toLowerCase();
+			//user.toLowerCase();
 			String userUpdated="";
 			for (int i = 0; i < user.length(); i++) {
 				// comparing alphabets with their ASCII value
-				if ((user.charAt(i) >= 97 && user.charAt(i) <= 122) || (user.charAt(i) >= 48 && user.charAt(i) <= 57))
+				if ((user.charAt(i) >= 97 && user.charAt(i) <= 122) || user.charAt(i) >= 65 && user.charAt(i) <= 90 || (user.charAt(i) >= 48 && user.charAt(i) <= 57))
 				{
 					userUpdated = userUpdated + user.charAt(i);
 				}
@@ -104,10 +104,10 @@ public class Database {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
-			username.toLowerCase();
+		//	username.toLowerCase();
 			for (int i = 0; i < username.length(); i++) {
 				// comparing alphabets with their ASCII value
-				if ((username.charAt(i) >= 97 && username.charAt(i) <= 122) || (username.charAt(i) >= 48 && username.charAt(i) <= 9))
+				if ((username.charAt(i) >= 97 && username.charAt(i) <= 122) || username.charAt(i) >= 65 && username.charAt(i) <= 90 || (username.charAt(i) >= 48 && username.charAt(i) <= 57))
 				{
 					continue;
 				}
