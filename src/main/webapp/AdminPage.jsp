@@ -2,52 +2,67 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
-<head> <title>Admin Page</title></head>
-
-    <body>
-    
-     <%
- 	//response.setHeader("Cache-Control", "no-cache, no-store");
-     //response.setHeader("Pragma", "no-cache");
-     //response.setHeader("Expires", "0");
-        
-                
-        if(session.getAttribute("adminID")==null)
-        {
-        	response.sendRedirect("HomePage.jsp");
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
         }
-        
-        
-        %>
-    
-        <form method="post" action ="AdminServlet">
-        
-        
-            <center>
-                <h1>Courses Overflow</h1><br><br>
-                <h3>Welcome , <%=session.getAttribute("name") %> </h3>    <input type="submit" name="logout" value="Log Out"><br><br> <br>
-                
-            </center>
-                 <input type="submit" name="Addcourses" value="Add Courses"><br><br>
-                 <input type="submit" name="Addchapters" value = "Add chapter"><br><br>
-                 <input type="submit" name="addquestion" value="Add question"><br><br>
-                 <input type="submit" name="addAdmin" value="Add Admin"><br><br>
-                 
-        </form>
-    
-    </body>
 
+        h1 {
+            color: #336699;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
+        h3 {
+            color: #336699;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 0 auto;
+        }
 
+        input[type="submit"] {
+            background-color: #336699;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+            margin: 0 auto;
+        }
 
+        input[type="submit"]:hover {
+            background-color: #204d74;
+        }
+    </style>
+</head>
 
+<body>
+    <form method="post" action="AdminServlet">
+        <h1>Courses Overflow</h1>
+        <h3>Welcome, <%=session.getAttribute("name") %></h3>
+        <input type="submit" name="logout" value="Log Out"><br><br><br>
 
-
-
-
-
-
-
+        <input type="submit" name="Addcourses" value="Add Courses"><br><br>
+        <input type="submit" name="Addchapters" value="Add Chapter"><br><br>
+        <input type="submit" name="addquestion" value="Add Question"><br><br>
+        <input type="submit" name="addAdmin" value="Add Admin"><br><br>
+    </form>
+</body>
 </html>

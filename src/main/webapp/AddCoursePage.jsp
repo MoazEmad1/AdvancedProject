@@ -4,7 +4,55 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Course</title>
+<style>
+		body {
+			background-color: #fff;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			color: #0071C5;
+			margin-top: 30px;
+		}
+		form {
+			margin: 50px auto;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+			max-width: 600px;
+		}
+		input[type="submit"], select {
+			background-color: #0071C5;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		input[type="submit"]:hover, select:hover {
+			background-color: #00509D;
+		}
+		input[type="text"], select {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			width: 100%;
+			margin-bottom: 10px;
+			font-size: 16px;
+		}
+		input[type="text"]::placeholder {
+			color: #ccc;
+		}
+		label {
+			display: block;
+			margin-bottom: 5px;
+			color: #0071C5;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
 <form  method="post" action ="AdminServlet">

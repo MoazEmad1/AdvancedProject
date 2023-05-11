@@ -62,6 +62,21 @@
 	</style>
 </head>
 <body>
+
+<%
+ 	//response.setHeader("Cache-Control", "no-cache, no-store");
+    // response.setHeader("Pragma", "no-cache");
+    // response.setHeader("Expires", "0");
+        
+                
+        if(session.getAttribute("adminID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+
 	<form method="post" action="AdminServlet">
 		<h1>New Admin</h1>
 		<label for="firstname">First Name:</label>
