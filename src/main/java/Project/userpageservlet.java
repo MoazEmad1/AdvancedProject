@@ -81,7 +81,7 @@ public class userpageservlet extends HttpServlet {
 			int chapterid = Integer.parseInt(""+session.getAttribute("chapterid"));
 			chapterid++;
 			session.setAttribute("chapterid",chapterid);
-			request.getRequestDispatcher("courseExplaination.jsp").forward(request, response);
+			response.sendRedirect("courseExplaination.jsp");
 		}
 		else if(request.getParameter("checkanswers")!=null)
 		{
