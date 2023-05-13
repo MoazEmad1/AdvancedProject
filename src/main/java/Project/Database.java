@@ -150,6 +150,7 @@ public class Database {
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 
 			Statement s = con.createStatement();
+			username.toLowerCase();
 			String sql = "SELECT * FROM admin WHERE username = '" + username + "'"; //search in admin's usernames first
 			rs = s.executeQuery(sql);
 
