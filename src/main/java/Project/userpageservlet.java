@@ -169,7 +169,7 @@ public class userpageservlet extends HttpServlet {
 				}
 				i++;
 			}
-			if(qcount<5) {
+			if((int)session.getAttribute("questionsDisplayed")>=(int)session.getAttribute("total")) {
 				out.print("<input type='submit' name='finish' value='Finish'>");
 			}
 			else {

@@ -42,6 +42,7 @@
 		i=0;
 		int j =0;
 		int checker=0;
+		int questionsDisplayed=(int)session.getAttribute("questionsDisplayed");
 		while(i<5 ){
 			checker++;
 			rs.next();
@@ -70,7 +71,9 @@
 		session.setAttribute("rightAnswerDifficulty", rightAnswerDifficulty);
 		}
 			 i++;
+			 questionsDisplayed++;
 		}
+		session.setAttribute("questionsDisplayed", questionsDisplayed);
 		session.setAttribute("qcount", j);
 		%>
 		<input type="submit" name="nextQuestions" value="Next">

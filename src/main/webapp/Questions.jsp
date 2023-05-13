@@ -44,29 +44,60 @@
         			
         				String difficulty = ""+session.getAttribute("difficulty");
         				Statement s = con.createStatement(); 
+        				Statement stmt=con.createStatement();
+        				ResultSet resultSet;
+        				int total,questionsDisplayed;
         				if(request.getParameter("easy")!=null ){
         					System.out.println("brdo sah8al");
         					//System.out.println(session.getAttribute("courseID"));	
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND(1234)";
-        					session.setAttribute("difficulty", "easy");
+        			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1'");
+        			        if (resultSet.next()) {
+        			            total = resultSet.getInt("total");
+        			            questionsDisplayed=0;
+        			            session.setAttribute("questionsDisplayed",questionsDisplayed);
+            			        session.setAttribute("total", total);
+        			        }
+        			        session.setAttribute("difficulty", "easy");
         					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         					//System.out.println("passed");
         				}else if(request.getParameter("medium")!=null ){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2' ORDER BY RAND(1234)";
-        					session.setAttribute("difficulty", "medium");	
+        			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2'");
+        			        if (resultSet.next()) {
+        			            total = resultSet.getInt("total");
+        			            questionsDisplayed=0;
+        			            session.setAttribute("questionsDisplayed",questionsDisplayed);
+            			        session.setAttribute("total", total);
+        			        }
+        			        session.setAttribute("difficulty", "medium");	
         					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         				}else if(request.getParameter("hard")!=null ){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '3' ORDER BY RAND(1234)";
         					session.setAttribute("difficulty", "hard");
-        					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+        			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '3'");
+        			        if (resultSet.next()) {
+        			            total = resultSet.getInt("total");
+        			            questionsDisplayed=0;
+        			            session.setAttribute("questionsDisplayed",questionsDisplayed);
+            			        session.setAttribute("total", total);
+        			        }
+        			        rs = s.executeQuery(sql); // stores records that follow the mysql code condition
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         				}else if(request.getParameter("random")!=null ){
         					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND(1234)";
+        			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"'");
+        			        if (resultSet.next()) {
+        			            total = resultSet.getInt("total");
+        			            questionsDisplayed=0;
+        			            session.setAttribute("questionsDisplayed",questionsDisplayed);
+            			        session.setAttribute("total", total);
+        			        }
         					session.setAttribute("difficulty", "random");
         					rs = s.executeQuery(sql); // stores records that follow the mysql code condition
         					session.setAttribute("con", con);
