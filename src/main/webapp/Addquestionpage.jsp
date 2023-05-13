@@ -13,15 +13,11 @@
 <meta charset="UTF-8">
 <title>Add Question</title>
 </head>
-<body>
-
-<form action="AdminServlet" method="post">
-<input type="submit" name="back" value="Return To Main Page"><br><br>
 
  <%
- 	//response.setHeader("Cache-Control", "no-cache, no-store");
-     //response.setHeader("Pragma", "no-cache");
-     //response.setHeader("Expires", "0");
+ //	response.setHeader("Cache-Control", "no-cache, no-store");
+   //  response.setHeader("Pragma", "no-cache");
+    // response.setHeader("Expires", "0");
         
                 
         if(session.getAttribute("adminID")==null)
@@ -31,8 +27,77 @@
         
         
         %>
-    
 
+<style>
+	body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		h1 {
+			color: #336699;
+			margin-top: 40px;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		
+		form {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			max-width: 400px;
+			margin: 0 auto;
+		}
+		
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+			input[type="submit"] {
+			background-color: #336699;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 20px;
+		}
+		input[type="text"] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			margin-bottom: 20px;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 16px;
+			background-color: #f2f2f2;
+		}
+		select {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='15'><path d='M15 21L4 10h22z' fill='%23336699'/></svg>");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+		
+
+</style>
+<body>
+
+<form action="AdminServlet" method="post">
+<h1>New Question</h1>
 <%
 try {
 	//ArrayList <String> arrayList  = new ArrayList<String>() ;
@@ -77,24 +142,23 @@ try {
 
 %>
 
-<input type="text" name="question_text" placeholder="enter question">
-right answer : <select name="rightanswer">
+<input type="text" name="question_text" placeholder="enter question"><br><br>
+Right Answer : <select name="rightanswer">
 <option>a</option>
 <option>b</option>
 <option>c</option>
 
-</select>	
+</select>	<br><br>
 Difficulty : <select name="difficulty">
 <option>1</option>
 <option>2</option>
 <option>3</option>
 
-</select>	
+</select>
 <br>
 <input type="submit" name="anotherquestion" value="Add another">
-
-<input type="submit" name="finishquestion" value="End">
-	
+<input type="submit" name="finishquestion" value="End"><br><br>
+	<input type="submit" name="back" value="Return To Main Page"><br><br>
 
 
 

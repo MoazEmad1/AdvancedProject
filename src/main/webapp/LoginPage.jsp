@@ -2,6 +2,81 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<style>
+ 	
+		
+html, body {
+ background: linear-gradient(to bottom, #797EF6, #4ADEDE);
+			font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #797EF6, #4ADEDE);
+  background-repeat: no-repeat;
+}
+
+      
+		form {
+			background-color: #fff;
+			padding: 150px;
+			border-radius: 50px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			max-width: 600px;
+			margin: 0 auto;
+			 position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+		}
+		
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		
+		input[type="text"],
+		input[type="password"] {
+			padding: 10px;
+			border-radius: 10px;
+			border: none;
+			margin-bottom: 20px;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 16px;
+			background-color: #f2f2f2;
+		}
+		input[type="submit"] {
+			background-color: #336699;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 20px;
+			margin-top: 24px;
+		}
+		
+		a {
+  color: #336699;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+    }
+    
+   
+</style>
 
 <head> <title>Log in</title></head>
 
