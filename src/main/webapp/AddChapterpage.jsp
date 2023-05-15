@@ -80,6 +80,7 @@
 </head>
 <body>
 <form method="post" action ="AdminServlet">
+	<h1>New Chapter</h1>
 
  <%
  	//response.setHeader("Cache-Control", "no-cache, no-store");
@@ -96,7 +97,7 @@
         %>
     
 
-<input type="submit" name="back" value="Return To Main Page"><br><br>
+
 <%
 try {
 	Connection con=null;
@@ -168,6 +169,7 @@ right answer : <select name="r3">
 
 <br>
 <input type = "submit" name = "AddChaptersubmit" >
+<input type="submit" name="back" value="Return To Main Page"><br><br>
 </form>
 </body>
 </html>

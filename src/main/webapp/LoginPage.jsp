@@ -6,10 +6,11 @@
  	
 		
 html, body {
- background: linear-gradient(to bottom, #797EF6, #4ADEDE);
+background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
 			font-family: Arial, sans-serif;
   height: 100%;
   margin: 0;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -19,14 +20,13 @@ html, body {
   align-items: center;
   height: 100vh;
   background: linear-gradient(to bottom, #797EF6, #4ADEDE);
-  background-repeat: no-repeat;
 }
 
       
 		form {
 			background-color: #fff;
-			padding: 150px;
-			border-radius: 50px;
+			padding: 30px;
+			border-radius: 30px;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 			max-width: 600px;
 			margin: 0 auto;
@@ -73,8 +73,10 @@ html, body {
 a:hover {
   text-decoration: underline;
 }
-    }
     
+    input[type="submit"]:hover {
+			background-color: #204d74;
+		}
    
 </style>
 
@@ -83,14 +85,35 @@ a:hover {
     <body>
     
         <form method="post" action="homepageservlet">
-            <center>
-                <h1>Courses Overflow</h1><br><br>
-                <h3>Please Enter Your Account Data</h3> <br>
-                Username <input type="text" name="username" placeholder="Username"><br><br>
-                Password <input type="password" name="password" placeholder="Password"><br><br>
-                <a href=ForgetPassword.jsp>Forget Password?</a><br><br>
+<img src="finalimg.png" alt="Image description"width=400 height=130 >	
+                <h3>Please Enter Your Account Data</h3>
+                Username : <input type="text" name="username" placeholder="Username"><br>
+                Password : <input type="password" name="password" placeholder="Password"><br>
+                <a href=ForgetPassword.jsp>Forget Password?</a><br>
                 <input type="submit" name="logincheck" value="Log in">
-            </center>
+                
+    
+            
+            
         </form>
+    
+    
+    
+    
+    
+    
     </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>

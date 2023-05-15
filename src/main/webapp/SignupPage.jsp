@@ -6,7 +6,7 @@
  	
 		
 html, body {
- background: linear-gradient(to bottom, #797EF6, #4ADEDE);
+background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
 			font-family: Arial, sans-serif;
   height: 100%;
   margin: 0;
@@ -25,15 +25,15 @@ html, body {
       
 		form {
 			background-color: #fff;
-			padding: 100px;
-			border-radius: 50px;
+			padding: 10px;
+			border-radius: 30px;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			max-width: 600px;
+			max-width: 400px;
 			margin: 0 auto;
-			 position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
 		}
 		
 		label {
@@ -74,14 +74,15 @@ html, body {
     
         <form method="post" action="homepageservlet">
             <center>
-                <h1>Courses Overflow</h1><br><br>
-                <h3>Please Fill Data Fields</h3> <br>
-                First Name : <input type="text" name="firstname" placeholder="First Name"><br><br>
-                Last Name : <input type="text" name="lastname" placeholder="Last Name"><br><br>
-                  Username : <input type="text" name="username" placeholder="Username"><br><br>
-                 Email : <input type="text" name="email" placeholder="Email"><br><br>
-                Password : <input type="password" name="password" placeholder="Password"><br><br>
-                 Confirm Password : <input type="password" name="confirmpassword" placeholder="Re enter Password"><br><br>
+            	
+                <img src="finalimg.png" alt="Image description"width=400 height=100 >	
+                <h3>Please Fill Data Fields</h3>
+                First Name : <input type="text" name="firstname" placeholder="First Name">
+                Last Name : <input type="text" name="lastname" placeholder="Last Name">
+                  Username : <input type="text" name="username" placeholder="Username">
+                 Email : <input type="text" name="email" placeholder="Email">
+                Password : <input type="password" name="password" placeholder="Password">
+                 Confirm Password : <input type="password" name="confirmpassword" placeholder="Re enter Password">
                 
                 
                 <input type="submit" name="signupcheck" value="Sign Up">

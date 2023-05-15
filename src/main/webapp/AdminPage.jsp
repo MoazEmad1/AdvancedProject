@@ -6,13 +6,15 @@
     <meta charset="UTF-8">
     <title>Admin Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+       body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: black;
+}
 
         h1 {
-            color: #336699;
+          
             margin-top: 40px;
             margin-bottom: 20px;
             text-align: center;
@@ -50,19 +52,26 @@
         input[type="submit"]:hover {
             background-color: #204d74;
         }
+        h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+        
     </style>
 </head>
 
 <body>
     <form method="post" action="AdminServlet">
-        <h1>Courses Overflow</h1>
+       <img src="finalimg.png" alt="Image description" width=400 height=130 style="display: block; margin: 0 auto;">
         <h3>Welcome, <%=session.getAttribute("name") %></h3>
-        <input type="submit" name="logout" value="Log Out"><br><br><br>
-
+        <input type="submit" name="logout" value="Log Out"><br><br>
         <input type="submit" name="Addcourses" value="Add Courses"><br><br>
         <input type="submit" name="Addchapters" value="Add Chapter"><br><br>
         <input type="submit" name="addquestion" value="Add Question"><br><br>
-        <input type="submit" name="addAdmin" value="Add Admin"><br><br>
+        <input type="submit" name="addAdmin" value="Add Admin">
     </form>
 </body>
 </html>
