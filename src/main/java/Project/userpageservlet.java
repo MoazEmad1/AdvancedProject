@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Iterator;
 
 import javax.servlet.ServletException;
@@ -37,6 +38,22 @@ public class userpageservlet extends HttpServlet {
 		
 		else if(request.getParameter("logout")!=null)
 		{
+			// matnsash t2fl kol al sessions
+			
+			
+			Timestamp loginTime = (Timestamp)session.getAttribute("logintime");
+			int questioncounter = (int)session.getAttribute("questionshistory");// history FF
+			int rightanswerscounter = (int)session.getAttribute("rightanswershistory");// history FF
+			int pointscounter = (int)session.getAttribute("pointshistory");// history FF
+			
+			
+			d.storehistory((int)session.getAttribute("studentID"),loginTime,questioncounter,rightanswerscounter,pointscounter);// history FF
+			
+			session.removeAttribute("logintime");// history FF
+			session.removeAttribute("questionshistory");// history FF
+			session.removeAttribute("rightanswershistory");// history FF
+			session.removeAttribute("pointshistory");// history FF
+			
 			session.removeAttribute("studentID");
 			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 			
@@ -55,6 +72,12 @@ public class userpageservlet extends HttpServlet {
 			request.getRequestDispatcher("BrowseCourses.jsp").forward(request, response);
 			
 		}
+		else if(request.getParameter("history")!=null)
+		{
+			request.getRequestDispatcher("YourTimeOnCoursesOverflow.jsp").forward(request, response);
+		}
+		
+		
 		else if(request.getParameter("selectcourse")!=null)
 		{
 			String[] name =request.getParameterValues("selectcourse");
@@ -85,6 +108,16 @@ public class userpageservlet extends HttpServlet {
 		}
 		else if(request.getParameter("checkanswers")!=null)
 		{
+			
+			int questioncounter = (int)session.getAttribute("questionshistory");// history FF
+			questioncounter+=3;// history FF
+			session.setAttribute("questionshistory", questioncounter);	// history FF
+			
+			int rightanswerscounter = (int)session.getAttribute("rightanswershistory");// history FF
+			int pointscounter = (int)session.getAttribute("pointshistory");// history FF
+			
+			
+			
 			String rightanswers[] = (String[])session.getAttribute("rightanswers");
 			int rightAnswerDifficulty[] = (int[])session.getAttribute("rightAnswerDifficulty");
 			String username=(String) session.getAttribute("name");
@@ -107,6 +140,9 @@ public class userpageservlet extends HttpServlet {
 			{
 				out.write("question 1 is correct <br>");
 				d.addStudentPoints(username, points[0]);
+				rightanswerscounter++;// history FF
+				pointscounter+=10;// history FF
+				
 			}
 			else {
 				out.write("question 1 is Incorrect , the right answer is "+rightanswers[0]+"<br>");
@@ -114,6 +150,8 @@ public class userpageservlet extends HttpServlet {
 			{
 				out.write("question 2 is correct <br>");
 				d.addStudentPoints(username, points[1]);
+				rightanswerscounter++;// history FF
+				pointscounter+=10;// history FF
 			}
 			else {
 				out.write("question 2 is Incorrect , the right answer is "+rightanswers[1]+"<br>");
@@ -121,6 +159,8 @@ public class userpageservlet extends HttpServlet {
 			{
 				out.write("question 3 is correct <br>");
 				d.addStudentPoints(username, points[2]);
+				rightanswerscounter++;// history FF
+				pointscounter+=10;// history FF
 			}
 			else {
 				out.write("question 3 is In correct , the right answer is "+rightanswers[2]+"<br>");
@@ -129,7 +169,17 @@ public class userpageservlet extends HttpServlet {
 			out.print("<input type='submit' name='next' value='Next'>");
 			out.print("</form></body></html>");
 			
+			session.setAttribute("pointshistory", pointscounter);	// history FF
+			session.setAttribute("rightanswershistory", rightanswerscounter);	// history FF
+			
+			
+			
+			
 		}else if(request.getParameter("nextQuestions")!=null) {
+			
+			
+			
+			
 			
 			
 			String rightanswers[] = (String[])session.getAttribute("rightanswers");
@@ -158,12 +208,25 @@ public class userpageservlet extends HttpServlet {
 				
 			}
 			int qcount=(int) session.getAttribute("qcount");
+			
+			int questioncounter = (int)session.getAttribute("questionshistory");// history FF
+			questioncounter+=qcount;// history FF , take care it might contain error because of misunderstanding
+			session.setAttribute("questionshistory", questioncounter);	// history FF
+			
+			int rightanswerscounter = (int)session.getAttribute("rightanswershistory");// history FF
+			int pointscounter = (int)session.getAttribute("pointshistory");// history FF
+			
+			
 			int i=0;
 			while (i < qcount) {
 				String q1[] =request.getParameterValues(""+i);
 				if (q1[0].equals(rightanswers[i])) {
 					out.write("question "+i+" is correct <br>");
 					d.addStudentPoints(username, points[i]);
+					
+					pointscounter+=points[i]; //history FF
+					rightanswerscounter++; 	// history FF
+					
 				} else {
 					out.write("question "+i+" is Incorrect , the right answer is " + rightanswers[i] + "<br>");
 				}
@@ -176,6 +239,10 @@ public class userpageservlet extends HttpServlet {
 				out.print("<input type='submit' name='continue' value='Next'>");
 			}
 			out.print("</form></body></html>");
+			
+
+			session.setAttribute("pointshistory", pointscounter);	// history FF
+			session.setAttribute("rightanswershistory", rightanswerscounter);	// history FF
 			
 			
 		}

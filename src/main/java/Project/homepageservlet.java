@@ -3,6 +3,7 @@ package Project;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -86,6 +87,15 @@ public class homepageservlet extends HttpServlet {
 					session.setAttribute("studentID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getStudentUsername(Integer.parseInt(""+session.getAttribute("studentID"))));
 					session.setMaxInactiveInterval(1800);
+					
+					Timestamp loginTime = new  Timestamp(System.currentTimeMillis()); // history FF
+					
+					
+					session.setAttribute("pointshistory", 0);	// history FF
+					session.setAttribute("questionshistory", 0);	// history FF
+					session.setAttribute("rightanswershistory", 0);	// history FF
+					
+					session.setAttribute("LoginTime", loginTime);	// history FF
 					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
 				}
 

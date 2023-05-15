@@ -67,7 +67,7 @@
             </center>
                  <input type="submit" name="browsecourses" value="Browse Courses"><br><br>
                 
-                <input type="submit" name="userReport" value="Your Time on Courses OverFlow">
+                <input type="submit" name="history" value="Your Time on Courses OverFlow">
                 
               <br>  recent opened courses <br>
                 

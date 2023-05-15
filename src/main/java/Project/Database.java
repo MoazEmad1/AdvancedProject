@@ -1,13 +1,16 @@
 package Project;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.net.*;
 import java.io.*;
 //libraries needed for email sending
 import java.util.Properties;
+import java.util.TimeZone;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -670,6 +673,58 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+	}
+	
+	public void storehistory(int studentid, Timestamp login, int questioncounter, int rightanswerscounter,int points) {// history FF
+
+		try {
+			String accuracy;
+			if(questioncounter==0 || rightanswerscounter==0)
+			{
+				accuracy="0%";
+			}
+			else {
+				double percent = ((double)rightanswerscounter/questioncounter)*100;
+
+				String formattedpercent = String.format("%.1f", percent);
+				accuracy=formattedpercent+"%";
+			}
+			Timestamp logout = new  Timestamp(System.currentTimeMillis()); // history FF
+			
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+		
+			
+				String sql = "INSERT INTO history (student_id, From_Time, Till_Time,points,questionscount,rightanswerscount,accuracy) VALUES (?,?,?,?,?,?,?)";
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1, studentid);
+				ps.setTimestamp(2, login);
+				ps.setTimestamp(3, logout);
+				ps.setInt(4, points);
+				ps.setInt(5, questioncounter);
+				ps.setInt(6, rightanswerscounter);
+				ps.setString(7, accuracy);
+				
+				ps.executeUpdate();
+				
+				//this long sql code is just to insert data into database (id is generated automatically)
+			
+			con.close();// close the connection
+
+
+		}
+		catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} 
+		
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		
 	}
