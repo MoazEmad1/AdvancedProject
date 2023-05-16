@@ -53,10 +53,6 @@
               display: flex;
         justify-content: center;
     }
-    .img{
-     margin:0rem 50rem 0rem 0rem
-    }
-
       .bold-underlined {
         font-weight: bold;
         text-decoration: underline;

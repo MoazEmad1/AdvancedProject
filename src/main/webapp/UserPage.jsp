@@ -15,7 +15,7 @@
 		 html, body {
     background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
     font-family: Arial, sans-serif;
-    height: 110%;
+    height: 100%;
     margin: 0;
   }
   .btn2{
@@ -39,27 +39,7 @@
   word-break: break-word;
   border: 0;
 }
-.time{
- background: #27589C;
-  border-radius: 999px;
-  box-shadow: #5E5DF0 0 10px 20px -10px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
-}
+
 .btn1{
  background: #27589C;
   border-radius: 999px;
@@ -80,6 +60,37 @@
   width: fit-content;
   word-break: break-word;
   border: 0;
+  position: absolute;
+  top: 43.5%;
+  left: 0;
+  transform: translateY(-50%);
+  
+}
+.time{
+ background: #27589C;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  position: absolute;
+  top: 55%;
+  left: 0;
+  transform: translateY(-50%);
+
 }
 .logout{
  background:red;
@@ -109,18 +120,36 @@
         font-weight: bold;
         text-decoration: underline;
     }
+    .image-container {
+        background-color: white;
+        border: 1px solid #333;
+        border-radius: 10px;
+        padding: 10px;
+        display: inline-block;
+         width: 300px; /* Adjust the width as per your preference */
+        height: 100px; /* Adjust the height as per your preference */
+        
+              display: flex;
+        justify-content: center;
+    }
+    input[type="submit"]:hover {
+			background-color: #204d74;
+		}
+		  input[type="submit"][name = logout]:hover {
+            background-color:#8B0000;
+        }
 	</style>
 	<head><link rel="icon" href="hhhh.ico" type="image/x-icon"> <title>User Page</title></head>
 	
 	    <body>
 	    
 	        <form method="get" action="userpageservlet">
-	       <center><div class="image-container">
-	    <img src="finalimg.png" alt="Image description" width="400" height="180" style="display: block; margin: 0 auto;">
-	    </center>
-	</div>
+	     <center>  <div class="image-container">
+   <img src="finalimg.png" alt="Image description" width="400" height="180" style="display: block; margin: -50px auto 0 auto;" class="img">
+</div>	
+        </center>
 	
-	        <center>
+	       <center>
 	        <%
 	       // response.setHeader("Cache-Control", "no-cache, no-store");
 	       // response.setHeader("Pragma", "no-cache");
@@ -164,7 +193,7 @@
 	        
 	        
 	        %>
-	        
+	        </center>
 	        
 	            <center>
 	                <h3>Welcome , <%=session.getAttribute("name") +" , your points : "+ points %></h3>    
@@ -175,12 +204,12 @@
 	            </center>
 	                 
 	         
-	<center><input type="submit" name="history" value="Your Time on &#10;Courses OverFlow" class = "time">   <br><br>
-	</center><br>         
+	<input type="submit" name="history" value="Your Time on Courses OverFlow" class = "btn1">   <br><br>
+	<br>         
 	
-	         <center> <input type="submit" name="browsecourses" value="Browse Courses" class = "btn1"></center><br>
+	         <input type="submit" name="browsecourses" value="Browse Courses" class = "time"><br>
 	   <center><span class="recent-courses">Your recent courses</span></center><br>
-	
+	<center>
 	                <% 
 	          		Connection con ;
 	        		ResultSet rs1 = null; //the object that hold the record,records data
@@ -232,7 +261,7 @@
 	            
 	            <center>            
 	             <input type="submit" name="logout" value="Log out" class = "logout"> <br>
-	        </center>
+	     
 	        </form>
 	    </body>
 	</html>

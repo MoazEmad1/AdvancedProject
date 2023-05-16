@@ -12,7 +12,7 @@
 	 html, body {
     background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
     font-family: Arial, sans-serif;
-    height: 110%;
+    height: 100%;
     margin: 0;
   }
   .chapter{
@@ -28,7 +28,7 @@
   line-height: 24px;
   opacity: 1;
   outline: 0 solid transparent;
-  padding: 8px 18px;
+ padding: 12px 22px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -36,7 +36,51 @@
   word-break: break-word;
   border: 0;
   }
+.test{
+  background: #27589C;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 12px 22px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+.backandhome{
 
+  background: #27589C;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 12px 22px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+input[type="submit"]:hover {
+			background-color: #204d74;
+		}
 </style>
 
 <head> <link rel="icon" href="hhhh.ico" type="image/x-icon"><title> <%=session.getAttribute("coursename") %>  </title></head>
@@ -57,7 +101,7 @@
         
         %>
         
-        <input type="submit" name="back" value="Home"><input type="submit" name="browsecourses" value="back"><br><br>
+        <input type="submit" name="back" value="Home" class = backandhome><input type="submit" name="browsecourses" value="back"class = backandhome><br><br>
             <center>
                 <h1> <%=session.getAttribute("coursename") %> </h1><br>
             <%
@@ -121,7 +165,7 @@
                  <h3> <%=coursedescription%> </h3> <br>
                 
             </center>
-                
+                <center>
             <%
           
        
@@ -140,7 +184,7 @@
         				{
         					
         					%>
-        				<center>	<input type=submit name="chapterselected" value="<%="chapter "+i+""%>" class = chapter></center>
+        			<input type=submit name="chapterselected" value="<%="chapter "+i+""%>" class = chapter>
         					<%
         					
         					
@@ -171,9 +215,9 @@
             
             
             %>        
-             <input type=submit name="test" value="Test">   
+             <input type=submit name="test" value="Test" class= test>   
         
-            
+            </center>
             
         </form>
     
