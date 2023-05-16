@@ -59,7 +59,7 @@ public class homepageservlet extends HttpServlet {
 
 			if (request.getParameter("username") == "" || request.getParameter("password") == "") {
 				request.getRequestDispatcher("LoginPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 36.5%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data entry</p>");
 			    out.write("</div>");
 				
@@ -114,7 +114,7 @@ public class homepageservlet extends HttpServlet {
 				else
 				{
 					request.getRequestDispatcher("LoginPage.jsp").include(request, response);
-					out.write("<div style=\"position: absolute; top: 36.5%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+					out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 				    out.write("<p style=\"font-weight: bold; color: red;\">Username or Password isn't correct</p>");
 				    out.write("</div>");
 
@@ -135,7 +135,7 @@ public class homepageservlet extends HttpServlet {
 			if (request.getParameter("username") =="") 
 			{
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 
@@ -144,7 +144,7 @@ public class homepageservlet extends HttpServlet {
 			{
 			
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Username is already taken</p>");
 			    out.write("</div>");
 
@@ -154,7 +154,7 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 
@@ -163,7 +163,7 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 
@@ -172,7 +172,7 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 
@@ -183,7 +183,7 @@ public class homepageservlet extends HttpServlet {
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
 				
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Email is already Associated with another account</p>");
 			    out.write("</div>");
 
@@ -194,7 +194,7 @@ public class homepageservlet extends HttpServlet {
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
 			
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Password should contain at least 8 characters</p>");
 			    out.write("</div>");
 
@@ -204,7 +204,7 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Passwords doesn't match</p>");
 			    out.write("</div>");
 
@@ -228,7 +228,7 @@ public class homepageservlet extends HttpServlet {
 				}
 				
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Username is not valid</p>");
 			    out.write("</div>");
 			}

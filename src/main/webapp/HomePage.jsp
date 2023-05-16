@@ -63,18 +63,19 @@ html, body {
 a:hover {
   text-decoration: underline;
 }
-    }
-    input[type="submit"]:hover {
+       input[type="submit"]:hover {
 			background-color: #204d74;
 		}
+   
+   
 </style>
 
-<head> <title>Courses Overflow</title></head>
+<head> <link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Courses Overflow</title></head>
 
     <body>
     	<% session.invalidate(); %>
         <form method="post" action="homepageservlet">
-<img src="finalimg.png" alt="Image description" width=400 height=130 style="display: block; margin: 0 auto;">
+<img src="finalimg.png" alt="Image description" width=400 height=200 style="display: block; margin: 0 auto;">
              
                 <h3>welcome to courses overflow where we here aim<br> to make it 
                 easier to learn any course or field for free</h3> <br>

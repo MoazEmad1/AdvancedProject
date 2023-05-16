@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="windows-1256">
-<title>Test</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Test</title>
 </head>
 <body>
 	<form method="get" action="Questions.jsp">

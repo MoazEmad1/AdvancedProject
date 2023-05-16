@@ -80,12 +80,12 @@ a:hover {
    
 </style>
 
-<head> <title>Log in</title></head>
+<head><link rel="icon" href="hhhh.ico" type="image/x-icon"> <title>Log in</title></head>
 
     <body>
     
         <form method="post" action="homepageservlet">
-<img src="finalimg.png" alt="Image description"width=400 height=130 >	
+<img src="finalimg.png" alt="Image description"width=400 height=200 >	
                 <h3>Please Enter Your Account Data</h3>
                 Username : <input type="text" name="username" placeholder="Username"><br>
                 Password : <input type="password" name="password" placeholder="Password"><br>

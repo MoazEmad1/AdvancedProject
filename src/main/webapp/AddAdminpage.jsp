@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>New Admin</title>
+	<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>New Admin</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;

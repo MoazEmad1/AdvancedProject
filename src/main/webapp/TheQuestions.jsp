@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="windows-1256">
-<title>The Questions</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>The Questions</title>
 </head>
 <body>
 	<form action="userpageservlet" method="get">

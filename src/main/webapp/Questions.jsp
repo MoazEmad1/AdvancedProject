@@ -7,7 +7,7 @@
 <%@page import="java.sql.SQLException"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><link rel="icon" href="hhhh.ico" type="image/x-icon">
 <meta charset="windows-1256">
 <title>Questions</title>
 </head>

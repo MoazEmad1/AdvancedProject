@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Question</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Add Question</title>
 </head>
 
  <%
@@ -91,7 +91,10 @@
   background-repeat: no-repeat;
   background-position: calc(100% - 10px) center;
 }
-		
+	   input[type="submit"]:hover {
+			background-color: #204d74;
+		}
+   	
 
 </style>
 <body>

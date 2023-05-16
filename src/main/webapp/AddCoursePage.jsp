@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Insert title here</title>
 </head>
 
  <%
@@ -83,6 +83,10 @@
   background-repeat: no-repeat;
   background-position: calc(100% - 10px) center;
 }
+   input[type="submit"]:hover {
+			background-color: #204d74;
+		}
+   
 
 
 </style>

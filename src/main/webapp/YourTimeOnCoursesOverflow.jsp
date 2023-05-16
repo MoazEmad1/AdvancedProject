@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Your Progress</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Your Progress</title>
 </head>
 <body>
 

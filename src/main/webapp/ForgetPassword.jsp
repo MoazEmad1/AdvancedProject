@@ -86,7 +86,7 @@ background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
    
 </style>
 
-<head> <title>Sign Up</title></head>
+<head><link rel="icon" href="hhhh.ico" type="image/x-icon"> <title>Sign Up</title></head>
 
     <body>
     

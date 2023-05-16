@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Admin Page</title>
+    <link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Admin Page</title>
     <style>
        body {
   font-family: Arial, sans-serif;
@@ -59,19 +59,24 @@
   font-weight: bold;
   color: black;
 }
-        
+input[type="submit"][name="logout"] {
+    background-color: red;
+}
+         input[type="submit"][name = logout]:hover {
+            background-color:#8B0000;
+        }
     </style>
 </head>
 
 <body>
     <form method="post" action="AdminServlet">
-       <img src="finalimg.png" alt="Image description" width=400 height=130 style="display: block; margin: 0 auto;">
+       <img src="finalimg.png" alt="Image description" width=400 height=200 style="display: block; margin: 0 auto;">
         <h3>Welcome, <%=session.getAttribute("name") %></h3>
-        <input type="submit" name="logout" value="Log Out"><br><br>
         <input type="submit" name="Addcourses" value="Add Courses"><br><br>
         <input type="submit" name="Addchapters" value="Add Chapter"><br><br>
         <input type="submit" name="addquestion" value="Add Question"><br><br>
-        <input type="submit" name="addAdmin" value="Add Admin">
+        <input type="submit" name="addAdmin" value="Add Admin"><br><br>
+        <input type="submit" name="logout" value="Log Out">
     </form>
 </body>
 </html>

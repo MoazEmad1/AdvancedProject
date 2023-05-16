@@ -9,7 +9,7 @@
 
 
 <html>
-<head>
+<head><link rel="icon" href="hhhh.ico" type="image/x-icon">
 <meta charset="ISO-8859-1">
 <title>Add Chapter</title>
 <style>
