@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -91,6 +92,15 @@ public class homepageservlet extends HttpServlet {
 					session.setAttribute("name", d.getStudentUsername(Integer.parseInt(""+session.getAttribute("studentID"))));
 					session.setMaxInactiveInterval(1800);
 					Timestamp loginTime = new  Timestamp(System.currentTimeMillis()); // history FF
+					
+					
+					SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm");
+
+					// format the Timestamp object as a string
+					String Loggedin = dateFormat.format(loginTime);
+					System.out.println(Loggedin);
+					
+					
 					
 					
 					session.setAttribute("pointshistory", 0);	// history FF

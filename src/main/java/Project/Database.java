@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.net.*;
 import java.io.*;
 //libraries needed for email sending
@@ -692,6 +693,12 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 				accuracy=formattedpercent+"%";
 			}
 			Timestamp logout = new  Timestamp(System.currentTimeMillis()); // history FF
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm");
+
+			// format the Timestamp object as a string
+			String Loggedout = dateFormat.format(logout);
+			System.out.println(Loggedout);
 			
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
