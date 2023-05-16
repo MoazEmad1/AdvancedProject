@@ -30,8 +30,6 @@
 <th>Right Answers</th>
 <th>Accuracy</th>
 <th>Points Gained</th>
-
-
 </tr>
 
 <%
