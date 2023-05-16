@@ -32,9 +32,6 @@
 <th>Points Gained</th>
 
 
-
-
-
 </tr>
 
 <%
