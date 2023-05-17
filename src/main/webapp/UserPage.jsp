@@ -202,12 +202,13 @@
 	                
 	            
 	            </center>
-	                 
+	                 <center>
 	         
 	<input type="submit" name="history" value="Your Time on Courses OverFlow" class = "btn1">   <br><br>
 	<br>         
 	
 	         <input type="submit" name="browsecourses" value="Browse Courses" class = "time"><br>
+	         </center>
 	   <center><span class="recent-courses">Your recent courses</span></center><br>
 	<center>
 	                <% 

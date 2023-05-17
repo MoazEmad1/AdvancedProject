@@ -178,7 +178,7 @@ try {
 				while (answerscounter < 4) {
 		%>
 
-		<input type="radio" name=<%=questioncount %> value=<%=choice%>> <%=questionANDchoices[answerscounter]%><br>
+		<input type="radio" name=<%=questioncount %> value=<%=choice%> required> <%=questionANDchoices[answerscounter]%><br>
 
 		<% 
 					choice++;
