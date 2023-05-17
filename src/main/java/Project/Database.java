@@ -6,9 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.net.*;
 import java.io.*;
+import java.util.Date;
 //libraries needed for email sending
 import java.util.Properties;
 import java.util.TimeZone;
@@ -678,7 +683,7 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		
 	}
 	
-	public void storehistory(int studentid, Timestamp login, int questioncounter, int rightanswerscounter,int points) {// history FF
+	public void storehistory(int studentid, String login, int questioncounter, int rightanswerscounter,int points) {// history FF
 
 		try {
 			String accuracy;
@@ -692,12 +697,39 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 				String formattedpercent = String.format("%.1f", percent);
 				accuracy=formattedpercent+"%";
 			}
-			Timestamp logout = new  Timestamp(System.currentTimeMillis()); // history FF
 			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm");
+			
+			 Timestamp loginTime=null;
+				SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm:ss");
+				try {
+				Date d = dateFormat.parse(login);	
+		        loginTime = new Timestamp(d.getTime()); // history FF
+		        String Loggedin = dateFormat.format(loginTime);
+		        System.out.println(Loggedin);
+				}
+				 catch (ParseException e) {
+					 e.printStackTrace();
+				 }
+			
+			
+			
 
 			// format the Timestamp object as a string
-			String Loggedout = dateFormat.format(logout);
+			
+			
+			
+				 ZoneId zoneId = ZoneId.of("Africa/Cairo");
+			 	ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+		        LocalDateTime localDateTime = zonedDateTime.toLocalDateTime();
+
+
+		        Timestamp logoutTime = Timestamp.valueOf(localDateTime.plusHours(1)); // history FF
+
+			
+			
+
+				// format the Timestamp object as a string
+			String Loggedout = dateFormat.format(logoutTime);
 			System.out.println(Loggedout);
 			
 			
@@ -708,8 +740,8 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 				String sql = "INSERT INTO history (student_id, From_Time, Till_Time,points,questionscount,rightanswerscount,accuracy) VALUES (?,?,?,?,?,?,?)";
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setInt(1, studentid);
-				ps.setTimestamp(2, login);
-				ps.setTimestamp(3, logout);
+				ps.setTimestamp(2, loginTime);
+				ps.setTimestamp(3, logoutTime);
 				ps.setInt(4, points);
 				ps.setInt(5, questioncounter);
 				ps.setInt(6, rightanswerscounter);

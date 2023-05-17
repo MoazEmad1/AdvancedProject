@@ -41,16 +41,25 @@ html, body {
 			margin-bottom: 10px;
 		}
 			input[type="submit"] {
-			background-color: #336699;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 20px;
-			margin-top: 24px;
-			display: block;
-			margin: 0 auto;
+		 background: #27589C;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
 
 		}
 		
@@ -80,11 +89,11 @@ a:hover {
                 <h3>welcome to courses overflow where we here aim<br> to make it 
                 easier to learn any course or field for free</h3> <br>
                 
-                <input type="submit" name="login" value="Log in">
+              <center>  <input type="submit" name="login" value="Log in">
                 <br><br>
                 
                 <input type="submit" name="signup" value="Sign Up">
-        
+        </center>
             
             
         </form>

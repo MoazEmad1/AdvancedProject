@@ -41,7 +41,7 @@ public class userpageservlet extends HttpServlet {
 			// matnsash t2fl kol al sessions
 			
 			
-			Timestamp loginTime = (Timestamp)session.getAttribute("logintime");
+			String loginTime = (String)session.getAttribute("LoginTime");
 			int questioncounter = (int)session.getAttribute("questionshistory");// history FF
 			int rightanswerscounter = (int)session.getAttribute("rightanswershistory");// history FF
 			int pointscounter = (int)session.getAttribute("pointshistory");// history FF

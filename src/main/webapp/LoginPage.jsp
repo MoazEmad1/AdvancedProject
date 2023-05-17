@@ -54,14 +54,25 @@ background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
 			background-color: #f2f2f2;
 		}
 		input[type="submit"] {
-			background-color: #336699;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 20px;
-			margin-top: 24px;
+			 background: #27589C;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
 		}
 		
 		a {
@@ -89,7 +100,7 @@ a:hover {
                 <h3>Please Enter Your Account Data</h3>
                 Username : <input type="text" name="username" placeholder="Username"><br>
                 Password : <input type="password" name="password" placeholder="Password"><br>
-                <a href=ForgetPassword.jsp>Forget Password?</a><br>
+                <a href=ForgetPassword.jsp>Forget Password?</a><br><br>
                 <input type="submit" name="logincheck" value="Log in">
                 
     

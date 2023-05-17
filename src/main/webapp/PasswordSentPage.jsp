@@ -62,7 +62,7 @@ background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
     <body>
     
         <form method="post" action="HomePage.jsp">
-        <img src="finalimg.png" alt="Image description" width=400 height=130 style="display: block; margin: 0 auto;">
+        <img src="finalimg.png" alt="Image description" width=400 height=200 style="display: block; margin: 0 auto;">
                 <h3>Your password has been sent to your email</h3>
                 <input type="submit" value="HomePage">
                 
