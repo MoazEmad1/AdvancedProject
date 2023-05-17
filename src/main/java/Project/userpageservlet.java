@@ -111,8 +111,7 @@ public class userpageservlet extends HttpServlet {
 		{
 			
 			int questioncounter = (int)session.getAttribute("questionshistory");// history FF
-			questioncounter+=3;// history FF
-			session.setAttribute("questionshistory", questioncounter);	// history FF
+			
 			
 			int rightanswerscounter = (int)session.getAttribute("rightanswershistory");// history FF
 			int pointscounter = (int)session.getAttribute("pointshistory");// history FF
@@ -129,8 +128,11 @@ public class userpageservlet extends HttpServlet {
 			String q2[] =request.getParameterValues("1");
 			String q3[] =request.getParameterValues("2");
 			
-			
-			
+			if(q1==null || q2==null|| q3==null ) {
+				out.write("please answer the questions");
+				request.getRequestDispatcher("courseExplaination.jsp").include(request, response);
+			}
+			else {
 			out.print("<html><body><form action='userpageservlet' method='get'>");
 			for (int i=0;i<3;i++) {
 				points[i]=10;
@@ -170,9 +172,11 @@ public class userpageservlet extends HttpServlet {
 			out.print("<input type='submit' name='next' value='Next'>");
 			out.print("</form></body></html>");
 			
+			questioncounter+=3;// history FF
+			session.setAttribute("questionshistory", questioncounter);	// history FF
 			session.setAttribute("pointshistory", pointscounter);	// history FF
 			session.setAttribute("rightanswershistory", rightanswerscounter);	// history FF
-			
+			}
 			
 			
 			
