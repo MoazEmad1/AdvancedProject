@@ -60,56 +60,56 @@ public class AdminServlet extends HttpServlet {
 			if(request.getParameter("coursename")=="" ||request.getParameter("coursename")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("coursecode")=="" ||request.getParameter("coursecode")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("courseDisc")=="" ||request.getParameter("courseDisc")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("chapter1Name")=="" ||request.getParameter("chapter1Name")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("chapter1Ex")=="" ||request.getParameter("chapter1Ex")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("q1")=="" ||request.getParameter("q1")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("q2")=="" ||request.getParameter("q2")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("q3")=="" ||request.getParameter("q3")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
@@ -131,27 +131,37 @@ public class AdminServlet extends HttpServlet {
 			if(request.getParameter("ChapterName")=="" ||request.getParameter("ChapterName")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("ChapterEx")=="" ||request.getParameter("ChapterEx")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("q1")=="" ||request.getParameter("q1")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("q2")=="" ||request.getParameter("q2")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("q3")=="" ||request.getParameter("q3")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else {
 			Database d = new Database();
@@ -184,46 +194,67 @@ public class AdminServlet extends HttpServlet {
 			if(request.getParameter("firstname")=="" ||request.getParameter("firstname")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("username")=="" ||request.getParameter("username")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}else if(request.getParameter("Email")=="" ||request.getParameter("Email")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("password")=="" ||request.getParameter("password")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("confirmpassword")=="" ||request.getParameter("confirmpassword")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(d.checkusername(request.getParameter("username"))==false)
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("username already taken");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">username already taken</p>");
+			    out.write("</div>");
 			}
 			else if(d.checkemail(request.getParameter("Email"))==false)
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("email is associated to another account");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">email is associated to another account</p>");
+			    out.write("</div>");
 			}
 			else if((request.getParameter("password")).length()<8)
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("password is weak , use more than 8 characters");
+				
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">password is weak , use more than 8 characters</p>");
+			    out.write("</div>");
+				
 			}
 			else if(!(request.getParameter("password")).equals(request.getParameter("confirmpassword")))
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
-				out.write("passwords doesn't match");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">passwords doesn't match</p>");
+			    out.write("</div>");
+				
 			}
 			else {
 			
@@ -249,7 +280,9 @@ public class AdminServlet extends HttpServlet {
 			if(request.getParameter("question_text")=="" ||request.getParameter("question_text")==null )
 			{
 				request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else {
 			Database d = new Database();
@@ -265,7 +298,9 @@ public class AdminServlet extends HttpServlet {
 			if(request.getParameter("question_text")=="" ||request.getParameter("question_text")==null )
 			{
 				request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else {
 			Database d = new Database();

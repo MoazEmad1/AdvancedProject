@@ -92,7 +92,7 @@
         %>
 
 	<form method="post" action="AdminServlet">
-		<h1>New Admin</h1>
+		<h1>New Admin</h1><br>
 		<label for="firstname">First Name:</label>
 		<input type="text" id="firstname" name="firstname" placeholder="First Name" >
 		

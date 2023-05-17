@@ -111,7 +111,7 @@
 <body>
 
 <form action="AdminServlet" method="post">
-<h1>New Question</h1>
+<h1>New Question</h1><br>
 <%
 try {
 	//ArrayList <String> arrayList  = new ArrayList<String>() ;

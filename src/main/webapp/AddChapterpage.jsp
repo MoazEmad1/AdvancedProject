@@ -91,7 +91,7 @@
 </head>
 <body>
 <form method="post" action ="AdminServlet">
-	<h1>New Chapter</h1>
+	<h1>New Chapter</h1><br>
 
  <%
  	//response.setHeader("Cache-Control", "no-cache, no-store");
