@@ -11,6 +11,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+    body {
+        background-color: #cfe2f3;
+        color: #000000;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th {
+        background-color: #85a9cf;
+        color: #ffffff;
+        padding: 10px;
+    }
+    td {
+        background-color: #ffffff;
+        padding: 10px;
+    }
+    input[type="submit"] {
+        background-color: #85a9cf;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #6088b8;
+    }
+</style>
 <meta charset="UTF-8">
 <link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Your Progress</title>
 </head>
