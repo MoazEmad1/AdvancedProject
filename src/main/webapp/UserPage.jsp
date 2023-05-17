@@ -60,9 +60,6 @@
   width: fit-content;
   word-break: break-word;
   border: 0;
-  position: absolute;
-  top: 43.5%;
-  left: 0;
   transform: translateY(-50%);
   
 }
@@ -86,9 +83,6 @@
   width: fit-content;
   word-break: break-word;
   border: 0;
-  position: absolute;
-  top: 55%;
-  left: 0;
   transform: translateY(-50%);
 
 }
@@ -202,13 +196,7 @@
 	                
 	            
 	            </center>
-	                 <center>
-	         
-	<input type="submit" name="history" value="Your Time on Courses OverFlow" class = "btn1">   <br><br>
-	<br>         
-	
-	         <input type="submit" name="browsecourses" value="Browse Courses" class = "time"><br>
-	         </center>
+	     
 	   <center><span class="recent-courses">Your recent courses</span></center><br>
 	<center>
 	                <% 
@@ -260,7 +248,24 @@
 	            <br><br> 
 	            </center>
 	            
-	            <center>            
+	            <center>     
+	            
+	            
+	            
+	            
+	            <br><br>
+	                     
+	                        <br><br>
+	         
+	<input type="submit" name="history" value="Your Time on Courses OverFlow" class = "btn1">   <br><br>
+	<br>         
+	
+	         <input type="submit" name="browsecourses" value="Browse Courses" class = "time"><br>
+	         <br><br>
+	            
+	         
+	            
+	                   
 	             <input type="submit" name="logout" value="Log out" class = "logout"> <br>
 	     
 	        </form>
