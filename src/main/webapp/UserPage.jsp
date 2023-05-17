@@ -7,10 +7,10 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.SQLException"%>
 <%
-	        response.setHeader("Cache-Control", "no-cache");
-			response.setHeader("Cache-Control", "no-store");
-			response.setHeader("Pragma", "no-cache");
-			response.setDateHeader("Expire", 0);
+	       // response.setHeader("Cache-Control", "no-cache");
+			//response.setHeader("Cache-Control", "no-store");
+			//response.setHeader("Pragma", "no-cache");
+			//response.setDateHeader("Expire", 0);
 	        
 			if(session.getAttribute("studentID")==null)
 	        {
