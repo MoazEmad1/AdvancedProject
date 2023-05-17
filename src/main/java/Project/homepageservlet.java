@@ -39,6 +39,10 @@ public class homepageservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		
+		
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");

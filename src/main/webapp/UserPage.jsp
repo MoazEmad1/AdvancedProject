@@ -6,7 +6,20 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.SQLException"%>
-
+<%
+	        response.setHeader("Cache-Control", "no-cache");
+			response.setHeader("Cache-Control", "no-store");
+			response.setHeader("Pragma", "no-cache");
+			response.setDateHeader("Expire", 0);
+	        
+			if(session.getAttribute("studentID")==null)
+	        {
+	        	response.sendRedirect("HomePage.jsp");
+	        }
+	      
+	        
+	        
+	        %>
 <html>
 	<style>
 		
@@ -143,24 +156,16 @@
 	
 	    <body>
 	    
-	        <form method="get" action="userpageservlet">
+	        <form method="get"  action="userpageservlet">
 	     <center>  <div class="image-container">
    <img src="finalimg.png" alt="Image description" width="400" height="180" style="display: block; margin: -50px auto 0 auto;" class="img">
 </div>	
         </center>
 	
 	       <center>
-	        <%
-	       // response.setHeader("Cache-Control", "no-cache, no-store");
-	       // response.setHeader("Pragma", "no-cache");
-	        //response.setHeader("Expires", "0");
-	        if(session.getAttribute("studentID")==null)
-	        {
-	        	response.sendRedirect("HomePage.jsp");
-	        }
 	        
 	        
-	        %>
+	       
 	        
 	        <%
 	        Connection con1 ;

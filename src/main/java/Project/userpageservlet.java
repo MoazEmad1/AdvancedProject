@@ -26,7 +26,7 @@ public class userpageservlet extends HttpServlet {
 		Database d=new Database();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-//		response.setHeader("Cache-Control", "no-cache, no-store");
+//		response.setHeader("Cache-Control", "no-cache, no-store,must-revalidate");
 //        response.setHeader("Pragma", "no-cache");
 //        response.setHeader("Expires", "0");
 		HttpSession session = request.getSession();
@@ -55,7 +55,8 @@ public class userpageservlet extends HttpServlet {
 			session.removeAttribute("pointshistory");// history FF
 			
 			session.removeAttribute("studentID");
-			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+			session.invalidate();
+			request.getRequestDispatcher("Logoutbuffer.jsp").forward(request, response);
 			
 		}
 		else if(request.getParameter("back")!=null)
