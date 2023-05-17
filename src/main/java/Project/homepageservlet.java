@@ -5,6 +5,13 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -91,15 +98,23 @@ public class homepageservlet extends HttpServlet {
 					session.setAttribute("studentID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getStudentUsername(Integer.parseInt(""+session.getAttribute("studentID"))));
 					session.setMaxInactiveInterval(1800);
-					Timestamp loginTime = new  Timestamp(System.currentTimeMillis()); // history FF
+					
+					 ZoneId zoneId = ZoneId.of("Africa/Cairo");
+					 	ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+				        LocalDateTime localDateTime = zonedDateTime.toLocalDateTime();
+
+
+				        Timestamp loginTime = Timestamp.valueOf(localDateTime.plusHours(1)); // history FF
+
 					
 					
-					SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm");
+					
+					SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm:ss");
 
 					// format the Timestamp object as a string
 					String Loggedin = dateFormat.format(loginTime);
 					System.out.println(Loggedin);
-					
+					loginTime=null;
 					
 					
 					
@@ -107,7 +122,7 @@ public class homepageservlet extends HttpServlet {
 					session.setAttribute("questionshistory", 0);	// history FF
 					session.setAttribute("rightanswershistory", 0);	// history FF
 					
-					session.setAttribute("LoginTime", loginTime);	// history FF
+					session.setAttribute("LoginTime", Loggedin);	// history FF
 					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
 				}
 
