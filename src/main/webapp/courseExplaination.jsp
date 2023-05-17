@@ -62,6 +62,58 @@
 input[type="submit"]:hover {
 			background-color: #204d74;
 		}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.container:hover .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked + .checkmark {
+  background-color: #2196F3;
+}
+
+.container input:checked + .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
 </style>
 <head>
 <meta charset="UTF-8">
@@ -178,7 +230,11 @@ try {
 				while (answerscounter < 4) {
 		%>
 
-		<input type="radio" name=<%=questioncount %> value=<%=choice%> > <%=questionANDchoices[answerscounter]%><br>
+<label class="container">
+  <input type="radio" name="<%=questioncount %>" value="<%=choice%>">
+  <span class="checkmark"></span>
+  <%=questionANDchoices[answerscounter]%>
+</label>
 
 		<% 
 					choice++;

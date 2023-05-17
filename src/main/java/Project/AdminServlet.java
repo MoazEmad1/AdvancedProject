@@ -60,42 +60,58 @@ public class AdminServlet extends HttpServlet {
 			if(request.getParameter("coursename")=="" ||request.getParameter("coursename")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("coursecode")=="" ||request.getParameter("coursecode")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("courseDisc")=="" ||request.getParameter("courseDisc")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("chapter1Name")=="" ||request.getParameter("chapter1Name")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("chapter1Ex")=="" ||request.getParameter("chapter1Ex")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("q1")=="" ||request.getParameter("q1")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("q2")=="" ||request.getParameter("q2")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else if(request.getParameter("q3")=="" ||request.getParameter("q3")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 			}
 			else {	
 			Database d = new Database();
