@@ -8,6 +8,13 @@
 </head>
 <body>
 
+
+<script>
+        window.onload = function() {
+            history.replaceState(null, null, location.href);
+        };
+    </script>
+    
 <%
 
 response.sendRedirect("HomePage.jsp");

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+
+
 <html><style>
 html, body {
  background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
@@ -78,6 +81,8 @@ a:hover {
    
    
 </style>
+
+
 
 <head> <link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Courses Overflow</title></head>
 

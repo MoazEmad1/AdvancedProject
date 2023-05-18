@@ -11,7 +11,11 @@
 			//response.setHeader("Cache-Control", "no-store");
 			//response.setHeader("Pragma", "no-cache");
 			//response.setDateHeader("Expire", 0);
+			
+			//response.setHeader("Cache-Control","no-cache");    
+		//	response.setHeader("Pragma","no-cache");
 	        
+			
 			if(session.getAttribute("studentID")==null)
 	        {
 	        	response.sendRedirect("HomePage.jsp");
