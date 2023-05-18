@@ -297,6 +297,45 @@ public int getCourseID(String coursename) { // checks if the log in data exist i
 	return result; // returns the state of the data back to server
 
 }
+public String getCoursename(int courseid) { // checks if the log in data exist in the data base or not ,and is it for admin or student
+	
+	ResultSet rs = null; //the object that hold the record,records data
+	String result = ""; // the indicator that will be returned to server to decide to what page the user will be forwarded to
+	
+	try {
+		
+		Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+		// keep in mind the 3306 can differ between us so check first in XAMPP	
+		
+		
+			Statement s = con.createStatement(); 
+			String sql = "SELECT * FROM course WHERE course_id = '"+courseid+"'"; // the mysql code needed for the operation
+			rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+
+			if (rs.next()) // check if there is a record stored in the object
+			{
+				result = rs.getString("course_name"); // mark that this data is belonging to admin 
+			}
+			con.close(); // closes the connection to avoid unnessecary load on memory
+			
+	
+		 
+
+	}
+	catch (ClassNotFoundException e) {
+		System.out.println("class not found");
+	}
+	
+	catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println("al code atmn3");
+	}
+	
+	return result; // returns the state of the data back to server
+
+}
 
 
 public String getAdminUsername(int id) { // checks if the log in data exist in the data base or not ,and is it for admin or student
@@ -488,6 +527,82 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		
 	}
 	
+	public void sendreply(int senderid ,String feedbackid ,String reply) {
+		
+		ResultSet rs = null;
+		boolean result = false;
+
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+
+			
+				Statement s = con.createStatement();
+				String sql = "DELETE * FROM feedbacks WHERE id = '" + feedbackid + "'"; //search if one of admin have that email
+				s.executeUpdate(sql);
+				
+				rs=s.executeQuery("SELECT FROM student WHERE id= '"+senderid+"'");
+				if (rs.next()) { 
+					sendEmailreply(rs.getString("email"),reply); // it will call another method to make the email sending process
+					con.close();
+					}
+				
+				
+				
+
+			
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		
+		
+	}
+public void makefeedback(int senderid ,String reply,int courseid) {
+		
+		ResultSet rs = null;
+		boolean result = false;
+
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+
+			
+				Statement s = con.createStatement();
+				 ZoneId zoneId = ZoneId.of("Africa/Cairo");
+				 	ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+			        LocalDateTime localDateTime = zonedDateTime.toLocalDateTime();
+
+
+			        Timestamp feedbacktime = Timestamp.valueOf(localDateTime.plusHours(1)); // history FF
+
+			        String sql = "INSERT INTO feedbacks (course_id,sender_id,Feedback,feedback_time) VALUES('"+courseid+"','"+senderid+"','"+reply+"','"+feedbacktime+"') "; //search if one of admin have that email
+			        s.executeUpdate(sql);
+					con.close();
+				
+				
+				
+
+			
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		
+		
+	}
 	private void sendEmail(String email,String pass) { //this part is related to javax.mail and our email provider "send in blue"
 
 		  String username="coursesoverflow2023@gmail.com"; // this is our server username which is the same as our email
@@ -515,6 +630,44 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 				message.setRecipient(Message.RecipientType.TO,new InternetAddress(email)); // reciever email , the reciver email is the one sent in method
 				message.setSubject("Password Retriving"); // write the subject in email , the part you read without opening the email
 				message.setText("Your password is "+pass); // the actual text in mail , the part you see when you open the email
+				Transport.send(message); 				// the step that actually sends the email 
+				
+			} catch (Exception e) {
+				
+				System.out.println("error : "+ e.getMessage());
+				
+			}
+			
+		
+	}
+	
+	private void sendEmailreply(String email,String reply) { //this part is related to javax.mail and our email provider "send in blue"
+
+		  String username="coursesoverflow2023@gmail.com"; // this is our server username which is the same as our email
+		  String password="BzjfE4O5SMX9rkvI"; //this is the email server password , DON'T MESS WITH THAT !!!
+		
+		  
+		  Properties prop = new Properties(); // it controls the properties of the connection (email side) (not related with our database)
+			prop.put("mail.smtp.auth" ,"true"); // this code just to configure that there will be authentication in the mail
+			prop.put("mail.smtp.ssl.protokls" ,"TLSv1.2"); // the protocol that email use, and yes it is written protokls , this is not a mistake
+			prop.put("mail.smtp.host","smtp-relay.sendinblue.com"); // this config our host "send in blue" , don't mess with it 
+			prop.put("mail.smtp.port","587");						//port number we use , don't change it
+			
+			Session session = Session.getDefaultInstance(prop,new javax.mail.Authenticator() { //this area is setting the authentication by java
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password); // we here send our server username and password which were above
+			
+			}	
+			
+			});
+			session.setDebug(true); // it gives us a step by step knowledge for the email sending process
+			try {
+				
+				Message message = new MimeMessage(session); // this creates the instance of our email
+				message.setFrom(new InternetAddress("coursesoverflow2023@gmail.com")); // sender email
+				message.setRecipient(Message.RecipientType.TO,new InternetAddress(email)); // reciever email , the reciver email is the one sent in method
+				message.setSubject("FeedBack response"); // write the subject in email , the part you read without opening the email
+				message.setText(reply); // the actual text in mail , the part you see when you open the email
 				Transport.send(message); 				// the step that actually sends the email 
 				
 			} catch (Exception e) {

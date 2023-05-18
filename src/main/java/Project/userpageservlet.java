@@ -88,6 +88,19 @@ public class userpageservlet extends HttpServlet {
 			session.setAttribute("courseID", d.getCourseID(""+session.getAttribute("coursename")));
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
 		}
+		else if(request.getParameter("backfeedback")!=null)
+		{
+			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
+		}
+		else if(request.getParameter("dofeedback")!=null)
+		{
+			request.getRequestDispatcher("MakeFeedBack.jsp").forward(request, response);
+		}
+		else if(request.getParameter("backfeedbackafter")!=null)
+		{
+			d.makefeedback((int)session.getAttribute("studentID"),request.getParameter("sendfeedback"), (int)session.getAttribute("courseID"));
+			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
+		}
 		else if(request.getParameter("chapterselected")!=null)
 		{
 			d.attachCourseToStudent(""+session.getAttribute("coursename"),""+session.getAttribute("studentID"));
