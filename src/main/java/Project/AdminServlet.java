@@ -257,7 +257,15 @@ public class AdminServlet extends HttpServlet {
 				
 			}
 			else {
+			
+			
+			
 			d.singupadmin(request.getParameter("firstname"), request.getParameter("username"), request.getParameter("Email"),request.getParameter("password"));
+			  
+			  
+		 
+			
+			
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
 		}
@@ -303,5 +311,39 @@ public class AdminServlet extends HttpServlet {
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
 		}
+		else if(request.getParameter("feedback")!=null)
+		{
+			request.getRequestDispatcher("SeeFeedBack.jsp").forward(request, response);
+		}
+		else if(request.getParameter("feedbackselected")!=null)
+		{
+			String[] feedback = request.getParameterValues("feedbackselected");
+			session.setAttribute("feedbackid", feedback[0]);
+			request.getRequestDispatcher("replyfeedback.jsp").forward(request, response);
+			
+			
+		}
+		else if(request.getParameter("sendreply")!=null)
+		{
+			String feedback = request.getParameter("reply");
+			Database d = new Database();
+		d.sendreply((int)session.getAttribute("feeduser"),(String)session.getAttribute("feedbackid"),feedback);
+			request.getRequestDispatcher("SeeFeedBack.jsp").forward(request, response);
+			
+			
+		}
+		else if(request.getParameter("back")!=null)
+		{
+			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
+			
+			
+		}
+		else if(request.getParameter("backtofeedback")!=null)
+		{
+			request.getRequestDispatcher("SeeFeedBack.jsp").forward(request, response);
+			
+			
+		}
+		
 	}
 }
