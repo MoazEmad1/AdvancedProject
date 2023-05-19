@@ -79,6 +79,9 @@ public class userpageservlet extends HttpServlet {
 		{
 			request.getRequestDispatcher("YourTimeOnCoursesOverflow.jsp").forward(request, response);
 		}
+		else if(request.getParameter("leaderboard")!=null) {
+			request.getRequestDispatcher("Leaderboard.jsp").forward(request, response);
+		}
 		
 		
 		else if(request.getParameter("selectcourse")!=null)

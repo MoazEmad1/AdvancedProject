@@ -1,0 +1,6 @@
+Bugs to be fixed:
+
+-Forget password we need to check if the email is in our database in the first place
+
+Features that we need to complete:
+
