@@ -91,6 +91,7 @@ input[type="submit"][name="logout"] {
         <input type="submit" name="Addchapters" value="Add Chapter"><br><br>
         <input type="submit" name="addquestion" value="Add Question"><br><br>
         <input type="submit" name="addAdmin" value="Add Admin"><br><br>
+        <input type="submit" name="feedback" value="See Feedbacks"><br><br>
         <input type="submit" name="logout" value="Log Out">
         </center>
     </form>
