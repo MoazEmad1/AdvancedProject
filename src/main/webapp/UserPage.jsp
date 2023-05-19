@@ -265,14 +265,15 @@
 	            <br><br>
 	                     
 	                        <br><br>
-	         
+	          <input type="submit" name="browsecourses" value="Browse Courses" class = "time"><br>
+	                        
+	         <br><br>
 	<input type="submit" name="history" value="Your Time on Courses OverFlow" class = "btn1">   <br><br>
 	<br>         
 	
-	         <input type="submit" name="browsecourses" value="Browse Courses" class = "time"><br>
-	         <br><br>
 	            
-	         
+	         <input type="submit" name="leaderboard" value="View Leaderboard" class="time"><br>
+	         <br><br>
 	            
 	                   
 	             <input type="submit" name="logout" value="Log out" class = "logout"> <br>
