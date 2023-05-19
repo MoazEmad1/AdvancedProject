@@ -310,7 +310,7 @@ public String getCoursename(int courseid) { // checks if the log in data exist i
 		
 		
 			Statement s = con.createStatement(); 
-			String sql = "SELECT * FROM course WHERE course_id = '"+courseid+"'"; // the mysql code needed for the operation
+			String sql = "SELECT * FROM course WHERE id = '"+courseid+"'"; // the mysql code needed for the operation
 			rs = s.executeQuery(sql); // stores records that follow the mysql code condition
 
 			if (rs.next()) // check if there is a record stored in the object
@@ -530,7 +530,6 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 	public void sendreply(int senderid ,String feedbackid ,String reply) {
 		
 		ResultSet rs = null;
-		boolean result = false;
 
 		try {
 			
@@ -539,11 +538,12 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 
 			
 				Statement s = con.createStatement();
-				String sql = "DELETE * FROM feedbacks WHERE id = '" + feedbackid + "'"; //search if one of admin have that email
+				String sql = "DELETE FROM feedbacks WHERE id = '"+feedbackid+"'"; //search if one of admin have that email
 				s.executeUpdate(sql);
-				
-				rs=s.executeQuery("SELECT FROM student WHERE id= '"+senderid+"'");
+				Statement s1 = con.createStatement();
+				rs=s1.executeQuery("SELECT * FROM student WHERE id= '"+senderid+"'");
 				if (rs.next()) { 
+					System.out.println("working");
 					sendEmailreply(rs.getString("email"),reply); // it will call another method to make the email sending process
 					con.close();
 					}
@@ -645,7 +645,7 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 
 		  String username="coursesoverflow2023@gmail.com"; // this is our server username which is the same as our email
 		  String password="BzjfE4O5SMX9rkvI"; //this is the email server password , DON'T MESS WITH THAT !!!
-		
+		  System.out.println("working");
 		  
 		  Properties prop = new Properties(); // it controls the properties of the connection (email side) (not related with our database)
 			prop.put("mail.smtp.auth" ,"true"); // this code just to configure that there will be authentication in the mail
