@@ -3,6 +3,15 @@ package Project;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,12 +39,19 @@ public class homepageservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		
+		
 		HttpSession session = request.getSession();
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
-		/* this if condition triggers if the log in button that exist in the first homepage has been clicked */	
-		
+//		response.setHeader("Cache-Control", "no-cache, no-store");
+//        response.setHeader("Pragma", "no-cache");
+//        response.setHeader("Expires", "0");
+//		/* this if condition triggers if the log in button that exist in the first homepage has been clicked */	
+		session.removeAttribute("adminID");
+		session.removeAttribute("studentID");
 		
 		if (request.getParameter("login") != null) {
 			request.getRequestDispatcher("LoginPage.jsp").forward(request, response);
@@ -53,9 +69,12 @@ public class homepageservlet extends HttpServlet {
 		else if (request.getParameter("logincheck") != null) {
 
 			if (request.getParameter("username") == "" || request.getParameter("password") == "") {
-
 				request.getRequestDispatcher("LoginPage.jsp").include(request, response);
-				out.write("Please fill all data entry");
+				out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data entry</p>");
+			    out.write("</div>");
+				
+				
 
 			}
 
@@ -73,6 +92,7 @@ public class homepageservlet extends HttpServlet {
 					// this is a temporary code for saving the username for displaying in adminpage
 					session.setAttribute("adminID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getAdminUsername(Integer.parseInt(""+session.getAttribute("adminID"))));
+					session.setMaxInactiveInterval(1800);
 					request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 				} 
 				else if (result.equals("student"))
@@ -81,13 +101,42 @@ public class homepageservlet extends HttpServlet {
 					// this is a temporary code for saving the username for displaying in userpage
 					session.setAttribute("studentID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getStudentUsername(Integer.parseInt(""+session.getAttribute("studentID"))));
+					session.setMaxInactiveInterval(1800);
+					
+					 ZoneId zoneId = ZoneId.of("Africa/Cairo");
+					 	ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+				        LocalDateTime localDateTime = zonedDateTime.toLocalDateTime();
+
+
+				        Timestamp loginTime = Timestamp.valueOf(localDateTime.plusHours(1)); // history FF
+
+					
+					
+					
+					SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm:ss");
+
+					// format the Timestamp object as a string
+					String Loggedin = dateFormat.format(loginTime);
+					System.out.println(Loggedin);
+					loginTime=null;
+					
+					
+					
+					session.setAttribute("pointshistory", 0);	// history FF
+					session.setAttribute("questionshistory", 0);	// history FF
+					session.setAttribute("rightanswershistory", 0);	// history FF
+					
+					session.setAttribute("LoginTime", Loggedin);	// history FF
 					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
 				}
 
 				else
 				{
 					request.getRequestDispatcher("LoginPage.jsp").include(request, response);
-					out.write("Username or Password isn't correct");
+					out.write("<div style=\"position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				    out.write("<p style=\"font-weight: bold; color: red;\">Username or Password isn't correct</p>");
+				    out.write("</div>");
+
 				}
 
 			}
@@ -105,36 +154,46 @@ public class homepageservlet extends HttpServlet {
 			if (request.getParameter("username") =="") 
 			{
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 
 			} 
 			else if (d.checkusername(request.getParameter("username")) == false) 
 			{
-				//checks if the username is used in the database for another account
-
+			
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Username is already taken");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Username is already taken</p>");
+			    out.write("</div>");
+
 
 			} 
 			else if (request.getParameter("firstname") == "") 
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 
 			}
 			else if (request.getParameter("lastname") == "")
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 
 			} 
 			else if (request.getParameter("email") == "") 
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Please fill all data");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
 
 			} 
 			//checks if the email is used in the database for another account
@@ -142,7 +201,10 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Email is already Associated with another account");
+				
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Email is already Associated with another account</p>");
+			    out.write("</div>");
 
 			}
 			//check if the password is more than 8 characters and not empty
@@ -150,7 +212,10 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Password should contain at least 8 characters");
+			
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Password should contain at least 8 characters</p>");
+			    out.write("</div>");
 
 			} 
 			// checks that both the password and its confirmation is identical
@@ -158,7 +223,9 @@ public class homepageservlet extends HttpServlet {
 			{
 
 				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
-				out.write("Passwords doesn't match");
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Passwords doesn't match</p>");
+			    out.write("</div>");
 
 			}
 			else 
@@ -173,9 +240,16 @@ public class homepageservlet extends HttpServlet {
 				String email = request.getParameter("email");
 				String username = request.getParameter("username");
 				String pass = request.getParameter("password");
-
-				d.signupuser(fname, lname, email, username, pass);
-				request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				
+				int x=d.signupuser(fname, lname, email, username, pass);
+				if(x==1) {
+					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				}
+				
+				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Username is not valid</p>");
+			    out.write("</div>");
 			}
 
 		}
@@ -190,8 +264,9 @@ public class homepageservlet extends HttpServlet {
 			if(request.getParameter("email")=="")
 			{
 				request.getRequestDispatcher("ForgetPassword.jsp").include(request, response);
-				out.write("Please enter an email");
-
+				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please enter an Email</p>");
+			    out.write("</div>");
 			}
 				
 			else
@@ -210,7 +285,9 @@ public class homepageservlet extends HttpServlet {
 				else
 				{ // works if the email doesn't exist in our database
 					request.getRequestDispatcher("ForgetPassword.jsp").include(request, response);
-					out.write("This email isn't associated with any account");					
+					out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				    out.write("<p style=\"font-weight: bold; color: red;\">This email isn't associated with any account</p>");
+				    out.write("</div>");
 						
 				}
 			}

@@ -8,14 +8,135 @@
 <%@page import="java.sql.SQLException"%>
 <!DOCTYPE html>
 <html>
+<style>
+
+
+ html, body {
+    background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+  }
+  .backandhome{
+
+  background: #27589C;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 12px 22px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+.next{
+  background: #27589C;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  border-radius:999px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 12px 22px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+input[type="submit"]:hover {
+			background-color: #204d74;
+		}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.container:hover .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked + .checkmark {
+  background-color: #2196F3;
+}
+
+.container input:checked + .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+</style>
 <head>
 <meta charset="UTF-8">
-<title><%="chapter "+request.getAttribute("chapterid") %></title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"> <title><%="chapter "+session.getAttribute("chapterid") %></title>
 </head>
 <body>
 
 
 	<form method="get" action="userpageservlet">
+	
+	<%
+//	response.setHeader("Cache-Control", "no-cache, no-store");
+  //  response.setHeader("Pragma", "no-cache");
+    //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+	
+	<input type="submit" name="back" value="Home"class = backandhome> <input type="submit" name="backtocoursepage" value="back to course page" class = backandhome> <br><br>
 		<h1>
 			<% System.out.println(session.getAttribute("coursename"));//error %>
 		</h1>
@@ -96,6 +217,7 @@ try {
 					continue;
 
 				}
+				
 				if (questioncount > 2)
 					break;
 
@@ -108,8 +230,11 @@ try {
 				while (answerscounter < 4) {
 		%>
 
-		<input type="radio" name=<%=questioncount %> value=<%=choice%>>
-		<%=questionANDchoices[answerscounter]%><br>
+<label class="container">
+  <input type="radio" name="<%=questioncount %>" value="<%=choice%>">
+  <span class="checkmark"></span>
+  <%=questionANDchoices[answerscounter]%>
+</label>
 
 		<% 
 					choice++;
@@ -120,6 +245,9 @@ try {
 				 questioncount++;
 				
 			}
+			
+			
+			
 			session.setAttribute("rightanswers", rightanswer);
 			session.setAttribute("rightAnswerDifficulty", rightAnswerDifficulty);
 			
@@ -146,7 +274,8 @@ catch (SQLException e) {
 
 
 %>
-		<input type="submit" name="checkanswers" value="next">
+<br><br>
+		<input type="submit" name="checkanswers" value="next" class = next>
 	
 
 	</form>
