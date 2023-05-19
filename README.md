@@ -1,11 +1,14 @@
 # AdvancedProject
- # Foobar
+ ## JARs needed to use the project
 
-Foobar is a Python library for dealing with word pluralization.
+MySQL-Connector, javax.mail and activation.
 
-## Installation
+## Links to the JARs
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+[MySQL-Connector](https://dev.mysql.com/downloads/connector/j/) .
+[Javax.mail](http://www.java2s.com/Code/Jar/j/Downloadjavaxmailjar.htm) .
+[Activation](http://www.java2s.com/Code/Jar/a/Downloadactivationjar.htm)
+
 
 ```bash
 pip install foobar
