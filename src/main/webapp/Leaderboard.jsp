@@ -51,13 +51,13 @@
 </head>
 <body>
 <form action="userpageservlet" method="get">
+<h1 align="center"> Leaderboard</h1>
 
 <input type="submit" name="back" value="back">
 
 <table bgcolor="black">
 
 <tr bgcolor="grey" align="center">
-<h1 align="center"> Leaderboard</h1>
 <th>Username</th>
 <th>Points</th>
 </tr>
