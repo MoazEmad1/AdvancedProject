@@ -9,25 +9,9 @@ MySQL-Connector, javax.mail and activation.
 [Javax.mail](http://www.java2s.com/Code/Jar/j/Downloadjavaxmailjar.htm) .
 [Activation](http://www.java2s.com/Code/Jar/a/Downloadactivationjar.htm)
 
+##Link to your Eclipse IDE
 
-```bash
-pip install foobar
-```
-
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+You then need to go to the project in the eclipse IDE and go to build path settings and add the external JARs downloaded and put them in the deployment assembly also
 
 ## Contributing
 
