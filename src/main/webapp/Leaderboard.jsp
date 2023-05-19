@@ -38,6 +38,13 @@
     input[type="submit"]:hover {
         background-color: #6088b8;
     }
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        color: #60851b4;
+    }
 </style>
 <meta charset="windows-1256">
 <title>Insert title here</title>
@@ -50,6 +57,7 @@
 <table bgcolor="black">
 
 <tr bgcolor="grey" align="center">
+<h1 align="center"> Leaderboard</h1>
 <th>Username</th>
 <th>Points</th>
 </tr>
