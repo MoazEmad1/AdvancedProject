@@ -154,37 +154,122 @@ public class userpageservlet extends HttpServlet {
 			out.print("<html><body><form action='userpageservlet' method='get'>");
 			for (int i=0;i<3;i++) {
 				points[i]=10;
+				out.print("<style>");
+			    out.print("html, body {");
+			    out.print("background: linear-gradient(to bottom, #2b9ada, #B3FFFF);");
+			    out.print("font-family: Arial, sans-serif;");
+			    out.print("height: 100%;");
+			    out.print("margin: 0;");
+			    out.print("}");
+
+			    out.print(".container {");
+			    out.print("display: flex;");
+			    out.print("flex-direction: column;");
+			    out.print("justify-content: center;");
+			    out.print("align-items: center;");
+			    out.print("height: 100vh;");
+			    out.print("background: linear-gradient(to bottom, #797EF6, #4ADEDE);");
+			    out.print("background-repeat: no-repeat;");
+			    out.print("}");
+
+			    out.print("form {");
+			    out.print("background-color: #fff;");
+			    out.print("padding: 10px;");
+			    out.print("border-radius: 30px;");
+			    out.print("box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);");
+			    out.print("max-width: 400px;");
+			    out.print("max-height: 800;");
+			    out.print("margin: 0 auto;");
+			    out.print("position: absolute;");
+			    out.print("top: 50%;");
+			    out.print("left: 50%;");
+			    out.print("transform: translate(-50%, -50%);");
+			    out.print("}");
+
+			    out.print("label {");
+			    out.print("display: block;");
+			    out.print("font-weight: bold;");
+			    out.print("margin-bottom: 10px;");
+			    out.print("}");
+
+			    out.print("input[type=\"text\"],");
+			    out.print("input[type=\"password\"] {");
+			    out.print("padding: 10px;");
+			    out.print("border-radius: 10px;");
+			    out.print("border: none;");
+			    out.print("margin-bottom: 20px;");
+			    out.print("width: 100%;");
+			    out.print("box-sizing: border-box;");
+			    out.print("font-size: 16px;");
+			    out.print("background-color: #f2f2f2;");
+			    out.print("}");
+
+			    out.print("input[type=\"submit\"] {");
+			    out.print("background: #27589C;");
+			    out.print("border-radius: 999px;");
+			    out.print("box-shadow: #5E5DF0 0 10px 20px -10px;");
+			    out.print("box-sizing: border-box;");
+			    out.print("color: #FFFFFF;");
+			    out.print("cursor: pointer;");
+			    out.print("font-family: Inter,Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",NotoColorEmoji,\"Noto Color Emoji\",\"Segoe UI Symbol\",\"Android Emoji\",EmojiSymbols,-apple-system,system-ui,\"Segoe UI\",Roboto,\"Helvetica Neue\",\"Noto Sans\",sans-serif;");
+			    out.print("font-size: 16px;");
+			    out.print("font-weight: 700;");
+			    out.print("line-height: 24px;");
+			    out.print("opacity: 1;");
+			    out.print("outline: 0 solid transparent;");
+			    out.print("padding: 8px 18px;");
+			    out.print("user-select: none;");
+			    out.print("-webkit-user-select: none;");
+			    out.print("touch-action: manipulation;");
+			    out.print("width: fit-content;");
+			    out.print("word-break: break-word;");
+			    out.print("border: 0;");
+			    out.print("}");
+
+			    out.print("h3 {");
+			    out.print("margin: -1rem 0rem 0rem 0rem;");
+			    out.print("}");
+
+			    out.print(".sin {");
+			    out.print("margin: 0;");
+			    out.print("}");
+
+			    out.print("input[type=\"submit\"]:hover {");
+			    out.print("background-color: #204d74;");
+			    out.print("}");
+
+			    out.print("</style>");
 						
 			}
 			
 			if(q1[0].equals(rightanswers[0]))
 			{
-				out.write("question 1 is correct <br>");
+				out.write("<strong>question 1 is correct</strong> <br><br>");
 				d.addStudentPoints(username, points[0]);
 				rightanswerscounter++;// history FF
 				pointscounter+=10;// history FF
 				
 			}
 			else {
-				out.write("question 1 is Incorrect , the right answer is "+rightanswers[0]+"<br>");
+				out.write("<strong>question 1 is Incorrect , the right answer is</strong> "+rightanswers[0]+"<br><br>");
 			}if(q2[0].equals(rightanswers[1]))
 			{
-				out.write("question 2 is correct <br>");
+				out.write("<strong>question 2 is correct </strong><br><br>");
 				d.addStudentPoints(username, points[1]);
 				rightanswerscounter++;// history FF
 				pointscounter+=10;// history FF
 			}
 			else {
-				out.write("question 2 is Incorrect , the right answer is "+rightanswers[1]+"<br>");
+				out.write("<strong>question 2 is Incorrect , the right answer is </strong>"+rightanswers[1]+"<br><br>");
 			}if(q3[0].equals(rightanswers[2]))
 			{
-				out.write("question 3 is correct <br>");
+				out.write("<strong>question 3 is correct</strong> <br>");
 				d.addStudentPoints(username, points[2]);
 				rightanswerscounter++;// history FF
 				pointscounter+=10;// history FF
 			}
 			else {
-				out.write("question 3 is In correct , the right answer is "+rightanswers[2]+"<br>");
+				out.write("<strong>question 3 is In correct , the right answer is </strong>"+rightanswers[2]+"<br><br>");
 			}
 			
 			out.print("<input type='submit' name='next' value='Next'>");
@@ -244,19 +329,189 @@ public class userpageservlet extends HttpServlet {
 			while (i < qcount) {
 				String q1[] =request.getParameterValues(""+i);
 				if (q1[0].equals(rightanswers[i])) {
-					out.write("question "+i+" is correct <br>");
+					out.write("<strong>question </strong>"+i+" <strong>is correct </strong><br><br>");
 					d.addStudentPoints(username, points[i]);
 					
 					pointscounter+=points[i]; //history FF
 					rightanswerscounter++; 	// history FF
+					out.print("<style>");
+				    out.print("html, body {");
+				    out.print("background: linear-gradient(to bottom, #2b9ada, #B3FFFF);");
+				    out.print("font-family: Arial, sans-serif;");
+				    out.print("height: 100%;");
+				    out.print("margin: 0;");
+				    out.print("}");
+
+				    out.print(".container {");
+				    out.print("display: flex;");
+				    out.print("flex-direction: column;");
+				    out.print("justify-content: center;");
+				    out.print("align-items: center;");
+				    out.print("height: 100vh;");
+				    out.print("background: linear-gradient(to bottom, #797EF6, #4ADEDE);");
+				    out.print("background-repeat: no-repeat;");
+				    out.print("}");
+
+				    out.print("form {");
+				    out.print("background-color: #fff;");
+				    out.print("padding: 10px;");
+				    out.print("border-radius: 30px;");
+				    out.print("box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);");
+				    out.print("max-width: 400px;");
+				    out.print("max-height: 800;");
+				    out.print("margin: 0 auto;");
+				    out.print("position: absolute;");
+				    out.print("top: 50%;");
+				    out.print("left: 50%;");
+				    out.print("transform: translate(-50%, -50%);");
+				    out.print("}");
+
+				    out.print("label {");
+				    out.print("display: block;");
+				    out.print("font-weight: bold;");
+				    out.print("margin-bottom: 10px;");
+				    out.print("}");
+
+				    out.print("input[type=\"text\"],");
+				    out.print("input[type=\"password\"] {");
+				    out.print("padding: 10px;");
+				    out.print("border-radius: 10px;");
+				    out.print("border: none;");
+				    out.print("margin-bottom: 20px;");
+				    out.print("width: 100%;");
+				    out.print("box-sizing: border-box;");
+				    out.print("font-size: 16px;");
+				    out.print("background-color: #f2f2f2;");
+				    out.print("}");
+
+				    out.print("input[type=\"submit\"] {");
+				    out.print("background: #27589C;");
+				    out.print("border-radius: 999px;");
+				    out.print("box-shadow: #5E5DF0 0 10px 20px -10px;");
+				    out.print("box-sizing: border-box;");
+				    out.print("color: #FFFFFF;");
+				    out.print("cursor: pointer;");
+				    out.print("font-family: Inter,Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",NotoColorEmoji,\"Noto Color Emoji\",\"Segoe UI Symbol\",\"Android Emoji\",EmojiSymbols,-apple-system,system-ui,\"Segoe UI\",Roboto,\"Helvetica Neue\",\"Noto Sans\",sans-serif;");
+				    out.print("font-size: 16px;");
+				    out.print("font-weight: 700;");
+				    out.print("line-height: 24px;");
+				    out.print("opacity: 1;");
+				    out.print("outline: 0 solid transparent;");
+				    out.print("padding: 8px 18px;");
+				    out.print("user-select: none;");
+				    out.print("-webkit-user-select: none;");
+				    out.print("touch-action: manipulation;");
+				    out.print("width: fit-content;");
+				    out.print("word-break: break-word;");
+				    out.print("border: 0;");
+				    out.print("}");
+
+				    out.print("h3 {");
+				    out.print("margin: -1rem 0rem 0rem 0rem;");
+				    out.print("}");
+
+				    out.print(".sin {");
+				    out.print("margin: 0;");
+				    out.print("}");
+
+				    out.print("input[type=\"submit\"]:hover {");
+				    out.print("background-color: #204d74;");
+				    out.print("}");
+
+				    out.print("</style>");
 					
 				} else {
-					out.write("question "+i+" is Incorrect , the right answer is " + rightanswers[i] + "<br>");
+					out.write("<strong>question </strong>"+i+" <strong>is Incorrect , the right answer is</strong> " + rightanswers[i] + "<br><br>");
 				}
 				i++;
 			}
 			if((int)session.getAttribute("questionsDisplayed")>=(int)session.getAttribute("total")) {
 				out.print("<input type='submit' name='finish' value='Finish'>");
+				out.print("<style>");
+			    out.print("html, body {");
+			    out.print("background: linear-gradient(to bottom, #2b9ada, #B3FFFF);");
+			    out.print("font-family: Arial, sans-serif;");
+			    out.print("height: 100%;");
+			    out.print("margin: 0;");
+			    out.print("}");
+
+			    out.print(".container {");
+			    out.print("display: flex;");
+			    out.print("flex-direction: column;");
+			    out.print("justify-content: center;");
+			    out.print("align-items: center;");
+			    out.print("height: 100vh;");
+			    out.print("background: linear-gradient(to bottom, #797EF6, #4ADEDE);");
+			    out.print("background-repeat: no-repeat;");
+			    out.print("}");
+
+			    out.print("form {");
+			    out.print("background-color: #fff;");
+			    out.print("padding: 10px;");
+			    out.print("border-radius: 30px;");
+			    out.print("box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);");
+			    out.print("max-width: 400px;");
+			    out.print("max-height: 800;");
+			    out.print("margin: 0 auto;");
+			    out.print("position: absolute;");
+			    out.print("top: 50%;");
+			    out.print("left: 50%;");
+			    out.print("transform: translate(-50%, -50%);");
+			    out.print("}");
+
+			    out.print("label {");
+			    out.print("display: block;");
+			    out.print("font-weight: bold;");
+			    out.print("margin-bottom: 10px;");
+			    out.print("}");
+
+			    out.print("input[type=\"text\"],");
+			    out.print("input[type=\"password\"] {");
+			    out.print("padding: 10px;");
+			    out.print("border-radius: 10px;");
+			    out.print("border: none;");
+			    out.print("margin-bottom: 20px;");
+			    out.print("width: 100%;");
+			    out.print("box-sizing: border-box;");
+			    out.print("font-size: 16px;");
+			    out.print("background-color: #f2f2f2;");
+			    out.print("}");
+
+			    out.print("input[type=\"submit\"] {");
+			    out.print("background: #27589C;");
+			    out.print("border-radius: 999px;");
+			    out.print("box-shadow: #5E5DF0 0 10px 20px -10px;");
+			    out.print("box-sizing: border-box;");
+			    out.print("color: #FFFFFF;");
+			    out.print("cursor: pointer;");
+			    out.print("font-family: Inter,Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",NotoColorEmoji,\"Noto Color Emoji\",\"Segoe UI Symbol\",\"Android Emoji\",EmojiSymbols,-apple-system,system-ui,\"Segoe UI\",Roboto,\"Helvetica Neue\",\"Noto Sans\",sans-serif;");
+			    out.print("font-size: 16px;");
+			    out.print("font-weight: 700;");
+			    out.print("line-height: 24px;");
+			    out.print("opacity: 1;");
+			    out.print("outline: 0 solid transparent;");
+			    out.print("padding: 8px 18px;");
+			    out.print("user-select: none;");
+			    out.print("-webkit-user-select: none;");
+			    out.print("touch-action: manipulation;");
+			    out.print("width: fit-content;");
+			    out.print("word-break: break-word;");
+			    out.print("border: 0;");
+			    out.print("}");
+
+			    out.print("h3 {");
+			    out.print("margin: -1rem 0rem 0rem 0rem;");
+			    out.print("}");
+
+			    out.print(".sin {");
+			    out.print("margin: 0;");
+			    out.print("}");
+
+			    out.print("input[type=\"submit\"]:hover {");
+			    out.print("background-color: #204d74;");
+			    out.print("}");
+
+			    out.print("</style>");
 			}
 			else {
 				out.print("<input type='submit' name='continue' value='Next'>");

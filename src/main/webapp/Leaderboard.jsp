@@ -38,12 +38,20 @@
     input[type="submit"]:hover {
         background-color: #6088b8;
     }
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        color: #60851b4;
+    }
 </style>
 <meta charset="windows-1256">
 <title>Insert title here</title>
 </head>
 <body>
 <form action="userpageservlet" method="get">
+<h1 align="center"> Leaderboard</h1>
 
 <input type="submit" name="back" value="back">
 
