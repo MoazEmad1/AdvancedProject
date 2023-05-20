@@ -93,16 +93,7 @@
    input[type="submit"]:hover {
 			background-color: #204d74;
 		}
-   	input[type="text"] {
-			padding: 10px;
-			border-radius: 5px;
-			border: none;
-			margin-bottom: 20px;
-			width: 100%;
-			box-sizing: border-box;
-			font-size: 16px;
-			background-color: #f2f2f2;
-		}
+ 
 </style>
 
 
