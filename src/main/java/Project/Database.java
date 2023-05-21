@@ -37,6 +37,9 @@ public class Database {
 		// so no need to intialize anything here
 		
 	}
+	
+	
+	
 
 	public String checkdata(String user, String pass) { // checks if the log in data exist in the data base or not ,and is it for admin or student
 		
@@ -107,6 +110,8 @@ public class Database {
 
 	}
 
+	
+	
 	public int signupuser(String fname, String lname, String email, String username, String pass) {
 
 		try {
@@ -146,6 +151,9 @@ public class Database {
 		
 		
 	}
+	
+	
+	
 
 	public boolean checkusername(String username) { // used for sign up validation to check nobody has the same username
 		
@@ -200,6 +208,8 @@ public class Database {
 		
 		
 	}
+	
+	
 	
 public int getID(String username) { // checks if the log in data exist in the data base or not ,and is it for admin or student
 		
@@ -258,6 +268,8 @@ public int getID(String username) { // checks if the log in data exist in the da
 
 	}
 
+
+
 public int getCourseID(String coursename) { // checks if the log in data exist in the data base or not ,and is it for admin or student
 	
 	ResultSet rs = null; //the object that hold the record,records data
@@ -297,6 +309,10 @@ public int getCourseID(String coursename) { // checks if the log in data exist i
 	return result; // returns the state of the data back to server
 
 }
+
+
+
+
 public String getCoursename(int courseid) { // checks if the log in data exist in the data base or not ,and is it for admin or student
 	
 	ResultSet rs = null; //the object that hold the record,records data
@@ -336,6 +352,8 @@ public String getCoursename(int courseid) { // checks if the log in data exist i
 	return result; // returns the state of the data back to server
 
 }
+
+
 
 
 public String getAdminUsername(int id) { // checks if the log in data exist in the data base or not ,and is it for admin or student
@@ -379,44 +397,46 @@ public String getAdminUsername(int id) { // checks if the log in data exist in t
 
 }
 
-public String getStudentUsername(int id) { // checks if the log in data exist in the data base or not ,and is it for admin or student
-	
-	ResultSet rs = null; //the object that hold the record,records data
-	String result = ""; // the indicator that will be returned to server to decide to what page the user will be forwarded to
-	
+
+
+public String getStudentUsername(int id) { // checks if the log in data exist in the data base or not ,and is it for
+											// admin or student
+
+	ResultSet rs = null; // the object that hold the record,records data
+	String result = ""; // the indicator that will be returned to server to decide to what page the user
+						// will be forwarded to
+
 	try {
-		
+
 		Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
-		// keep in mind the 3306 can differ between us so check first in XAMPP	
-		
-		
-			Statement s = con.createStatement(); 
-			String sql = "SELECT * FROM student WHERE id = '"+id+"'"; // the mysql code needed for the operation
-			rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+		// keep in mind the 3306 can differ between us so check first in XAMPP
 
-			if (rs.next()) // check if there is a record stored in the object
-			{
-				result = rs.getString("username"); // mark that this data is belonging to admin 
-			}
-			
-			con.close(); // closes the connection to avoid unnessecary load on memory
-		 
+		Statement s = con.createStatement();
+		String sql = "SELECT * FROM student WHERE id = '" + id + "'"; // the mysql code needed for the operation
+		rs = s.executeQuery(sql); // stores records that follow the mysql code condition
 
-	}
-	catch (ClassNotFoundException e) {
+		if (rs.next()) // check if there is a record stored in the object
+		{
+			result = rs.getString("username"); // mark that this data is belonging to admin
+		}
+
+		con.close(); // closes the connection to avoid unnessecary load on memory
+
+	} catch (ClassNotFoundException e) {
 		System.out.println("class not found");
 	}
-	
+
 	catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		System.out.println("al code atmn3");
 	}
-	
+
 	return result; // returns the state of the data back to server
 
 }
+
 
 
 	public boolean checkemail(String email) { // just like check email but the only difference is it checks for emails 
@@ -473,6 +493,9 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 	
 	}
 	
+	
+	
+	
 	public boolean retrievePassword(String email) {
 		
 		ResultSet rs = null;
@@ -527,6 +550,9 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		
 	}
 	
+	
+	
+	
 	public void sendreply(int senderid ,String feedbackid ,String reply) {
 		
 		ResultSet rs = null;
@@ -564,6 +590,9 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 		
 		
 	}
+	
+	
+	
 public void makefeedback(int senderid ,String reply,int courseid) {
 		
 		ResultSet rs = null;
@@ -603,6 +632,10 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		
 		
 	}
+
+
+
+
 	private void sendEmail(String email,String pass) { //this part is related to javax.mail and our email provider "send in blue"
 
 		  String username="coursesoverflow2023@gmail.com"; // this is our server username which is the same as our email
@@ -622,6 +655,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 			}	
 			
 			});
+			
+			
 			session.setDebug(true); // it gives us a step by step knowledge for the email sending process
 			try {
 				
@@ -640,6 +675,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 			
 		
 	}
+	
+	
 	
 	private void sendEmailreply(String email,String reply) { //this part is related to javax.mail and our email provider "send in blue"
 
@@ -679,6 +716,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		
 	}
 	
+	
+	
 	//you need to know the difficulty in the userpagesservlet to send the right amount of addedPoints to this mehod
 	public void addStudentPoints(String username,int addedPoints) {
 		int points;
@@ -711,6 +750,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		
 	}
 	
+	
+	
 	public void attachCourseToStudent(String coursename,String id) {
 		int studentID = Integer.parseInt(id);
 		int courseID ;
@@ -741,6 +782,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		
 	}
 	
+	
+	
 	public void Addcourse(String coursename , String coursecode, String coursedisc)
 	{
 		try {
@@ -762,6 +805,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		}
 	}
 	
+	
+	
 	public void Addchapter(int courseid ,String Chaptername, String explanation)
 	{
 		try {
@@ -781,6 +826,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	public void Addquestion(int courseid ,String chaptername,String questiontext , String rightanswer,String difficulty)
 	{
@@ -805,6 +852,8 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	public void singupadmin(String first_name, String username, String email, String password) {
 
@@ -835,6 +884,9 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		
 		
 	}
+	
+	
+	
 	
 	public void storehistory(int studentid, String login, int questioncounter, int rightanswerscounter,int points) {// history FF
 
@@ -919,7 +971,11 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 		
 		
 		
+		
+		
 	}
+	
+	
 	
 
 

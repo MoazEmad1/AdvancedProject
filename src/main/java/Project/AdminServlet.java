@@ -24,6 +24,8 @@ public class AdminServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
@@ -39,10 +41,14 @@ public class AdminServlet extends HttpServlet {
         	response.sendRedirect("HomePage.jsp");
         }
 		
+		
+		
 		else if(request.getParameter("back")!=null)
 		{
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("logout")!=null)
 		{// lesa hyt3ml validation 3lashan y2fl al session wa ymn3 ay access 
 			
@@ -50,10 +56,14 @@ public class AdminServlet extends HttpServlet {
 			
 			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 		}
+		
+		
 		else if (request.getParameter("Addcourses") != null) {
 			request.getRequestDispatcher("AddCoursePage.jsp").forward(request, response);
 
 		}
+		
+		
 		
 		else if(request.getParameter("confirmCourse")!=null)
 		{
@@ -64,6 +74,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("coursecode")=="" ||request.getParameter("coursecode")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -71,6 +83,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("courseDisc")=="" ||request.getParameter("courseDisc")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -78,6 +92,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("chapter1Name")=="" ||request.getParameter("chapter1Name")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -85,6 +101,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("chapter1Ex")=="" ||request.getParameter("chapter1Ex")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -92,6 +110,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("q1")=="" ||request.getParameter("q1")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -99,6 +119,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("q2")=="" ||request.getParameter("q2")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -106,6 +128,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("q3")=="" ||request.getParameter("q3")==null )
 			{
 				request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
@@ -113,7 +137,10 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else {	
+				
 			Database d = new Database();
 			
 			d.Addcourse(request.getParameter("coursename"), request.getParameter("coursecode"), request.getParameter("courseDisc"));
@@ -124,7 +151,10 @@ public class AdminServlet extends HttpServlet {
 			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"),request.getParameter("q3"),request.getParameter("right3"),""+0);
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
+			
 		}
+		
+		
 		
 		else if(request.getParameter("AddChaptersubmit")!=null) {
 		
@@ -135,6 +165,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("ChapterEx")=="" ||request.getParameter("ChapterEx")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
@@ -142,6 +174,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("q1")=="" ||request.getParameter("q1")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
@@ -149,6 +183,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("q2")=="" ||request.getParameter("q2")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
@@ -156,6 +192,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("q3")=="" ||request.getParameter("q3")==null )
 			{
 				request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
@@ -163,6 +201,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else {
 			Database d = new Database();
 		d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"), request.getParameter("ChapterEx"));
@@ -173,21 +213,28 @@ public class AdminServlet extends HttpServlet {
 		request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 
 		}
+			
+			
 		}
-		else if(request.getParameter("Addchapters")!=null)
+		
+		
+		
+	else if(request.getParameter("Addchapters")!=null)
 		{
 			
 			request.getRequestDispatcher("AddChapterpage.jsp").forward(request, response);
 
 		}
 		
-		else if(request.getParameter("addAdmin")!=null)
+		
+	else if(request.getParameter("addAdmin")!=null)
 		{
 			request.getRequestDispatcher("AddAdminpage.jsp").forward(request, response);
 			
 		}
 		
-		else if(request.getParameter("newadmin")!=null)
+		
+	else if(request.getParameter("newadmin")!=null)
 		{
 			Database d = new Database();
 			
@@ -198,19 +245,25 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("username")=="" ||request.getParameter("username")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
 				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
-			}else if(request.getParameter("Email")=="" ||request.getParameter("Email")==null )
+			}
+			
+			else if(request.getParameter("Email")=="" ||request.getParameter("Email")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
 				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("password")=="" ||request.getParameter("password")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
@@ -218,6 +271,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(request.getParameter("confirmpassword")=="" ||request.getParameter("confirmpassword")==null )
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
@@ -225,6 +280,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(d.checkusername(request.getParameter("username"))==false)
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
@@ -232,6 +289,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">username already taken</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if(d.checkemail(request.getParameter("Email"))==false)
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
@@ -239,6 +298,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">email is associated to another account</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else if((request.getParameter("password")).length()<8)
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
@@ -248,6 +309,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("</div>");
 				
 			}
+			
+			
 			else if(!(request.getParameter("password")).equals(request.getParameter("confirmpassword")))
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
@@ -256,26 +319,24 @@ public class AdminServlet extends HttpServlet {
 			    out.write("</div>");
 				
 			}
+			
+			
 			else {
-			
-			
-			
 			d.singupadmin(request.getParameter("firstname"), request.getParameter("username"), request.getParameter("Email"),request.getParameter("password"));
-			  
-			  
-		 
-			
-			
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
+			
 		}
 		
-		else if(request.getParameter("addquestion")!=null)
+		
+		
+		
+	else if(request.getParameter("addquestion")!=null)
 		{
 			request.getRequestDispatcher("Addquestionpage.jsp").forward(request, response);
 			
 		}
-		else if(request.getParameter("anotherquestion")!=null)
+	else if(request.getParameter("anotherquestion")!=null)
 		{
 			if(request.getParameter("question_text")=="" ||request.getParameter("question_text")==null )
 			{
@@ -284,6 +345,7 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
 			else {
 			Database d = new Database();
 			String[] separator = (request.getParameter("chaptername")).split(" / ");
@@ -292,7 +354,10 @@ public class AdminServlet extends HttpServlet {
 			d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
 			request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
 			}
+			
 		}
+		
+		
 		else if(request.getParameter("finishquestion")!=null)
 		{
 			if(request.getParameter("question_text")=="" ||request.getParameter("question_text")==null )
@@ -302,6 +367,8 @@ public class AdminServlet extends HttpServlet {
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
+			
+			
 			else {
 			Database d = new Database();
 			String[] separator = (request.getParameter("chaptername")).split(" / ");
@@ -310,12 +377,18 @@ public class AdminServlet extends HttpServlet {
 			d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			}
+			
+			
 		}
+		
+		
 		else if(request.getParameter("feedback")!=null)
 		{
 			
 			request.getRequestDispatcher("SeeFeedBack.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("feedbackselected")!=null)
 		{
 			String[] feedback = request.getParameterValues("feedbackselected");
@@ -324,6 +397,8 @@ public class AdminServlet extends HttpServlet {
 			
 			
 		}
+		
+		
 		else if(request.getParameter("sendreply")!=null)
 		{
 			String feedback = request.getParameter("reply");
@@ -333,12 +408,16 @@ public class AdminServlet extends HttpServlet {
 			
 			
 		}
+		
+		
 		else if(request.getParameter("back")!=null)
 		{
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 			
 			
 		}
+		
+		
 		else if(request.getParameter("backtofeedback")!=null)
 		{
 			request.getRequestDispatcher("SeeFeedBack.jsp").forward(request, response);

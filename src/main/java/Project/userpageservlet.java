@@ -61,24 +61,34 @@ public class userpageservlet extends HttpServlet {
 			request.getRequestDispatcher("Logoutbuffer.jsp").forward(request, response);
 			
 		}
+		
+		
 		else if(request.getParameter("back")!=null)
 		{
 			request.getRequestDispatcher("UserPage.jsp").forward(request, response);
 			
 		}
+		
+		
 		else if(request.getParameter("backtocoursepage")!=null)
 		{
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("browsecourses")!=null)
 		{
 			request.getRequestDispatcher("BrowseCourses.jsp").forward(request, response);
 			
 		}
+		
+		
 		else if(request.getParameter("history")!=null)
 		{
 			request.getRequestDispatcher("YourTimeOnCoursesOverflow.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("leaderboard")!=null) {
 			request.getRequestDispatcher("Leaderboard.jsp").forward(request, response);
 		}
@@ -91,19 +101,27 @@ public class userpageservlet extends HttpServlet {
 			session.setAttribute("courseID", d.getCourseID(""+session.getAttribute("coursename")));
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("backfeedback")!=null)
 		{
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("dofeedback")!=null)
 		{
 			request.getRequestDispatcher("MakeFeedBack.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("backfeedbackafter")!=null)
 		{
 			d.makefeedback((int)session.getAttribute("studentID"),request.getParameter("sendfeedback"), (int)session.getAttribute("courseID"));
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("chapterselected")!=null)
 		{
 			d.attachCourseToStudent(""+session.getAttribute("coursename"),""+session.getAttribute("studentID"));
@@ -114,10 +132,14 @@ public class userpageservlet extends HttpServlet {
 			session.setAttribute("chapterid", chapterid[1]);
 			request.getRequestDispatcher("courseExplaination.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("test")!=null)
 		{
 			request.getRequestDispatcher("Test.jsp").forward(request, response);
 		}
+		
+		
 		else if(request.getParameter("next")!=null)
 		{
 			int chapterid = Integer.parseInt(""+session.getAttribute("chapterid"));
@@ -125,6 +147,8 @@ public class userpageservlet extends HttpServlet {
 			session.setAttribute("chapterid",chapterid);
 			response.sendRedirect("courseExplaination.jsp");
 		}
+		
+		
 		else if(request.getParameter("checkanswers")!=null)
 		{
 			
@@ -283,7 +307,10 @@ public class userpageservlet extends HttpServlet {
 			
 			
 			
-		}else if(request.getParameter("nextQuestions")!=null) {
+		}
+		
+		
+		else if(request.getParameter("nextQuestions")!=null) {
 			
 			
 			
@@ -302,7 +329,11 @@ public class userpageservlet extends HttpServlet {
 //			String q5[] =request.getParameterValues("4");
 //removed because it is hard to check every variable index 0 by a while loop
 			
+			
+
 			out.print("<html><body><form action='userpageservlet' method='get'>");
+			out.write("<input type=\"submit\" name=\"back\" value=\"Home\"class = backandhome> <input type=\"submit\" name=\"backtocoursepage\" value=\"back to course page\" class = backandhome> <br><br>");
+
 			for (int i=0;i<5;i++) {
 				if(rightAnswerDifficulty[i]==1) {
 					points[i]=20;
@@ -315,6 +346,9 @@ public class userpageservlet extends HttpServlet {
 				}
 				
 			}
+			
+			
+			
 			int qcount=(int) session.getAttribute("qcount");
 			
 			int questioncounter = (int)session.getAttribute("questionshistory");// history FF
@@ -325,11 +359,13 @@ public class userpageservlet extends HttpServlet {
 			int pointscounter = (int)session.getAttribute("pointshistory");// history FF
 			
 			
+			
+			
 			int i=0;
 			while (i < qcount) {
 				String q1[] =request.getParameterValues(""+i);
 				if (q1[0].equals(rightanswers[i])) {
-					out.write("<strong>question </strong>"+i+" <strong>is correct </strong><br><br>");
+					out.write("<strong>question </strong>"+(i+1)+" <strong>is correct </strong><br><br>");
 					d.addStudentPoints(username, points[i]);
 					
 					pointscounter+=points[i]; //history FF
@@ -350,6 +386,27 @@ public class userpageservlet extends HttpServlet {
 				    out.print("height: 100vh;");
 				    out.print("background: linear-gradient(to bottom, #797EF6, #4ADEDE);");
 				    out.print("background-repeat: no-repeat;");
+				    out.print("}");
+				    
+				    out.print(".backandhome{");
+				    out.print("background: #27589C;");
+				    out.print("box-shadow: #5E5DF0 0 10px 20px -10px;");
+				    out.print("box-sizing: border-box;");
+				    out.print("color: #FFFFFF;");
+				    out.print("cursor: pointer;");
+				    out.print("font-family: Inter,Helvetica,\"Apple Color Emoji\",\"Segoe UI Emoji\",NotoColorEmoji,\"Noto Color Emoji\",\"Segoe UI Symbol\",\"Android Emoji\",EmojiSymbols,-apple-system,system-ui,\"Segoe UI\",Roboto,\"Helvetica Neue\",\"Noto Sans\",sans-serif;");
+				    out.print("font-size: 16px;");
+				    out.print("font-weight: 700;");
+				    out.print("line-height: 24px;");
+				    out.print("opacity: 1;");
+				    out.print("outline: 0 solid transparent;");
+				    out.print("padding: 12px 22px;");
+				    out.print("user-select: none;");
+				    out.print("-webkit-user-select: none;");
+				    out.print("touch-action: manipulation;");
+				    out.print("width: fit-content;");
+				    out.print("word-break: break-word;");
+				    out.print("border: 0;");
 				    out.print("}");
 
 				    out.print("form {");
@@ -420,11 +477,16 @@ public class userpageservlet extends HttpServlet {
 
 				    out.print("</style>");
 					
-				} else {
-					out.write("<strong>question </strong>"+i+" <strong>is Incorrect , the right answer is</strong> " + rightanswers[i] + "<br><br>");
+				} 
+				else {
+					
+
+					out.write("<strong>question </strong>"+(i+1)+" <strong>is Incorrect , the right answer is</strong> " + rightanswers[i] + "<br><br>");
 				}
 				i++;
 			}
+			
+			
 			if((int)session.getAttribute("questionsDisplayed")>=(int)session.getAttribute("total")) {
 				out.print("<input type='submit' name='finish' value='Finish'>");
 				out.print("<style>");
@@ -513,9 +575,11 @@ public class userpageservlet extends HttpServlet {
 
 			    out.print("</style>");
 			}
+			
 			else {
 				out.print("<input type='submit' name='continue' value='Next'>");
 			}
+			
 			out.print("</form></body></html>");
 			
 
