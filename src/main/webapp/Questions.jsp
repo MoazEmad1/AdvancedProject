@@ -31,6 +31,15 @@
 			</h1>
 			<br>
 			<%
+			if(request.getParameter("back")!=null)
+			{
+				request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				
+			}
+			else if(request.getParameter("backtocoursepage")!=null)
+			{
+				request.getRequestDispatcher("coursepage.jsp").forward(request, response);
+			}
 		//	if(session.getAttribute("rs")==null){
             	Connection con=null ;
         		ResultSet rs = null; //the object that hold the record,records data
