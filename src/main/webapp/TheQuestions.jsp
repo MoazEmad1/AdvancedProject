@@ -127,12 +127,14 @@ html, body {
 		int j =0;
 		int checker=0;
 		int questionsDisplayed=(int)session.getAttribute("questionsDisplayed");
+		int questionID[]=new int[5];
 		while(i<5 ){
 			checker++;
 			rs.next();
 			if(rs.isAfterLast()==false){
 			System.out.print(""+checker);
 			System.out.println("ok");
+			questionID[i]=rs.getInt("id");
 			String[] questionANDchoices = (rs.getString("question_text")).split("-");
 			rightanswer[i] = rs.getString("right_answer");
 			rightAnswerDifficulty[i]=rs.getInt("difficulty");
@@ -162,6 +164,7 @@ html, body {
 		}
 		session.setAttribute("questionsDisplayed", questionsDisplayed);
 		session.setAttribute("qcount", j);
+		session.setAttribute("questionID",questionID);
 		%>
 		
 		<input type="submit" name="nextQuestions" value="Next" class = next>

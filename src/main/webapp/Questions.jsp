@@ -59,7 +59,7 @@
         				if(request.getParameter("easy")!=null ){
         					System.out.println("brdo sah8al");
         					//System.out.println(session.getAttribute("courseID"));	
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND(1234)";
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1' ORDER BY RAND()";
         			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '1'");
         			        if (resultSet.next()) {
         			            total = resultSet.getInt("total");
@@ -73,7 +73,7 @@
             				session.setAttribute("rs", rs);
         					//System.out.println("passed");
         				}else if(request.getParameter("medium")!=null ){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2' ORDER BY RAND(1234)";
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2' ORDER BY RAND()";
         			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '2'");
         			        if (resultSet.next()) {
         			            total = resultSet.getInt("total");
@@ -86,7 +86,7 @@
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         				}else if(request.getParameter("hard")!=null ){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '3' ORDER BY RAND(1234)";
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '3' ORDER BY RAND()";
         					session.setAttribute("difficulty", "hard");
         			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' AND difficulty = '3'");
         			        if (resultSet.next()) {
@@ -99,7 +99,7 @@
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         				}else if(request.getParameter("random")!=null ){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND(1234)";
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND()";
         			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"'");
         			        if (resultSet.next()) {
         			            total = resultSet.getInt("total");
