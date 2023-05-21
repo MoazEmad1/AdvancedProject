@@ -187,6 +187,16 @@ public class homepageservlet extends HttpServlet {
 			    out.write("</div>");
 
 			} 
+			else if (!request.getParameter("email").matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) 
+			{
+
+				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please Enter a valid Email</p>");
+			    out.write("</div>");
+
+			} 
+			
 			else if (request.getParameter("email") == "") 
 			{
 
@@ -196,6 +206,7 @@ public class homepageservlet extends HttpServlet {
 			    out.write("</div>");
 
 			} 
+			
 			//checks if the email is used in the database for another account
 			else if (d.checkemail(request.getParameter("email")) == false) 
 			{

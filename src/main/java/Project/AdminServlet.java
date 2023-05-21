@@ -255,11 +255,11 @@ public class AdminServlet extends HttpServlet {
 			    out.write("</div>");
 			}
 			
-			else if(request.getParameter("Email")=="" ||request.getParameter("Email")==null )
+			else if(request.getParameter("Email")=="" ||request.getParameter("Email")==null || !request.getParameter("Email").matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"))
 			{
 				request.getRequestDispatcher("AddAdminpage.jsp").include(request, response);
 				out.write("<div style=\"position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
-			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Email not valid</p>");
 			    out.write("</div>");
 			}
 			
