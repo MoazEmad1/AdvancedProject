@@ -279,8 +279,9 @@ public class homepageservlet extends HttpServlet {
 				if(result==true)//works if the email is in our database
 				{
 					//redirects the user to another basic page telling him that the password is sent to his email 
-					request.getRequestDispatcher("PasswordSentPage.jsp").forward(request, response);
-								
+					//request.getRequestDispatcher("PasswordSentPage.jsp").forward(request, response);
+					//request.getRequestDispatcher("PasswordSentPage.jsp").forward(request, response);
+					response.sendRedirect("PasswordSentPage.jsp");			
 				}
 				else
 				{ // works if the email doesn't exist in our database
