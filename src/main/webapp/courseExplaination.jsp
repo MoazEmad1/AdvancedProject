@@ -16,6 +16,7 @@
     font-family: Arial, sans-serif;
     height: 100%;
     margin: 0;
+     font-size: 20px;
   }
   .backandhome{
 
@@ -68,14 +69,16 @@ input[type="submit"]:hover {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
   user-select: none;
+      font-size: 16px; /* Adjust the font size for the question */
+  
 }
 
 .container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  
 }
 
 .checkmark {
@@ -95,7 +98,6 @@ input[type="submit"]:hover {
 
 .container input:checked + .checkmark {
   background-color: #2196F3;
-}
 
 .container input:checked + .checkmark:after {
   display: block;
@@ -112,6 +114,7 @@ input[type="submit"]:hover {
   height: 8px;
   border-radius: 50%;
   background: white;
+  
 }
 
 </style>
@@ -194,9 +197,10 @@ try {
 
 
 
-		<h2>
-			<%=curriculum%>
-		</h2>
+		<h2 style="font-size: 20px;">
+  <%= curriculum %>
+</h2>
+<br><br>
 		<%
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
 				// keep in mind the 3306 can differ between us so check first in XAMPP	
@@ -279,8 +283,6 @@ catch (SQLException e) {
 	
 
 	</form>
-
-
 
 
 
