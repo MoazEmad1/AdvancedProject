@@ -10,6 +10,8 @@ html, body {
     font-family: Arial, sans-serif;
     height: 100%;
     margin: 0;
+         font-size: 20px;
+    
   }
 .next{
   background: #27589C;
@@ -40,6 +42,7 @@ html, body {
   cursor: pointer;
   font-size: 22px;
   user-select: none;
+   font-size: 16px;
 }
 
 .container input {
