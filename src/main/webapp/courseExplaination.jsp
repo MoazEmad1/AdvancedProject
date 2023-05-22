@@ -125,6 +125,26 @@ input[type="submit"]:hover {
 <body>
 
 
+<script type="text/javascript">
+  // Open the Google window
+  function breakmessage() {
+	  alert("Have some rest now");
+	  setTimeout(studyaudio, 10000);
+	  
+	  }
+  function studyaudio() {
+	  var audio = new Audio("Testing2.mp3");
+	    audio.preload='auto';
+	    audio.play();
+	    
+	    setTimeout(breakmessage, 15000);
+	    
+	  }
+  // Close the popup after 5 seconds
+  setTimeout(breakmessage, 5000);
+  
+</script>
+
 	<form method="get" action="userpageservlet">
 	
 	<%
