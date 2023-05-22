@@ -12,33 +12,86 @@
 <html>
 <head>
 <style>
-    body {
-        background-color: #cfe2f3;
-        color: #000000;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th {
-        background-color: #85a9cf;
-        color: #ffffff;
-        padding: 10px;
-    }
-    td {
-        background-color: #ffffff;
-        padding: 10px;
-    }
-    input[type="submit"] {
-        background-color: #85a9cf;
-        color: #ffffff;
-        padding: 10px;
-        border: none;
-        cursor: pointer;
-    }
-    input[type="submit"]:hover {
-        background-color: #6088b8;
-    }
+ html, body {
+background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 200%
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #fff;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #364f6b;
+    color: #fff;
+  }
+
+ tbody tr {
+    background-color: #f5f5f5;
+  }
+a {
+   background-color: #364f6b;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    display: block;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 200px;
+}
+.btn1{
+
+  background: #27589C;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 12px 22px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+
+input[type="submit"]:hover {
+			background-color: #204d74;
+		}
 </style>
 <meta charset="UTF-8">
 <link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Your Progress</title>
@@ -47,7 +100,7 @@
 
 <form action="userpageservlet" method="get">
 
-<input type="submit" name="back" value="back">
+<input type="submit" name="back" value="back" class = btn1>
 
 <table bgcolor="black">
 

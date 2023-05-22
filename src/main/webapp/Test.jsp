@@ -11,7 +11,7 @@
  html, body {
     background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
     font-family: Arial, sans-serif;
-    height: 98.5%;
+    height: 100%;
     margin: 0;
   }
 .btn1{
@@ -88,6 +88,8 @@ input[type="submit"]:hover {
 				<%
 				out.print(session.getAttribute("coursename"));
 				%>
+				<br><br>
+				<strong>Question Bank</strong>
 			</h1><br/><br/><br/>
 			<input type="submit" name="easy" value="Easy questions"class = btn1>
 		<input type="submit" name="medium" value="Medium questions"class = btn1>

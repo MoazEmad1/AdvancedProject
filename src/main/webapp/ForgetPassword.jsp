@@ -30,6 +30,8 @@ background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
 			box-sizing: border-box;
 			font-size: 16px;
 			background-color: #f2f2f2;
+			  border: 1px solid #000000;
+			
 		}
       
 		form {

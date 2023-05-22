@@ -43,6 +43,8 @@
 			box-sizing: border-box;
 			font-size: 16px;
 			background-color: #f2f2f2;
+			  border: 1px solid #000000;
+			
 		}
 		
 		input[type="submit"] {
