@@ -34,6 +34,7 @@
   width: fit-content;
   word-break: break-word;
   border: 0;
+  
 
 		}
 			body {
@@ -79,6 +80,7 @@
 			box-sizing: border-box;
 			font-size: 16px;
 			background-color: #f2f2f2;
+			border: 1px solid #000000;
 		}
 		.btn1{
 		margin: 0rem 2rem 0rem 0rem

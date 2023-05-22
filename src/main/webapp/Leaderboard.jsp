@@ -15,7 +15,7 @@
 background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
     font-family: Arial, sans-serif;
     margin: 0;
-    height: 200%
+    height: 100%
   }
 
   h1 {
