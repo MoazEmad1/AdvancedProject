@@ -129,7 +129,7 @@ input[type="submit"]:hover {
   // Open the Google window
   function breakmessage() {
 	  alert("Have some rest now");
-	  setTimeout(studyaudio, 10000);
+	  setTimeout(studyaudio, 15000);
 	  
 	  }
   function studyaudio() {
@@ -137,11 +137,11 @@ input[type="submit"]:hover {
 	    audio.preload='auto';
 	    audio.play();
 	    
-	    setTimeout(breakmessage, 15000);
+	    setTimeout(breakmessage, 60000);
 	    
 	  }
   // Close the popup after 5 seconds
-  setTimeout(breakmessage, 5000);
+  setTimeout(breakmessage, 60000);
   
 </script>
 
