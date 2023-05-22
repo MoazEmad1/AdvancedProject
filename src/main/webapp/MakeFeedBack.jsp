@@ -93,6 +93,19 @@
 </head>
 <body>
 <form action="userpageservlet" method="get">
+
+<%
+//	response.setHeader("Cache-Control", "no-cache, no-store");
+  //  response.setHeader("Pragma", "no-cache");
+    //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
+
  <img src="finalimg.png" alt="Image description"width=400 height=200 >	
 write feedback: <br>
 <input type="text" name= "sendfeedback">

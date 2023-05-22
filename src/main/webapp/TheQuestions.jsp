@@ -131,6 +131,9 @@ html, body {
 		<%
 		int count = (int) session.getAttribute("count");
 		ResultSet rs=(ResultSet)session.getAttribute("rs");
+		if((int)session.getAttribute("total")==0)
+			request.getRequestDispatcher("Test.jsp").include(request, response); // front
+		
 		int answerscounter=1 ;
 		char choice='a';
 		String[] rightanswer = new String[5];
@@ -152,7 +155,7 @@ html, body {
 		while(i<5 ){
 			checker++;
 			rs.next();
-			if(rs.isAfterLast()==false){
+			if(rs.isAfterLast()==false ){
 			System.out.print(""+checker);
 			System.out.println("ok");
 			questionID[i]=rs.getInt("id");

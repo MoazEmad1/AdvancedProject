@@ -101,6 +101,17 @@ input[type="submit"]:hover {
 <input type="submit" name="back" value="back" class = btn1>
 <h1 align="center"> Leaderboard</h1>
 
+<%
+//	response.setHeader("Cache-Control", "no-cache, no-store");
+  //  response.setHeader("Pragma", "no-cache");
+    //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
 
 <table bgcolor="black">
 
