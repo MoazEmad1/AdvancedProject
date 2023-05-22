@@ -99,7 +99,17 @@ input[type="submit"]:hover {
 <body>
 
 <form action="userpageservlet" method="get">
-
+<%
+//	response.setHeader("Cache-Control", "no-cache, no-store");
+  //  response.setHeader("Pragma", "no-cache");
+    //response.setHeader("Expires", "0");
+        if(session.getAttribute("studentID")==null)
+        {
+        	response.sendRedirect("HomePage.jsp");
+        }
+        
+        
+        %>
 <input type="submit" name="back" value="back" class = btn1>
 
 <table bgcolor="black">
