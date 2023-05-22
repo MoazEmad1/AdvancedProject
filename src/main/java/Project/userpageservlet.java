@@ -120,8 +120,12 @@ public class userpageservlet extends HttpServlet {
 		
 		else if(request.getParameter("backfeedbackafter")!=null)
 		{
+			if((""+request.getParameter("sendfeedback")).length()<10) {
+				out.write("Please enter a feedback that has more than 10 letters");
+				request.getRequestDispatcher("MakeFeedBack.jsp").include(request, response);
+			}else {
 			d.makefeedback((int)session.getAttribute("studentID"),request.getParameter("sendfeedback"), (int)session.getAttribute("courseID"));
-			request.getRequestDispatcher("coursepage.jsp").forward(request, response);
+			request.getRequestDispatcher("coursepage.jsp").forward(request, response);}
 		}
 		
 		
@@ -174,7 +178,7 @@ public class userpageservlet extends HttpServlet {
 			String q3[] =request.getParameterValues("2");
 			
 			if(q1==null || q2==null|| q3==null ) {
-				out.write("please answer the questions");
+				out.write("Please answer the questions");
 				request.getRequestDispatcher("courseExplaination.jsp").include(request, response);
 			}
 			else {

@@ -6,24 +6,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.SQLException"%>
-<%
-	       // response.setHeader("Cache-Control", "no-cache");
-			//response.setHeader("Cache-Control", "no-store");
-			//response.setHeader("Pragma", "no-cache");
-			//response.setDateHeader("Expire", 0);
-			
-			//response.setHeader("Cache-Control","no-cache");    
-		//	response.setHeader("Pragma","no-cache");
-	        
-			
-			if(session.getAttribute("studentID")==null)
-	        {
-	        	response.sendRedirect("HomePage.jsp");
-	        }
-	      
-	        
-	        
-	        %>
+
 <html>
 	<style>
 		
@@ -159,13 +142,9 @@
    <img src="finalimg.png" alt="Image description" width="400" height="180" style="display: block; margin: -50px auto 0 auto;" class="img">
 </div>	
         </center>
-	
 	       <center>
-	        
-	        
-	       
-	        
 	        <%
+	        
 	        Connection con1 ;
 			ResultSet rs3 = null; //the object that hold the record,records data
 			String points="";
