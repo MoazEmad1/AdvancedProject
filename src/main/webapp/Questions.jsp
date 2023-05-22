@@ -99,8 +99,8 @@
         					session.setAttribute("con", con);
             				session.setAttribute("rs", rs);
         				}else if(request.getParameter("random")!=null ){
-        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"' ORDER BY RAND()";
-        			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"'");
+        					sql ="SELECT * FROM question WHERE course_id ='"+session.getAttribute("courseID")+"'AND difficulty != '0' ORDER BY RAND()";
+        			        resultSet = stmt.executeQuery("SELECT COUNT(*) AS total FROM question WHERE course_id ='"+session.getAttribute("courseID")+"'  AND difficulty != '0'");
         			        if (resultSet.next()) {
         			            total = resultSet.getInt("total");
         			            questionsDisplayed=0;
