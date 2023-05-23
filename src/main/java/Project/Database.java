@@ -61,7 +61,7 @@ public class Database {
 				}
 			}
 			System.out.println(userUpdated);
-				Statement s = con.createStatement(); 
+				Statement s = con.createStatement();
 				String sql = "SELECT * FROM admin WHERE username = '" + userUpdated + "' AND password = '" + pass + "'"; // the mysql code needed for the operation
 				rs = s.executeQuery(sql); // stores records that follow the mysql code condition
 

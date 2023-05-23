@@ -207,8 +207,6 @@ try {
 		if(flag==0)
 		{
 			request.getRequestDispatcher("Test.jsp").forward(request, response);
-			
-			
 		}
 		
 		con.close();
