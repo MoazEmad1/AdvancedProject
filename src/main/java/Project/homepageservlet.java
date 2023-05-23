@@ -90,17 +90,25 @@ public class homepageservlet extends HttpServlet {
 				if (result.equals("admin"))
 				{
 					// this is a temporary code for saving the username for displaying in adminpage
+					session.setAttribute("admin", true);
 					session.setAttribute("adminID", d.getID(request.getParameter("username")));
+					request.setAttribute("adminID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getAdminUsername(Integer.parseInt(""+session.getAttribute("adminID"))));
 					session.setMaxInactiveInterval(1800);
+					if(request.getParameter("password").length()>16) {
+						request.getRequestDispatcher("ResetPassword.jsp").forward(request, response);
+					}
 					request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
 				} 
 				else if (result.equals("student"))
 				{
+					session.setAttribute("student", true);
+					
 					//azbotha bl session
 					// this is a temporary code for saving the username for displaying in userpage
 					session.setAttribute("studentID", d.getID(request.getParameter("username")));
 					session.setAttribute("name", d.getStudentUsername(Integer.parseInt(""+session.getAttribute("studentID"))));
+					request.setAttribute("studentID",d.getID(request.getParameter("username")));
 					session.setMaxInactiveInterval(1800);
 					
 					 ZoneId zoneId = ZoneId.of("Africa/Cairo");
@@ -111,7 +119,8 @@ public class homepageservlet extends HttpServlet {
 				        Timestamp loginTime = Timestamp.valueOf(localDateTime.plusHours(1)); // history FF
 
 					
-					
+					System.out.print(request.getParameter("username"));
+					System.out.print(d.getID(request.getParameter("username")));
 					
 					SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMM yyyy HH:mm:ss");
 
@@ -127,7 +136,12 @@ public class homepageservlet extends HttpServlet {
 					session.setAttribute("rightanswershistory", 0);	// history FF
 					
 					session.setAttribute("LoginTime", Loggedin);	// history FF
+					if(request.getParameter("password").length()>16) {
+						request.getRequestDispatcher("ResetPassword.jsp").forward(request, response);
+					}
+					else {
 					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+					}
 				}
 
 				else
@@ -239,6 +253,12 @@ public class homepageservlet extends HttpServlet {
 			    out.write("</div>");
 
 			}
+			else if(request.getParameter("password").length()>16) {
+				request.getRequestDispatcher("SignupPage.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Password must contain 16 characters at maximum</p>");
+			    out.write("</div>");
+			}
 			else 
 			{
 				//if this code is reached then all data are valid and will be sent to database
@@ -285,13 +305,14 @@ public class homepageservlet extends HttpServlet {
 				Database d = new Database();
 				
 				//call a method to check for the email existance
-				boolean result= d.retrievePassword(request.getParameter("email"));
+				boolean result= d.changePasswordToOTP(request.getParameter("email"));
 				
 				if(result==true)//works if the email is in our database
 				{
 					//redirects the user to another basic page telling him that the password is sent to his email 
 					//request.getRequestDispatcher("PasswordSentPage.jsp").forward(request, response);
 					//request.getRequestDispatcher("PasswordSentPage.jsp").forward(request, response);
+					session.setAttribute("email", request.getParameter("email"));
 					response.sendRedirect("PasswordSentPage.jsp");			
 				}
 				else
@@ -301,6 +322,61 @@ public class homepageservlet extends HttpServlet {
 				    out.write("<p style=\"font-weight: bold; color: red;\">This email isn't associated with any account</p>");
 				    out.write("</div>");
 						
+				}
+			}
+
+		}
+		else if(request.getParameter("resetPassword")!=null) {
+			if(request.getParameter("password")==""||request.getParameter("repassword")=="")
+			{
+				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
+			    out.write("</div>");
+			}
+			else if(request.getParameter("password").length()<8){
+				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Password must be at least 8 characters</p>");
+			    out.write("</div>");
+			}
+			else if(request.getParameter("password").length()>16) {
+				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Password must contain 16 characters at maximum</p>");
+			    out.write("</div>");
+			}
+			else if (!request.getParameter("password").equals(request.getParameter("repassword"))) {
+				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+			    out.write("<p style=\"font-weight: bold; color: red;\">Passwords doesn't match</p>");
+			    out.write("</div>");
+			}
+			else {
+				Database d = new Database();
+				int res;
+				int id;
+				
+				if((boolean)session.getAttribute("student")==true) {
+					id = (int)session.getAttribute("resID");
+					
+					res=d.changeToNewPassword(id,request.getParameter("password"),"student");
+				}else {
+					id = (int)session.getAttribute("adminresID");
+
+					res=d.changeToNewPassword(id,request.getParameter("password"),"admin");
+
+				}
+				if(res==2) {
+					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				}
+				else if(res==1) {
+					request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
+
+				}
+				else {
+					request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+
 				}
 			}
 

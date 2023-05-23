@@ -16,6 +16,7 @@ import java.io.*;
 import java.util.Date;
 //libraries needed for email sending
 import java.util.Properties;
+import java.util.Random;
 import java.util.TimeZone;
 
 import javax.mail.Message;
@@ -269,6 +270,63 @@ public int getID(String username) { // checks if the log in data exist in the da
 	}
 
 
+public int getIDWithEmail(String email) { // checks if the log in data exist in the data base or not ,and is it for admin or student
+	
+	ResultSet rs = null; //the object that hold the record,records data
+	int result = 0; // the indicator that will be returned to server to decide to what page the user will be forwarded to
+	
+	try {
+		
+		Class.forName("com.mysql.cj.jdbc.Driver"); // routine intialization for mysql
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+		// keep in mind the 3306 can differ between us so check first in XAMPP	
+		
+		
+			Statement s = con.createStatement(); 
+			String sql = "SELECT * FROM admin WHERE email = '"+email+"'"; // the mysql code needed for the operation
+			rs = s.executeQuery(sql); // stores records that follow the mysql code condition
+
+			if (rs.next()) // check if there is a record stored in the object
+			{
+				result = rs.getInt("id"); // mark that this data is belonging to admin 
+				con.close(); // closes the connection to avoid unnessecary load on memory
+			}
+			
+			else //in case he didn't find in admin data , he will start searching in User's
+			{
+				
+				s = con.createStatement();
+				sql = "SELECT * FROM student WHERE email = '" +email+"'";
+				rs = s.executeQuery(sql);
+
+				if (rs.next()) 
+				{
+					result = rs.getInt("id"); // mark that this data is belonging to admin 
+					con.close();
+
+				}
+				
+				
+
+			}
+
+		 
+
+	}
+	catch (ClassNotFoundException e) {
+		System.out.println("class not found");
+	}
+	
+	catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.out.println("al code atmn3");
+	}
+	
+	return result; // returns the state of the data back to server
+
+}
+
 
 public int getCourseID(String coursename) { // checks if the log in data exist in the data base or not ,and is it for admin or student
 	
@@ -496,23 +554,31 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 	
 	
 	
-	public boolean retrievePassword(String email) {
-		
-		ResultSet rs = null;
+	public boolean changePasswordToOTP(String email) {
+		ResultSet rs;
 		boolean result = false;
-
+		String sql;
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+			String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	        Random random = new Random();
+	        StringBuilder sb = new StringBuilder(17);
 
+	        for (int i = 0; i < 17; i++) {
+	            int randomIndex = random.nextInt(characters.length());
+	            char randomChar = characters.charAt(randomIndex);
+	            sb.append(randomChar);
+	        }
 			
 				Statement s = con.createStatement();
-				String sql = "SELECT * FROM admin WHERE email = '" + email + "'"; //search if one of admin have that email
-				rs = s.executeQuery(sql);
+				rs=s.executeQuery("SELECT * FROM admin WHERE email = '"+email+"'");
 				
 				if (rs.next()) { 
-					sendEmail(email,rs.getString("password")); // it will call another method to make the email sending process
+					sql = "UPDATE admin SET password = '"+sb.toString()+"' WHERE email = '" + email + "'";
+					s.executeUpdate(sql);
+					sendEmail(email,sb.toString()); // it will call another method to make the email sending process
 					con.close();
 					result = true;//return state of its existance in database
 				}
@@ -520,11 +586,12 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 				else {
 
 					s = con.createStatement();
-					sql = "SELECT * FROM student WHERE email = '" + email + "'";
-					rs = s.executeQuery(sql);
+					rs = s.executeQuery("SELECT * FROM student WHERE email = '" + email + "'");
 					
 					if (rs.next()) {
-						sendEmail(email,rs.getString("password"));
+						sql = "UPDATE student SET password = '" + sb.toString() + "' WHERE email = '" + email + "'";
+						s.executeUpdate(sql);
+						sendEmail(email, sb.toString());
 						con.close();
 						result = true;
 					} 
@@ -548,6 +615,58 @@ public String getStudentUsername(int id) { // checks if the log in data exist in
 
 		return result;
 		
+	}
+	
+	public int changeToNewPassword(int id,String pass,String type) {
+		ResultSet rs;
+		String sql;
+		int res=0;
+		try {
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+			Statement s=con.createStatement();
+			if (type.equals("admin")) {
+				rs = s.executeQuery("SELECT * FROM admin WHERE id = '" + id + "'");
+
+				if (rs.next()) {
+					sql = "UPDATE admin SET password = '" + pass + "' WHERE id = '" + id + "'";
+					s.executeUpdate(sql);
+					con.close();
+					res = 1;
+					return res;
+
+				}
+			}
+			
+			else {
+
+				s = con.createStatement();
+				rs = s.executeQuery("SELECT * FROM student WHERE id = '" + id + "'");
+				
+				if (rs.next()) {
+					sql = "UPDATE student SET password = '" + pass + "' WHERE id = '" + id + "'";
+					s.executeUpdate(sql);
+					con.close();
+					res=2;
+					return res;
+				} 
+				
+				else {
+					con.close();
+					return res;
+				}
+
+			}
+			
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("class not found");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return res;
 	}
 	
 	
@@ -664,7 +783,7 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 				message.setFrom(new InternetAddress("coursesoverflow2023@gmail.com")); // sender email
 				message.setRecipient(Message.RecipientType.TO,new InternetAddress(email)); // reciever email , the reciver email is the one sent in method
 				message.setSubject("Password Retriving"); // write the subject in email , the part you read without opening the email
-				message.setText("Your password is "+pass); // the actual text in mail , the part you see when you open the email
+				message.setText("Your One Time Password (OTP) is "+pass); // the actual text in mail , the part you see when you open the email
 				Transport.send(message); 				// the step that actually sends the email 
 				
 			} catch (Exception e) {

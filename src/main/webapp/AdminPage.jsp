@@ -85,6 +85,11 @@ input[type="submit"][name="logout"] {
 
 <body>
     <form method="post" action="AdminServlet">
+    <%
+    	if(session.getAttribute("adminID")==null){
+    		session.setAttribute("adminID",session.getAttribute("adminresID"));
+    	}
+    %>
        <img src="finalimg.png" alt="Image description" width=400 height=200 style="display: block; margin: 0 auto;">
        <center>  <p class="bold-underlined">Welcome <%=session.getAttribute("name") %></p></center>
        <center> <input type="submit" name="Addcourses" value="Add Courses"><br><br>

@@ -141,7 +141,7 @@
 //	response.setHeader("Cache-Control", "no-cache, no-store");
   //  response.setHeader("Pragma", "no-cache");
     //response.setHeader("Expires", "0");
-        if(session.getAttribute("studentID")==null)
+        if(session.getAttribute("studentID")==null&&session.getAttribute("resID")==null)
         {
         	response.sendRedirect("HomePage.jsp");
         }
@@ -156,7 +156,6 @@
         </center>
 	       <center>
 	        <%
-	        
 	        Connection con1 ;
 			ResultSet rs3 = null; //the object that hold the record,records data
 			String points="";
@@ -168,6 +167,9 @@
 				
 				
 					Statement s1 = con1.createStatement();
+					if(session.getAttribute("studentID")==null){
+						session.setAttribute("studentID", session.getAttribute("resID"));
+					}
 					rs3 = s1.executeQuery("SELECT * FROM student WHERE id = '"+session.getAttribute("studentID")+"'"); // stores records that follow the mysql code condition
 					rs3.next();
 					points=rs3.getString("points");
