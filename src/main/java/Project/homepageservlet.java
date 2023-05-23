@@ -301,6 +301,7 @@ public class homepageservlet extends HttpServlet {
 			}
 				
 			else
+				
 			{
 				Database d = new Database();
 				
