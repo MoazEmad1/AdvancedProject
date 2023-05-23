@@ -330,25 +330,25 @@ public class homepageservlet extends HttpServlet {
 			if(request.getParameter("password")==""||request.getParameter("repassword")=="")
 			{
 				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Please fill all data</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("password").length()<8){
 				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Password must be at least 8 characters</p>");
 			    out.write("</div>");
 			}
 			else if(request.getParameter("password").length()>16) {
 				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Password must contain 16 characters at maximum</p>");
 			    out.write("</div>");
 			}
 			else if (!request.getParameter("password").equals(request.getParameter("repassword"))) {
 				request.getRequestDispatcher("ResetPassword.jsp").include(request, response);
-				out.write("<div style=\"position: absolute; top: 51%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<div style=\"position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
 			    out.write("<p style=\"font-weight: bold; color: red;\">Passwords doesn't match</p>");
 			    out.write("</div>");
 			}

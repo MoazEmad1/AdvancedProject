@@ -106,7 +106,7 @@ a:hover {
 		int id = Integer.parseInt("" + session.getAttribute("studentID"));
 		System.out.println(id);
 		session.setAttribute("resID", id);
-	}else{
+	}else if(session.getAttribute("adminID") != null){
 		int id = Integer.parseInt("" + session.getAttribute("adminID"));
 		System.out.println(id);
 		session.setAttribute("adminresID", id);
