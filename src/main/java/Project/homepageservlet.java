@@ -357,7 +357,7 @@ public class homepageservlet extends HttpServlet {
 				int res;
 				int id;
 				
-				if((boolean)session.getAttribute("student")==true) {
+				if(session.getAttribute("student")!=null) {
 					id = (int)session.getAttribute("resID");
 					
 					res=d.changeToNewPassword(id,request.getParameter("password"),"student");
