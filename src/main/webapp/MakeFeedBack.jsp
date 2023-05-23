@@ -86,7 +86,7 @@
 		margin: 0rem 2rem 0rem 0rem
 		}
 </style>
-<head>
+<head><link rel="icon" href="hhhh.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <link rel="icon" href="hhhh.ico" type="image/x-icon">
 <title>Make Feed Back</title>
