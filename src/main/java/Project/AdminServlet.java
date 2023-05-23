@@ -3,6 +3,7 @@ package Project;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -141,8 +142,55 @@ public class AdminServlet extends HttpServlet {
 			
 			else {	
 				
+				
 			Database d = new Database();
+			int i=1;
+			int x=0;
+			int flag=0;
+			validat:{	
+			while(i<=3) {
+				
+				String arr[]=(request.getParameter("q"+i).split("-"));
+				int flag2=1;
+				if(arr.length!=4) {
+					request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
+					out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				    out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+				    out.write("</div>");
+				    i++;
+				    flag2=1;
+				    x=1;
+				    flag=1;
+					break validat;
+				}else {
+				for(int j=0;j<4;j++) {
+					if(arr[j]==null||arr[j]=="") {
+						
+						flag2=1;
+						request.getRequestDispatcher("AddCoursePage.jsp").include(request, response);
+						out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+					    out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+					    out.write("</div>");
+					    x=1;
+					    flag=1;
+					    break validat;
+					}else {
+					
+						flag2=0;
+					}
+					
+				}
+				i++;
+				}
+				i++;
+				if(x==1) {
+					flag=1;
+					break validat;
+				}
 			
+			}
+			}
+			if(flag==0) {
 			d.Addcourse(request.getParameter("coursename"), request.getParameter("coursecode"), request.getParameter("courseDisc"));
 			d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"), request.getParameter("chapter1Ex"));
 			
@@ -150,6 +198,7 @@ public class AdminServlet extends HttpServlet {
 			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"),request.getParameter("q2"),request.getParameter("right2"),""+0);
 			d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("chapter1Name"),request.getParameter("q3"),request.getParameter("right3"),""+0);
 			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
+			}
 			}
 			
 		}
@@ -204,13 +253,62 @@ public class AdminServlet extends HttpServlet {
 			
 			
 			else {
+				
 			Database d = new Database();
+			int i=1;
+			int flag=0;
+			int x=0;	validat:{	
+				while(i<=3) {
+					
+					String arr[]=(request.getParameter("q"+i).split("-"));
+					int flag2=1;
+					if(arr.length!=4) {
+						request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
+						out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+					    out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+					    out.write("</div>");
+					    i++;
+					    flag2=1;
+					    x=1;
+					    flag=1;
+						break validat;
+					}else {
+					for(int j=0;j<4;j++) {
+						if(arr[j]==null||arr[j]=="") {
+							
+							flag2=1;
+							request.getRequestDispatcher("AddChapterpage.jsp").include(request, response);
+							out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+						    out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+						    out.write("</div>");
+						    x=1;
+						    flag=1;
+						    break validat;
+						}else {
+						
+							flag2=0;
+						}
+						
+					}
+					i++;
+					}
+					i++;
+					if(x==1) {
+						flag=1;
+						break validat;
+					}
+				
+				}
+				}
+			
+			if(flag==0) {
 		d.Addchapter(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"), request.getParameter("ChapterEx"));
 		d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"),request.getParameter("q1"),request.getParameter("r1"),""+0);
 		d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"),request.getParameter("q2"),request.getParameter("r2"),""+0);
 		d.Addquestion(d.getCourseID(request.getParameter("coursename")),request.getParameter("ChapterName"),request.getParameter("q3"),request.getParameter("r3"),""+0);
 		
 		request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
+			}
 
 		}
 			
@@ -349,10 +447,35 @@ public class AdminServlet extends HttpServlet {
 			else {
 			Database d = new Database();
 			String[] separator = (request.getParameter("chaptername")).split(" / ");
+
+			String arr[] = (request.getParameter("question_text").split("-"));
+			int flag2=1;
 			
+			if (arr.length != 4) {
+				
+				request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+				out.write("</div>");
+			}else {
 			
-			d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
+				for(int j=0;j<4;j++) {
+					if(arr[j]==null||arr[j]=="") {
+						flag2=1;
+						request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
+						out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+						out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+						out.write("</div>");
+						break;
+					}
+					else
+						flag2=0;
+				}
+			}
+			if(flag2==0) {
+				d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
 			request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
+			}
 			}
 			
 		}
@@ -373,9 +496,34 @@ public class AdminServlet extends HttpServlet {
 			Database d = new Database();
 			String[] separator = (request.getParameter("chaptername")).split(" / ");
 			
+			String arr[] = (request.getParameter("question_text").split("-"));
+			int flag2=1;
 			
-			d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
-			request.getRequestDispatcher("AdminPage.jsp").forward(request, response);
+			if (arr.length != 4) {
+				
+				request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
+				out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+				out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+				out.write("</div>");
+			}else {
+			
+				for(int j=0;j<4;j++) {
+					if(arr[j]==null||arr[j]=="") {
+						flag2=1;
+						request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
+						out.write("<div style=\"position: absolute; top: 16%; left: 50%; transform: translate(-50%, -50%); text-align: center;\">");
+						out.write("<p style=\"font-weight: bold; color: red;\">Question must have 3 answers exactly</p>");
+						out.write("</div>");
+						break;
+					}
+					else
+						flag2=0;
+				}
+			}
+			if(flag2==0) {
+				d.Addquestion(d.getCourseID(separator[1]),separator[0],request.getParameter("question_text"),request.getParameter("rightanswer"),request.getParameter("difficulty"));
+			request.getRequestDispatcher("Addquestionpage.jsp").include(request, response);
+			}
 			}
 			
 			
