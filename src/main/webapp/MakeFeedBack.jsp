@@ -107,7 +107,8 @@
         %>
 
  <img src="finalimg.png" alt="Image description"width=400 height=200 >	
-write feedback: <br>
+ <h1><%=session.getAttribute("coursename") %></h1>
+<h3>write feedback:</h3> <br>
 <input type="text" name= "sendfeedback">
   <div class="button-container">
       <input type="submit" name="backfeedbackafter" value="send" class="btn1">
