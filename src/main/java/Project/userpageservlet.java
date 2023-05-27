@@ -120,12 +120,16 @@ public class userpageservlet extends HttpServlet {
 		
 		else if(request.getParameter("backfeedbackafter")!=null)
 		{
+			
 			if((""+request.getParameter("sendfeedback")).length()<10) {
 			    out.write("<div class=\"error-container\" style=\"position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;\">");
 		        out.write("<p class=\"error-message\" style=\"font-weight: bold; color: red;\">Please enter a feedback that has more than 10 letters</p>");
 		        out.write("</div>");
 				request.getRequestDispatcher("MakeFeedBack.jsp").include(request, response);
 			}else {
+				if(session.getAttribute("studentID")==null) {
+					request.getRequestDispatcher("UserPage.jsp").forward(request, response);
+				}
 			d.makefeedback((int)session.getAttribute("studentID"),request.getParameter("sendfeedback"), (int)session.getAttribute("courseID"));
 			request.getRequestDispatcher("coursepage.jsp").forward(request, response);}
 		}

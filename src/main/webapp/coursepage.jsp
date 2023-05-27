@@ -101,7 +101,7 @@ input[type="submit"]:hover {
         
         %>
        
-        <input type="submit" name="back" value="Home" class = backandhome><input type="submit" name="browsecourses" value="back"class = backandhome><input type="submit" name="dofeedback" value="Make FeedBack" class = backandhome><br><br>
+        <input type="submit" name="back" value="Home" class = backandhome><input type="submit" name="browsecourses" value="Back"class = backandhome><input type="submit" name="dofeedback" value="Make FeedBack" class = backandhome><br><br>
             <center>
                 <h1> <%=session.getAttribute("coursename") %> </h1><br>
             <%
