@@ -215,7 +215,7 @@ input[type="submit"]:hover {
             
             
             %>        
-             <input type=submit name="test" value="Test" class= test>   
+             <input type=submit name="test" value="Question Bank" class= test>   
         
             </center>
             
