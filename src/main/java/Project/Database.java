@@ -959,6 +959,7 @@ public void makefeedback(int senderid ,String reply,int courseid) {
 			String sql="SELECT * FROM chapter WHERE chapter_name = '"+chaptername +"'";
 			rs=s.executeQuery(sql);
 			rs.next();
+
 			String chapterid = rs.getString("id");
 			
 			sql="INSERT INTO question (course_id,chapter_id,question_text,right_answer,difficulty) VALUES ('"+courseid+"','"+chapterid+"','"+ questiontext+"','"+rightanswer+"','"+difficulty+"')";

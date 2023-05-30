@@ -54,8 +54,8 @@ public class AdminServlet extends HttpServlet {
 		{// lesa hyt3ml validation 3lashan y2fl al session wa ymn3 ay access 
 			
 			session.removeAttribute("adminID");
+			request.getRequestDispatcher("Logoutbuffer.jsp").forward(request, response);
 			
-			request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 		}
 		
 		
