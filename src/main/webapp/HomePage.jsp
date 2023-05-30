@@ -16,6 +16,7 @@
                 window.location.href = "homepageservlet"; // Replace "homepageservlet" with the appropriate URL
             });
         }
+        
     }
 
     // Call the function to handle back button navigation after logout
