@@ -306,7 +306,7 @@ public class userpageservlet extends HttpServlet {
 				pointscounter+=10;// history FF
 			}
 			else {
-				out.write("<strong>question 3 is In correct , the right answer is </strong>"+rightanswers[2]+"<br><br>");
+				out.write("<strong>question 3 is Incorrect , the right answer is </strong>"+rightanswers[2]+"<br><br>");
 			}
 			
 			out.print("<input type='submit' name='next' value='Next'>");
