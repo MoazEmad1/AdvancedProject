@@ -11,13 +11,15 @@
 <style>
 
 
- html, body {
-    background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
-    font-family: Arial, sans-serif;
-    height: 100%;
-    margin: 0;
-     font-size: 20px;
-  }
+html, body {
+  background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  font-size: 20px;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
   .backandhome{
 
   background: #27589C;

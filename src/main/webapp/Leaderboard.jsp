@@ -11,12 +11,15 @@
 <html>
 <head>
 <style>
- html, body {
-background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    height: 100%
-  }
+html, body {
+  background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  font-size: 20px;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
   h1 {
     text-align: center;
@@ -94,7 +97,7 @@ input[type="submit"]:hover {
 		}
 </style>
 <meta charset="windows-1256">
-<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Insert title here</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Leaderboard</title>
 </head>
 <body>
 <form action="userpageservlet" method="get">

@@ -6,13 +6,14 @@
 <html>
 <style>
 html, body {
-    background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
-    font-family: Arial, sans-serif;
-    height: 100%;
-    margin: 0;
-         font-size: 20px;
-    
-  }
+  background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  font-size: 20px;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .next{
   background: #27589C;
   box-shadow: #5E5DF0 0 10px 20px -10px;

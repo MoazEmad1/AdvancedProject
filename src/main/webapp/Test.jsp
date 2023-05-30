@@ -65,7 +65,7 @@ input[type="submit"]:hover {
 </style>
 <head>
 <meta charset="windows-1256">
-<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Test</title>
+<link rel="icon" href="hhhh.ico" type="image/x-icon"><title>Question Bank</title>
 </head>
 <body>
 	<form method="get" action="Questions.jsp">

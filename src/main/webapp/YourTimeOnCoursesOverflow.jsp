@@ -12,12 +12,15 @@
 <html>
 <head>
 <style>
- html, body {
-background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    height: auto;
-  }
+html, body {
+  background: linear-gradient(to bottom, #2b9ada, #B3FFFF);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  font-size: 20px;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
   h1 {
     text-align: center;
