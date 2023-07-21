@@ -2,7 +2,7 @@
 
  ## What is this project about?
 
- Courses Overflow, developed with Java Servlets and JSPs, stands out as a game-changer in education. Offering a diverse range of courses across subjects, our platform is designed to cater to learners of all backgrounds. By leveraging interactive teaching methods, such as chapter-wise divisions and a vast question bank, students can learn at their own pace, anytime, anywhere. Students can track their activity on the website. The website also manages the student's time on the website and recommends him/her do a sport, play some games, or do any other activity for some time and notifies the student to come back again and complete studying.
+ Courses Overflow, developed with Java Servlets and JSPs, stands out as a game-changer in education. Offering a diverse range of courses across subjects, our project is designed to cater to learners of all backgrounds. By leveraging interactive teaching methods, such as chapter-wise divisions and a vast question bank, students can learn at their own pace, anytime, anywhere. Students can track their activity on the website. The website also manages the student's time on the website and recommends him/her do a sport, play some games, or do any other activity for some time and notifies the student to come back again and complete studying.
 
  
  ## JARs needed to use the project
