@@ -23,6 +23,4 @@ You then need to go to the project in the eclipse IDE and go to build path setti
 
 Please contact moaz to be a Contributer
 
-## License
 
-Moaz Elfa4e5
